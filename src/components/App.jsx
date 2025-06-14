@@ -1,6 +1,6 @@
 
 import '../styles/App.css'
-import Hello from './Hello'
+import Hello from './About'
 
 function App() {
 
