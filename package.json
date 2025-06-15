@@ -1,5 +1,5 @@
 {
-  "name": "homepage",
+  "name": "https://boholjonna.github.io/my-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,8 +7,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d build",
     "predeploy": "npm run build"
+   
+    
   },
   "dependencies": {
     "prop-types": "^15.8.1",
