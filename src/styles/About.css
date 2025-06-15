@@ -54,11 +54,11 @@
 }
 
 .about-image img {
-    max-width: 249px;
-    width: clamp(199px, 41.5vw, 249px);
+    max-width: 254px;
+    width: clamp(204px, 41.5vw, 254px);
     height: auto;
-    min-width: 199px;
-    min-height: 199px;
+    min-width: 204px;
+    min-height: 204px;
     border-radius: 10px;
     box-shadow: none;
     margin: 0;
@@ -76,6 +76,7 @@
     margin: 0;
     color: #e0e0e0;
     line-height: 1.2;
+    word-spacing: 0.2em;
 }
 
 .title {
