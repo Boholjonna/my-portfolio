@@ -1,8 +1,17 @@
 import PropTypes from 'prop-types';
 import '../styles/About.css';
 import '../styles/Circles.css';
+import DecryptedText from './DecryptedText';
+import { useEffect, useState } from 'react';
 
 function About({ logo, image, intro, title, message }) {
+    const [key, setKey] = useState(0);
+
+    useEffect(() => {
+        // Reset the key when component mounts or route changes
+        setKey(prev => prev + 1);
+    }, []);
+
     const handleImageLoad = (type) => () => {
         console.log(`${type} loaded successfully`);
     };
@@ -44,7 +53,19 @@ function About({ logo, image, intro, title, message }) {
                 </div>
                 <div className="about-text">
                     <h1 className="title">{title}</h1>
-                    <p className="message">{message}</p>
+                    <p className="message">
+                        <DecryptedText 
+                            key={key}
+                            text={message}
+                            speed={1}
+                            maxIterations={5}
+                            sequential={true}
+                            revealDirection="center"
+                            className="message-text"
+                            encryptedClassName="message-text-encrypted"
+                            animateOn="view"
+                        />
+                    </p>
                 </div>
             </div>
         </div>

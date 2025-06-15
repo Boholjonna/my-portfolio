@@ -119,6 +119,16 @@
     color: #f0f0f0;
 }
 
+.message-text {
+    color: #f0f0f0;
+    transition: color 0.3s ease;
+}
+
+.message-text-encrypted {
+    color: #646cff;
+    transition: color 0.3s ease;
+}
+
 @media screen and (max-width: 450px) {
     .message {
         font-size: 14px;
