@@ -1,4 +1,5 @@
 import '../styles/App.css'
+import '../styles/Text.css'
 import About from './About'
 import msJ from '../images/msJ.png';
 import nightme from '../images/nightme.png';
@@ -10,10 +11,17 @@ function App() {
   return (
     <div className="App">
       <About 
-      intro="Hi I am Jonna Bohol, call me Ms J"
+        intro={
+          <div>
+            <span className="greeting-text">Hi I am </span>
+            <span className="name-text">Jonna Bohol</span>, call me <span className="msj-text">Ms J</span>
+          </div>
+        }
         logo={imageUrl}
         image={profileUrl}
-        title="a Computer Engineer"
+        title={
+          <span className="title-text">a Computer Engineer</span>
+        }
         message="I'm an enthusiastic and curious software and web developer with a passion for creating visually appealing, user-friendly websites and applications. I thrive on continuous learning and enjoy transforming ideas into impactful digital experiences. With strong time management and adaptability, I consistently deliver high-quality work on time. I'm driven by innovation and always eager to explore new trends, tools, and technologies to grow and refine my craft."
       />
     </div>

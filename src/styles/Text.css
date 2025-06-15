@@ -1,0 +1,130 @@
+.animated-gradient-text {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  max-width: fit-content;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.25rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  transition: box-shadow 0.5s ease-out;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: 300% 100%;
+  animation: gradient linear infinite;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gradient-overlay::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #060010;
+  z-index: -1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-content {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient linear infinite;
+}
+
+.name-text {
+  font-size: clamp(18px, 2vw, 32px);
+  background: linear-gradient(to right, #A600C7, #ED29FF, #01FBFF, #A600C7, #01FBFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient 5s linear infinite;
+  background-size: 200% auto;
+  line-height: 1.2;
+  display: inline-block;
+  max-height: 37px;
+}
+
+.msj-text {
+  color: #00bfff;
+  font-size: clamp(18px, 2vw, 32px);
+  line-height: 1.2;
+  display: inline-block;
+  max-height: 37px;
+}
+
+.greeting-text {
+  color: white;
+  font-size: clamp(18px, 2vw, 32px);
+  line-height: 1.2;
+  display: inline-block;
+  margin-right: 0.5em;
+  max-height: 37px;
+}
+
+.title-text {
+  font-size: clamp(20px, 2vw, 35px);
+  background: linear-gradient(to right, #FF0000, #8800FF, #FE8C00, #F60897, #10BBFF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient 5s linear infinite;
+  background-size: 200% auto;
+  line-height: 1.2;
+  display: inline-block;
+  max-height: 37px;
+}
+
+.developer-description {
+  font-size: 12px;
+  margin: 1rem 0;
+  max-height: 16px;
+}
+
+@media screen and (max-width: 500px) {
+  .developer-description {
+    text-align: justify;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0 5px;
+  }
+  
+  .name-text, .msj-text, .greeting-text, .title-text {
+    padding: 0 5px;
+  }
+} 

@@ -49,38 +49,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
-    gap: 2rem;
-     padding-top: 0;
+    padding: 0;
+    gap: 0;
 }
 
 .about-image img {
-    max-width: 300px;
-    width: clamp(240px, 50vw, 300px);
+    max-width: 249px;
+    width: clamp(199px, 41.5vw, 249px);
     height: auto;
-    min-width: 240px;
-    min-height: 240px;
+    min-width: 199px;
+    min-height: 199px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    margin-top: 0;
-    margin-bottom: 0;
+    box-shadow: none;
+    margin: 0;
+    background: transparent;
 }
 
 .about-text {
     max-width: 800px;
     text-align: center;
+    margin-top: 1.5rem;
 }
 
 .intro {
-    font-size: clamp(18px, 4vw, 32px);
-    margin-bottom: 1rem;
+    font-size: clamp(18px, 2vw, 32px);
+    margin: 0;
     color: #e0e0e0;
-    margin-top: 0;
+    line-height: 1.2;
 }
 
 .title {
-    font-size: clamp(24px, 4.8vw, 48px);
-    margin-bottom: 1.5rem;    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    font-size: clamp(20px, 2vw, 35px);
+    margin: 0;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -90,6 +91,19 @@
     font-size: 1.1rem;
     line-height: 1.6;
     color: #f0f0f0;
+}
+
+@media screen and (max-width: 450px) {
+    .message {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .message {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 }
 
 @media (min-width: 768px) {
