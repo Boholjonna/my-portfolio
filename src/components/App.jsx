@@ -13,8 +13,7 @@ function App() {
       <About 
         intro={
           <div>
-            <span className="greeting-text">Hi I am </span>
-            <span className="name-text">Jonna Bohol</span>, call me <span className="msj-text">Ms J</span>
+            <span className="intro-text">Hi I am Jonna Bohol, call me Ms J</span>
           </div>
         }
         logo={imageUrl}

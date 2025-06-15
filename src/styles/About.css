@@ -50,33 +50,58 @@
     flex-direction: column;
     align-items: center;
     padding: 0;
-    gap: 0;
+    gap: 0.3rem;
+}
+
+.about-image {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .about-image img {
-    max-width: 254px;
-    width: clamp(204px, 41.5vw, 254px);
+    max-width: 259px;
+    width: clamp(209px, 41.5vw, 259px);
     height: auto;
-    min-width: 204px;
-    min-height: 204px;
+    min-width: 209px;
+    min-height: 209px;
     border-radius: 10px;
     box-shadow: none;
-    margin: 0;
+    margin: 0 0 0.3rem 0;
     background: transparent;
 }
 
 .about-text {
     max-width: 800px;
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 0.3rem;
+    padding: 0 1rem;
 }
 
 .intro {
-    font-size: clamp(18px, 2vw, 32px);
+    font-size: clamp(25px, 2vw, 38px);
     margin: 0;
     color: #e0e0e0;
-    line-height: 1.2;
+    line-height: 1.4;
     word-spacing: 0.2em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.2em;
+    padding: 5px 0;
+}
+
+.intro > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.2em;
+    width: 100%;
 }
 
 .title {
