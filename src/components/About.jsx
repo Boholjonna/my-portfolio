@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import '../styles/About.css';
 import '../styles/Circles.css';
 import DecryptedText from './DecryptedText';
+import GradientDecryptText from './GradientDecryptText';
 import { useEffect, useState } from 'react';
 
 function About({ logo, image, intro, title, message }) {
@@ -52,19 +53,15 @@ function About({ logo, image, intro, title, message }) {
                     />
                 </div>
                 <div className="about-text">
-                    <h1 className="title">{title}</h1>
-                    <p className="message">
-                        <DecryptedText 
-                            key={key}
-                            text={message}
+                    <h1 className="title">
+                        <GradientDecryptText 
+                            text={title}
                             speed={1}
-                            maxIterations={5}
-                            sequential={true}
-                            revealDirection="center"
-                            className="message-text"
-                            encryptedClassName="message-text-encrypted"
-                            animateOn="view"
+                            maxIterations={3}
                         />
+                    </h1>
+                    <p className="message">
+                        {message}
                     </p>
                 </div>
             </div>

@@ -1,0 +1,20 @@
+.gradient-decrypt-text {
+    background: linear-gradient(90deg, #FF0000, #8800FF, #FE8C00, #F60897, #10BBFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    background-size: 200% auto;
+    animation: gradient-shift 5s linear infinite;
+    font-size: clamp(20px, 2vw, 35px);
+    line-height: 1.2;
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+} 
