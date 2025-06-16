@@ -6,8 +6,11 @@
     display: inline-block;
     background-size: 200% auto;
     animation: gradient-shift 5s linear infinite;
-    font-size: clamp(20px, 2vw, 35px);
+    font-size: clamp(30px, calc(2vw + 10px), 45px);
     line-height: 1.2;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 @keyframes gradient-shift {
