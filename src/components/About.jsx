@@ -3,6 +3,7 @@ import '../styles/About.css';
 import '../styles/Circles.css';
 import DecryptedText from './DecryptedText';
 import GradientDecryptText from './GradientDecryptText';
+import BlurText from './BlurText';
 import { useEffect, useState } from 'react';
 
 function About({ logo, image, intro, title, message }) {
@@ -60,9 +61,14 @@ function About({ logo, image, intro, title, message }) {
                             maxIterations={3}
                         />
                     </h1>
-                    <p className="message">
-                        {message}
-                    </p>
+                    <BlurText 
+                        text={message}
+                        className="message"
+                        delay={100}
+                        direction="top"
+                        stepDuration={0.4}
+                        style={{ textAlign: 'center', justifyContent: 'center' }}
+                    />
                 </div>
             </div>
         </div>
