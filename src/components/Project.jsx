@@ -40,7 +40,7 @@ function Project({ projects = [] }) {
                 <div className={`project-card project-card-1 ${isVisible ? 'animate' : ''}`}>
                     <div className="card-upper-div">
                         <img 
-                            src="/images/libit.png" 
+                            src="/my-portfolio/images/libit.png" 
                             alt="Libit Project" 
                             className="project-image"
                             loading="lazy"
@@ -53,7 +53,7 @@ function Project({ projects = [] }) {
                     <div className="card-lower-div">
                         <button className="project-button left-button">
                             <img 
-                                src="/images/play.png" 
+                                src="/my-portfolio/images/play.png" 
                                 alt="Play" 
                                 className="button-icon"
                                 loading="lazy"
@@ -61,7 +61,7 @@ function Project({ projects = [] }) {
                         </button>
                         <button className="project-button right-button">
                             <img 
-                                src="/images/back.png" 
+                                src="/my-portfolio/images/back.png" 
                                 alt="Back" 
                                 className="button-icon"
                                 loading="lazy"
@@ -72,7 +72,7 @@ function Project({ projects = [] }) {
                 <div className={`project-card project-card-2 ${isVisible ? 'animate' : ''}`}>
                     <div className="card-upper-div">
                         <img 
-                            src="/images/intervein.png" 
+                            src="/my-portfolio/images/intervein.png" 
                             alt="Intervein Project" 
                             className="project-image"
                             loading="lazy"
@@ -85,7 +85,7 @@ function Project({ projects = [] }) {
                     <div className="card-lower-div">
                         <button className="project-button left-button">
                             <img 
-                                src="/images/play.png" 
+                                src="/my-portfolio/images/play.png" 
                                 alt="Play" 
                                 className="button-icon"
                                 loading="lazy"
@@ -93,7 +93,7 @@ function Project({ projects = [] }) {
                         </button>
                         <button className="project-button right-button">
                             <img 
-                                src="/images/back.png" 
+                                src="/my-portfolio/images/back.png" 
                                 alt="Back" 
                                 className="button-icon"
                                 loading="lazy"
