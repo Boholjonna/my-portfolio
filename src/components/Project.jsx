@@ -38,12 +38,30 @@ function Project({ projects = [] }) {
             <h1 className={`project-title ${isVisible ? 'animate' : ''}`}>Projects</h1>
             <div className="project-grid">
                 <div className={`project-card project-card-1 ${isVisible ? 'animate' : ''}`}>
-                    <h3>Project 1</h3>
-                    <p>Project description goes here...</p>
+                    <div className="card-upper-div">
+                        <img src="/src/images/libit.png" alt="Libit Project" className="project-image" />
+                    </div>
+                    <div className="card-lower-div">
+                        <button className="project-button left-button">
+                            <img src="/src/images/play.png" alt="Play" className="button-icon" />
+                        </button>
+                        <button className="project-button right-button">
+                            <img src="/src/images/back.png" alt="Back" className="button-icon" />
+                        </button>
+                    </div>
                 </div>
                 <div className={`project-card project-card-2 ${isVisible ? 'animate' : ''}`}>
-                    <h3>Project 2</h3>
-                    <p>Project description goes here...</p>
+                    <div className="card-upper-div">
+                        <img src="/src/images/intervein.png" alt="Intervein Project" className="project-image" />
+                    </div>
+                    <div className="card-lower-div">
+                        <button className="project-button left-button">
+                            <img src="/src/images/play.png" alt="Play" className="button-icon" />
+                        </button>
+                        <button className="project-button right-button">
+                            <img src="/src/images/back.png" alt="Back" className="button-icon" />
+                        </button>
+                    </div>
                 </div>
             </div>
             <hr className="project-bottom-line" />
