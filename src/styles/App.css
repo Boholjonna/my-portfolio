@@ -13,6 +13,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.about-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.project-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
 
 .hello {
@@ -22,3 +45,11 @@
 }
 
 /* All text-related styles have been moved to Text.css */
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .about-section,
+  .project-section {
+    height: 100vh;
+  }
+}

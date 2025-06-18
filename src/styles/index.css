@@ -1,9 +1,10 @@
 html, body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: linear-gradient(3deg, #25004B 20%, #000000 100%);
+  overflow-x: hidden;
 }
 
 :root {
@@ -21,13 +22,6 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  /* margin: 0; */ /* Moved to html, body selector */
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
 
 h1 {
   font-size: 3.2em;

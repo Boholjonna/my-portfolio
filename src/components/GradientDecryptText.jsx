@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import '../styles/GradientDecryptText.css';
 
@@ -44,5 +45,16 @@ function GradientDecryptText({ text, speed = 1, maxIterations = 5 }) {
         </span>
     );
 }
+
+GradientDecryptText.propTypes = {
+    text: PropTypes.string.isRequired,
+    speed: PropTypes.number,
+    maxIterations: PropTypes.number
+};
+
+GradientDecryptText.defaultProps = {
+    speed: 1,
+    maxIterations: 5
+};
 
 export default GradientDecryptText; 

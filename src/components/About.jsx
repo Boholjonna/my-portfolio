@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import '../styles/About.css';
 import '../styles/Circles.css';
-import DecryptedText from './DecryptedText';
 import GradientDecryptText from './GradientDecryptText';
 import BlurText from './BlurText';
 import { useEffect, useState } from 'react';
@@ -71,14 +70,18 @@ function About({ logo, image, intro, title, message }) {
                     />
                 </div>
             </div>
+            <hr className="bottom-gradient-line" />
         </div>
     );
 }
 
 About.propTypes = {
-    logo: PropTypes.any.isRequired,
-    image: PropTypes.any.isRequired,
-    intro: PropTypes.string.isRequired,
+    logo: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    intro: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]).isRequired,
     title: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired
 };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, useMemo } from 'react';
 
@@ -110,6 +111,32 @@ const BlurText = ({
       })}
     </p>
   );
+};
+
+BlurText.propTypes = {
+  text: PropTypes.string,
+  delay: PropTypes.number,
+  className: PropTypes.string,
+  animateBy: PropTypes.oneOf(['words', 'characters']),
+  direction: PropTypes.oneOf(['top', 'bottom']),
+  threshold: PropTypes.number,
+  rootMargin: PropTypes.string,
+  animationFrom: PropTypes.object,
+  animationTo: PropTypes.arrayOf(PropTypes.object),
+  easing: PropTypes.func,
+  onAnimationComplete: PropTypes.func,
+  stepDuration: PropTypes.number
+};
+
+BlurText.defaultProps = {
+  text: '',
+  delay: 200,
+  className: '',
+  animateBy: 'words',
+  direction: 'top',
+  threshold: 0.1,
+  rootMargin: '0px',
+  stepDuration: 0.35
 };
 
 export default BlurText; 
