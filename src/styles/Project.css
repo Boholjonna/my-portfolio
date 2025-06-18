@@ -24,12 +24,20 @@
     font-size: clamp(2rem, 4vw, 3.5rem);
     margin-bottom: 2rem;
     margin-top: 0;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    background: linear-gradient(to right, #0098D9, #E100E5, #C7F900);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     font-family: 'Press Start 2P', cursive;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.project-title.animate {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-grid {
@@ -53,6 +61,22 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+.project-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:nth-child(1).animate {
+    transition-delay: 0.2s;
+}
+
+.project-card:nth-child(2).animate {
+    transition-delay: 0.4s;
 }
 
 .project-card::before {
