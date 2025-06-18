@@ -110,7 +110,7 @@
 
 /* Card upper div - larger height */
 .card-upper-div {
-    flex: 3;
+    flex: 4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,13 +122,15 @@
 
 /* Card lower div - smaller height */
 .card-lower-div {
-    flex: 1;
+    flex: 0.8;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
     z-index: 1;
-    min-height: 60px;
+    min-height: 40px;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
 }
 
 /* Project image styling */
@@ -189,6 +191,50 @@
     margin-left: auto;
 }
 
+/* View Details button styling */
+.view-details-btn {
+    border-radius: 20px;
+    width: auto;
+    height: 40px;
+    padding: 0 2.5rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    background: transparent;
+    white-space: nowrap;
+}
+
+.view-details-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 0.5px;
+    background: linear-gradient(to bottom, #FD0000, #D95555, #009BB3);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    z-index: -1;
+}
+
+.project-card-2 .view-details-btn::before {
+    background: linear-gradient(to bottom, #E7EE0B, #07E786, #EB00D8);
+}
+
+.view-details-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
+
 .project-bottom-line {
     border: none;
     height: 2px;
@@ -202,7 +248,7 @@
 }
 
 /* Responsive design */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 770px) {
     .project-container {
         padding: 1rem;
     }
@@ -236,6 +282,19 @@
         height: 45px;
     }
     
+    .view-details-btn {
+        height: 38px;
+        min-width: 30px;
+        padding: 0 3rem;
+        font-size: 0.8rem;
+        font-weight: 400;
+        border-radius: 18px;
+    }
+    
+    .view-details-btn::before {
+        border-radius: 18px;
+    }
+    
     .button-icon {
         width: 20px;
         height: 20px;
@@ -243,10 +302,14 @@
     
     .card-upper-div {
         margin-bottom: 0.5rem;
+        flex: 4;
     }
     
     .card-lower-div {
-        min-height: 50px;
+        min-height: 35px;
+        gap: 0.8rem;
+        padding-bottom: 0.3rem;
+        flex: 0.8;
     }
 }
 
@@ -283,9 +346,33 @@
         height: 40px;
     }
     
+    .view-details-btn {
+        height: 35px;
+        min-width: 10px;
+        padding: 0 3.5rem;
+        font-size: 0.75rem;
+        font-weight: 400;
+        border-radius: 16px;
+    }
+    
+    .view-details-btn::before {
+        border-radius: 16px;
+    }
+    
     .button-icon {
         width: 18px;
         height: 18px;
+    }
+    
+    .card-upper-div {
+        flex: 4;
+    }
+    
+    .card-lower-div {
+        gap: 0.6rem;
+        padding-bottom: 0.2rem;
+        flex: 0.8;
+        min-height: 30px;
     }
 }
 
@@ -326,6 +413,19 @@
         height: 35px;
     }
     
+    .view-details-btn {
+        height: 32px;
+        min-width: 10px;
+        padding: 0 4rem;
+        font-size: 0.7rem;
+        font-weight: 400;
+        border-radius: 14px;
+    }
+    
+    .view-details-btn::before {
+        border-radius: 14px;
+    }
+    
     .button-icon {
         width: 16px;
         height: 16px;
@@ -333,9 +433,32 @@
     
     .card-upper-div {
         margin-bottom: 0.25rem;
+        flex: 4;
     }
     
     .card-lower-div {
-        min-height: 45px;
+        min-height: 28px;
+        gap: 0.5rem;
+        padding-bottom: 0.1rem;
+        flex: 0.8;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .view-details-btn {
+        height: 30px;
+        min-width: 10px;
+        padding: 0 3rem;
+        font-size: 0.65rem;
+        border-radius: 12px;
+    }
+    
+    .view-details-btn::before {
+        border-radius: 12px;
+    }
+    
+    .card-lower-div {
+        gap: 0.4rem;
+        min-height: 25px;
     }
 } 

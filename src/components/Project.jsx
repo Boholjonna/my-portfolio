@@ -59,13 +59,8 @@ function Project({ projects = [] }) {
                                 loading="lazy"
                             />
                         </button>
-                        <button className="project-button right-button">
-                            <img 
-                                src="/my-portfolio/images/back.png" 
-                                alt="Back" 
-                                className="button-icon"
-                                loading="lazy"
-                            />
+                        <button className="project-button right-button view-details-btn">
+                            View Details
                         </button>
                     </div>
                 </div>
@@ -91,13 +86,8 @@ function Project({ projects = [] }) {
                                 loading="lazy"
                             />
                         </button>
-                        <button className="project-button right-button">
-                            <img 
-                                src="/my-portfolio/images/back.png" 
-                                alt="Back" 
-                                className="button-icon"
-                                loading="lazy"
-                            />
+                        <button className="project-button right-button view-details-btn">
+                            View Details
                         </button>
                     </div>
                 </div>
