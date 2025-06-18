@@ -4,32 +4,15 @@ import '../styles/Project.css';
 function Project({ projects = [] }) {
     return (
         <div className="project-container">
-            <div className="project-content">
-                <h1 className="project-title">Projects</h1>
-                <div className="project-grid">
-                    {projects.length > 0 ? (
-                        projects.map((project, index) => (
-                            <div key={index} className="project-card">
-                                <h3>{project.title}</h3>
-                                <p>{project.description}</p>
-                            </div>
-                        ))
-                    ) : (
-                        <>
-                            <div className="project-card">
-                                <h3>Project 1</h3>
-                                <p>Project description goes here...</p>
-                            </div>
-                            <div className="project-card">
-                                <h3>Project 2</h3>
-                                <p>Project description goes here...</p>
-                            </div>
-                            <div className="project-card">
-                                <h3>Project 3</h3>
-                                <p>Project description goes here...</p>
-                            </div>
-                        </>
-                    )}
+            <h1 className="project-title">Projects</h1>
+            <div className="project-grid">
+                <div className="project-card project-card-1">
+                    <h3>Project 1</h3>
+                    <p>Project description goes here...</p>
+                </div>
+                <div className="project-card project-card-2">
+                    <h3>Project 2</h3>
+                    <p>Project description goes here...</p>
                 </div>
             </div>
             <hr className="project-bottom-line" />

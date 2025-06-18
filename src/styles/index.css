@@ -5,6 +5,7 @@ html, body {
   height: 100vh;
   background: linear-gradient(3deg, #25004B 20%, #000000 100%);
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 :root {
