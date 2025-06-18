@@ -1,3 +1,25 @@
+/* style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  line-height: 1.6;
+}
+
+
 .about-container {
     min-height: 100vh;
   background: linear-gradient(
@@ -65,11 +87,11 @@
     max-width: 259px;
     width: clamp(209px, 41.5vw, 259px);
     height: auto;
-    min-width: 209px;
-    min-height: 209px;
+    min-width: 219px;
+    min-height: 219px;
     border-radius: 10px;
     box-shadow: none;
-    margin: 0 0 0.3rem 0;
+    margin-bottom: 15px;
     background: transparent;
 }
 
@@ -131,17 +153,17 @@
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 15px;
 }
 
 .message-text {
     color: #f0f0f0;
     transition: color 0.3s ease;
+    
 }
 
-.message-text-encrypted {
-    color: #646cff;
-    transition: color 0.3s ease;
-}
+
 
 @media screen and (max-width: 450px) {
     .message {

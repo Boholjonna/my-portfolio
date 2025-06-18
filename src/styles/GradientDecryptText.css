@@ -9,6 +9,7 @@
     font-size: clamp(30px, calc(2vw + 10px), 45px);
     line-height: 1.2;
     font-weight: 700;
+    font-family: 'Caprasimo', cursive;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

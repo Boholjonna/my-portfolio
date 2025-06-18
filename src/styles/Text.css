@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
+
 .animated-gradient-text {
   position: relative;
   margin: 0 auto;
@@ -12,6 +15,7 @@
   transition: box-shadow 0.5s ease-out;
   overflow: hidden;
   cursor: pointer;
+  
 }
 
 .gradient-overlay {
@@ -128,6 +132,7 @@
     #00bfff   /* Blue for "Ms J" */
   );
   -webkit-background-clip: text;
+    font-family: 'Archivo Black', sans-serif;
   background-clip: text;
   color: transparent;
   animation: gradient 5s linear infinite;
