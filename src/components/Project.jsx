@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import '../styles/Project.css';
+import libitImage from '../images/libit.png';
+import interveinImage from '../images/intervein.png';
+import playIcon from '../images/play.png';
+import backIcon from '../images/back.png';
 
 function Project({ projects = [] }) {
     const [isVisible, setIsVisible] = useState(false);
@@ -39,27 +43,27 @@ function Project({ projects = [] }) {
             <div className="project-grid">
                 <div className={`project-card project-card-1 ${isVisible ? 'animate' : ''}`}>
                     <div className="card-upper-div">
-                        <img src="/src/images/libit.png" alt="Libit Project" className="project-image" />
+                        <img src={libitImage} alt="Libit Project" className="project-image" />
                     </div>
                     <div className="card-lower-div">
                         <button className="project-button left-button">
-                            <img src="/src/images/play.png" alt="Play" className="button-icon" />
+                            <img src={playIcon} alt="Play" className="button-icon" />
                         </button>
                         <button className="project-button right-button">
-                            <img src="/src/images/back.png" alt="Back" className="button-icon" />
+                            <img src={backIcon} alt="Back" className="button-icon" />
                         </button>
                     </div>
                 </div>
                 <div className={`project-card project-card-2 ${isVisible ? 'animate' : ''}`}>
                     <div className="card-upper-div">
-                        <img src="/src/images/intervein.png" alt="Intervein Project" className="project-image" />
+                        <img src={interveinImage} alt="Intervein Project" className="project-image" />
                     </div>
                     <div className="card-lower-div">
                         <button className="project-button left-button">
-                            <img src="/src/images/play.png" alt="Play" className="button-icon" />
+                            <img src={playIcon} alt="Play" className="button-icon" />
                         </button>
                         <button className="project-button right-button">
-                            <img src="/src/images/back.png" alt="Back" className="button-icon" />
+                            <img src={backIcon} alt="Back" className="button-icon" />
                         </button>
                     </div>
                 </div>
