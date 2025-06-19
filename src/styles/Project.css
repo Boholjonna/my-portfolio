@@ -58,7 +58,7 @@
     max-height: 450px;
     background: transparent;
     border-radius: 10%;
-    padding: 2rem;
+    padding: 1rem;
     backdrop-filter: blur(10px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -93,10 +93,10 @@
     border-radius: 10%;
     padding: 1px;
     background: linear-gradient(to bottom, #FD0000, #D95555, #009BB3);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
 }
 
 .project-card-2::before {
@@ -130,7 +130,7 @@
     z-index: 1;
     min-height: 40px;
     gap: 1rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0;
 }
 
 /* Project image styling */
@@ -219,10 +219,10 @@
     border-radius: 20px;
     padding: 0.5px;
     background: linear-gradient(to bottom, #FD0000, #D95555, #009BB3);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
     z-index: -1;
 }
 
@@ -248,7 +248,7 @@
 }
 
 /* Responsive design */
-@media screen and (max-width: 770px) {
+@media  (min-width: 480px) and (max-width: 770px) {
     .project-container {
         padding: 1rem;
     }
@@ -284,7 +284,7 @@
     
     .view-details-btn {
         height: 38px;
-        min-width: 30px;
+        max-width: 100px;
         padding: 0 3rem;
         font-size: 0.8rem;
         font-weight: 400;
@@ -293,6 +293,7 @@
     
     .view-details-btn::before {
         border-radius: 18px;
+       
     }
     
     .button-icon {
