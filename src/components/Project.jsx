@@ -48,6 +48,13 @@ function Project({ projects = [] }) {
                 <div className={`project-card project-card-1 ${isVisible ? 'animate' : ''}`} style={{position:'relative'}}>
                     {overlayVisible[0] && (
                         <div className="project-overlay">
+                            <div className="overlay-content">
+                                <h2 className="overlay-gradient-text">Library Management System</h2>
+                                <p className="overlay-description">
+                                    This desktop application is an exclusive platform with User, Librarian, and Admin interfaces. Users can borrow and reserve books, manage profiles, and view their activity history. Overdue books restrict access until payment is made. Librarians manage inventory, returns, payments, and reservations. Admins oversee user and librarian accounts, track earnings, and generate analytics on book usage and library operations.
+                                </p>
+                                <h3 className="overlay-gradient-text">Tech Stack</h3>
+                            </div>
                             <button className="overlay-back-btn" onClick={() => handleBack(0)}>
                                 <img src="/my-portfolio/images/back.png" alt="Back" className="overlay-back-icon" />
                             </button>
@@ -82,6 +89,13 @@ function Project({ projects = [] }) {
                 <div className={`project-card project-card-2 ${isVisible ? 'animate' : ''}`} style={{position:'relative'}}>
                     {overlayVisible[1] && (
                         <div className="project-overlay">
+                            <div className="overlay-content">
+                                <h2 className="overlay-gradient-text">Inventory Management System</h2>
+                                <p className="overlay-description">
+                                    This desktop application streamlines stock control and sales tracking for a medical company through a centralized platform for managing inventory. It allows users to add, edit, and delete products, manage stock levels, and track stock on hand and product off-take. Key features include activity logs, sales data visualization, and forecasting tools—enabling informed decisions and improved operational efficiency.
+                                </p>
+                                <h3 className="overlay-gradient-text">Tech Stack</h3>
+                            </div>
                             <button className="overlay-back-btn" onClick={() => handleBack(1)}>
                                 <img src="/my-portfolio/images/back.png" alt="Back" className="overlay-back-icon" />
                             </button>
