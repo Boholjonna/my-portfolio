@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
 
 .project-container {
@@ -307,7 +308,8 @@
 }
 
 .overlay-gradient-text {
-    font-size: clamp(11px, 2.8vw, 13px);
+    font-family: 'Titillium Web', sans-serif;
+    font-size: clamp(11px, 2.9vw, 15px);
     font-weight: bold;
     background: linear-gradient(to right, #FD0000, #D95555, #009BB3, #E100E5, #C7F900);
     -webkit-background-clip: text;
@@ -321,7 +323,7 @@
 
 .overlay-description {
     color: #eaeaea;
-    font-size: clamp(11px, 2.8vw, 13px);
+    font-size: clamp(12px, 2.8vw, 13px);
     line-height: 1.5;
     margin: 0;
     text-align: justify;
