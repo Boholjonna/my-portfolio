@@ -321,7 +321,7 @@
 
 .overlay-gradient-text {
     font-family: 'Titillium Web', sans-serif;
-    font-size: clamp(11px, 2.9vw, 15px);
+    font-size: clamp(15px, 2.9vw, 20px);
     font-weight: bold;
     background: linear-gradient(to right, #FD0000, #D95555, #009BB3, #E100E5, #C7F900);
     -webkit-background-clip: text;
@@ -406,6 +406,10 @@
         padding-bottom: 0.3rem;
         flex: 0.8;
     }
+    
+    .overlay-gradient-text {
+        font-size: clamp(16px, 3vw, 26px);
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -467,6 +471,10 @@
         padding-bottom: 0.2rem;
         flex: 0.8;
         min-height: 30px;
+    }
+    
+    .overlay-gradient-text {
+        font-size: clamp(15px, 4vw, 20px);
     }
 }
 
@@ -534,6 +542,10 @@
         gap: 0.5rem;
         padding-bottom: 0.1rem;
         flex: 0.8;
+    }
+    
+    .overlay-gradient-text {
+        font-size: clamp(15px, 5vw, 20px);
     }
 }
 
