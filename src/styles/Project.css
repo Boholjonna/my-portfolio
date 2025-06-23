@@ -45,7 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 2.5rem;
     max-width: 1200px;
     width: 100%;
     margin-top: 2rem;
@@ -56,20 +56,25 @@
     width: 400px;
     max-width: 400px;
     min-height: 450px;
-    height: 450px;
-    max-height: 450px;
+    height: auto;
+    max-height: none;
     background: transparent;
     border-radius: 10%;
     padding: 1rem;
     backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: visible;
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.project-card::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
 }
 
 .project-card.animate {
@@ -164,7 +169,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     backdrop-filter: blur(5px);
     flex-shrink: 0;
 }
@@ -211,6 +216,7 @@
     border: none;
     background: transparent;
     white-space: nowrap;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .view-details-btn::before {
@@ -368,6 +374,10 @@
         max-width: 350px;
         padding: 1.5rem;
         margin: 0 auto;
+        min-height: 350px;
+        height: auto;
+        max-height: none;
+        overflow: visible;
     }
     
     .project-button {
@@ -437,6 +447,10 @@
         max-width: 320px;
         padding: 1rem;
         margin: 0 auto;
+        min-height: 300px;
+        height: auto;
+        max-height: none;
+        overflow: visible;
     }
     
     .project-button {
@@ -507,6 +521,10 @@
         padding: 0.75rem;
         margin: 0 auto;
         box-sizing: border-box;
+        min-height: 250px;
+        height: auto;
+        max-height: none;
+        overflow: visible;
     }
     
     .project-button {
@@ -620,9 +638,10 @@
         justify-content: flex-start;
     }
     .project-card {
-        min-height: 350px;
-        height: 350px;
-        max-height: 350px;
+        min-height: 200px;
+        height: auto;
+        max-height: none;
+        overflow: visible;
     }
     .project-overlay {
         min-height: 100%;
@@ -675,4 +694,9 @@
 }
 .project-image.loaded, .tech-circle img.loaded, .overlay-back-icon.loaded {
     opacity: 1;
+}
+
+/* Ensure all direct children of .project-card do not clip content */
+.project-card > * {
+    overflow: visible;
 } 
