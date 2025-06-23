@@ -54,6 +54,25 @@ function Project({ projects = [] }) {
                                     This desktop application is an exclusive platform with User, Librarian, and Admin interfaces. Users can borrow and reserve books, manage profiles, and view their activity history. Overdue books restrict access until payment is made. Librarians manage inventory, returns, payments, and reservations. Admins oversee user and librarian accounts, track earnings, and generate analytics on book usage and library operations.
                                 </p>
                                 <h3 className="overlay-gradient-text">Tech Stack</h3>
+                                <div className="tech-stack-circles-container">
+                                    <div className={`tech-stack-circles tech-stack-circles-1`}>
+                                        <div className="tech-circle tech-circle-1">
+                                            <img src="/my-portfolio/images/java.png" alt="Java" />
+                                        </div>
+                                        <div className="tech-circle tech-circle-1">
+                                            <img src="/my-portfolio/images/mysql.png" alt="MySQL" />
+                                        </div>
+                                        <div className="tech-circle tech-circle-1">
+                                            <img src="/my-portfolio/images/figma.png" alt="Figma" />
+                                        </div>
+                                        <div className="tech-circle tech-circle-1">
+                                            <img src="/my-portfolio/images/github.png" alt="GitHub" />
+                                        </div>
+                                        <div className="tech-circle tech-circle-1">
+                                            <img src="/my-portfolio/images/git.png" alt="Git" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <button className="overlay-back-btn" onClick={() => handleBack(0)}>
                                 <img src="/my-portfolio/images/back.png" alt="Back" className="overlay-back-icon" />
@@ -95,6 +114,25 @@ function Project({ projects = [] }) {
                                     This desktop application streamlines stock control and sales tracking for a medical company through a centralized platform for managing inventory. It allows users to add, edit, and delete products, manage stock levels, and track stock on hand and product off-take. Key features include activity logs, sales data visualization, and forecasting tools—enabling informed decisions and improved operational efficiency.
                                 </p>
                                 <h3 className="overlay-gradient-text">Tech Stack</h3>
+                                <div className="tech-stack-circles-container">
+                                    <div className={`tech-stack-circles tech-stack-circles-2`}>
+                                        <div className="tech-circle tech-circle-2">
+                                            <img src="/my-portfolio/images/java.png" alt="Java" />
+                                        </div>
+                                        <div className="tech-circle tech-circle-2">
+                                            <img src="/my-portfolio/images/mysql.png" alt="MySQL" />
+                                        </div>
+                                        <div className="tech-circle tech-circle-2">
+                                            <img src="/my-portfolio/images/figma.png" alt="Figma" />
+                                        </div>
+                                        <div className="tech-circle tech-circle-2">
+                                            <img src="/my-portfolio/images/github.png" alt="GitHub" />
+                                        </div>
+                                        <div className="tech-circle tech-circle-2">
+                                            <img src="/my-portfolio/images/git.png" alt="Git" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <button className="overlay-back-btn" onClick={() => handleBack(1)}>
                                 <img src="/my-portfolio/images/back.png" alt="Back" className="overlay-back-icon" />
