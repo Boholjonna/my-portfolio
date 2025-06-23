@@ -632,4 +632,15 @@
     .project-grid {
         gap: 1.2rem;
     }
+    .tech-circle {
+        width: clamp(48px, 12vw, 60px);
+        height: clamp(48px, 12vw, 60px);
+    }
+    .tech-circle img {
+        width: 70%;
+        height: 70%;
+    }
+    .overlay-gradient-text {
+        font-size: clamp(18px, 5vw, 22px);
+    }
 } 
