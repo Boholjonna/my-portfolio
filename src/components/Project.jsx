@@ -47,7 +47,7 @@ function Project({ projects = [] }) {
             <div className="project-grid">
                 <div className={`project-card project-card-1 ${isVisible ? 'animate' : ''}`} style={{position:'relative'}}>
                     {overlayVisible[0] && (
-                        <div className="project-overlay">
+                        <div className={"project-overlay show"}>
                             <div className="overlay-content">
                                 <h2 className="overlay-gradient-text">Library Management System</h2>
                                 <p className="overlay-description">
@@ -56,26 +56,16 @@ function Project({ projects = [] }) {
                                 <h3 className="overlay-gradient-text">Tech Stack</h3>
                                 <div className="tech-stack-circles-container">
                                     <div className={`tech-stack-circles tech-stack-circles-1`}>
-                                        <div className="tech-circle tech-circle-1">
-                                            <img src="/my-portfolio/images/java.png" alt="Java" />
-                                        </div>
-                                        <div className="tech-circle tech-circle-1">
-                                            <img src="/my-portfolio/images/mysql.png" alt="MySQL" />
-                                        </div>
-                                        <div className="tech-circle tech-circle-1">
-                                            <img src="/my-portfolio/images/figma.png" alt="Figma" />
-                                        </div>
-                                        <div className="tech-circle tech-circle-1">
-                                            <img src="/my-portfolio/images/github.png" alt="GitHub" />
-                                        </div>
-                                        <div className="tech-circle tech-circle-1">
-                                            <img src="/my-portfolio/images/git.png" alt="Git" />
-                                        </div>
+                                        {["java.png","mysql.png","figma.png","github.png","git.png"].map((img, i) => (
+                                            <div className="tech-circle tech-circle-1" key={img}>
+                                                <img src={`/my-portfolio/images/${img}`} alt={img.split('.')[0]} width="36" height="36" loading="lazy" onLoad={e => e.target.classList.add('loaded')} />
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
                             <button className="overlay-back-btn" onClick={() => handleBack(0)}>
-                                <img src="/my-portfolio/images/back.png" alt="Back" className="overlay-back-icon" />
+                                <img src="/my-portfolio/images/back.png" alt="Back" className="overlay-back-icon" width="32" height="32" loading="lazy" onLoad={e => e.target.classList.add('loaded')} />
                             </button>
                         </div>
                     )}
@@ -84,7 +74,9 @@ function Project({ projects = [] }) {
                             src="/my-portfolio/images/libit.png" 
                             alt="Libit Project" 
                             className="project-image"
+                            width="120" height="120"
                             loading="lazy"
+                            onLoad={e => e.target.classList.add('loaded')}
                             onError={(e) => {
                                 console.error('Failed to load libit.png');
                                 e.target.style.display = 'none';
@@ -97,7 +89,9 @@ function Project({ projects = [] }) {
                                 src="/my-portfolio/images/play.png" 
                                 alt="Play" 
                                 className="button-icon"
+                                width="24" height="24"
                                 loading="lazy"
+                                onLoad={e => e.target.classList.add('loaded')}
                             />
                         </button>
                         <button className="project-button right-button view-details-btn" onClick={() => handleViewDetails(0)}>
@@ -107,7 +101,7 @@ function Project({ projects = [] }) {
                 </div>
                 <div className={`project-card project-card-2 ${isVisible ? 'animate' : ''}`} style={{position:'relative'}}>
                     {overlayVisible[1] && (
-                        <div className="project-overlay">
+                        <div className={"project-overlay show"}>
                             <div className="overlay-content">
                                 <h2 className="overlay-gradient-text">Inventory Management System</h2>
                                 <p className="overlay-description">
@@ -116,26 +110,16 @@ function Project({ projects = [] }) {
                                 <h3 className="overlay-gradient-text">Tech Stack</h3>
                                 <div className="tech-stack-circles-container">
                                     <div className={`tech-stack-circles tech-stack-circles-2`}>
-                                        <div className="tech-circle tech-circle-2">
-                                            <img src="/my-portfolio/images/java.png" alt="Java" />
-                                        </div>
-                                        <div className="tech-circle tech-circle-2">
-                                            <img src="/my-portfolio/images/mysql.png" alt="MySQL" />
-                                        </div>
-                                        <div className="tech-circle tech-circle-2">
-                                            <img src="/my-portfolio/images/figma.png" alt="Figma" />
-                                        </div>
-                                        <div className="tech-circle tech-circle-2">
-                                            <img src="/my-portfolio/images/github.png" alt="GitHub" />
-                                        </div>
-                                        <div className="tech-circle tech-circle-2">
-                                            <img src="/my-portfolio/images/git.png" alt="Git" />
-                                        </div>
+                                        {["java.png","mysql.png","figma.png","github.png","git.png"].map((img, i) => (
+                                            <div className="tech-circle tech-circle-2" key={img}>
+                                                <img src={`/my-portfolio/images/${img}`} alt={img.split('.')[0]} width="36" height="36" loading="lazy" onLoad={e => e.target.classList.add('loaded')} />
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
                             <button className="overlay-back-btn" onClick={() => handleBack(1)}>
-                                <img src="/my-portfolio/images/back.png" alt="Back" className="overlay-back-icon" />
+                                <img src="/my-portfolio/images/back.png" alt="Back" className="overlay-back-icon" width="32" height="32" loading="lazy" onLoad={e => e.target.classList.add('loaded')} />
                             </button>
                         </div>
                     )}
@@ -144,7 +128,9 @@ function Project({ projects = [] }) {
                             src="/my-portfolio/images/intervein.png" 
                             alt="Intervein Project" 
                             className="project-image"
+                            width="120" height="120"
                             loading="lazy"
+                            onLoad={e => e.target.classList.add('loaded')}
                             onError={(e) => {
                                 console.error('Failed to load intervein.png');
                                 e.target.style.display = 'none';
@@ -157,7 +143,9 @@ function Project({ projects = [] }) {
                                 src="/my-portfolio/images/play.png" 
                                 alt="Play" 
                                 className="button-icon"
+                                width="24" height="24"
                                 loading="lazy"
+                                onLoad={e => e.target.classList.add('loaded')}
                             />
                         </button>
                         <button className="project-button right-button view-details-btn" onClick={() => handleViewDetails(1)}>
