@@ -45,7 +45,7 @@ function Project({ projects = [] }) {
         <div className="project-container" ref={containerRef}>
             <h1 className={`project-title ${isVisible ? 'animate' : ''}`}>Projects</h1>
             <div className="project-grid">
-                <div className={`project-card project-card-1 ${isVisible ? 'animate' : ''}`} style={{position:'relative'}}>
+                <div className={`project-card project-card-1 ${isVisible ? 'animate' : ''} ${overlayVisible[0] ? 'overlay-expanded no-border' : ''}`} style={{position:'relative'}}>
                     {overlayVisible[0] && (
                         <div className={"project-overlay show"}>
                             <div className="overlay-content">
@@ -99,7 +99,7 @@ function Project({ projects = [] }) {
                         </button>
                     </div>
                 </div>
-                <div className={`project-card project-card-2 ${isVisible ? 'animate' : ''}`} style={{position:'relative'}}>
+                <div className={`project-card project-card-2 ${isVisible ? 'animate' : ''} ${overlayVisible[1] ? 'overlay-expanded no-border' : ''}`} style={{position:'relative'}}>
                     {overlayVisible[1] && (
                         <div className={"project-overlay show"}>
                             <div className="overlay-content">
