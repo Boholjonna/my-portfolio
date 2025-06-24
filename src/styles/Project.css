@@ -700,4 +700,8 @@
 
 .project-card.no-border::before {
     display: none;
+}
+
+.project-overlay-2::before {
+    background: linear-gradient(to bottom, #E7EE0B, #07E786, #EB00D8);
 } 

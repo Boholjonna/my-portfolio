@@ -101,7 +101,7 @@ function Project({ projects = [] }) {
                 </div>
                 <div className={`project-card project-card-2 ${isVisible ? 'animate' : ''} ${overlayVisible[1] ? 'overlay-expanded no-border' : ''}`} style={{position:'relative'}}>
                     {overlayVisible[1] && (
-                        <div className={"project-overlay show"}>
+                        <div className={"project-overlay show project-overlay-2"}>
                             <div className="overlay-content">
                                 <h2 className="overlay-gradient-text">Inventory Management System</h2>
                                 <p className="overlay-description">
