@@ -2,11 +2,31 @@ import '../styles/App.css'
 import '../styles/Text.css'
 import About from './About'
 import Project from './Project'
-
+import Experience from './Experience'
+import { useEffect, useRef, useState } from 'react';
 
 function App() {
   const imageUrl = new URL('../images/msJ.png', import.meta.url).href
   const profileUrl = new URL('../images/nightme.png', import.meta.url).href
+
+  const experienceRef = useRef(null);
+  const [experienceVisible, setExperienceVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setExperienceVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (experienceRef.current) {
+      observer.observe(experienceRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="App">
@@ -26,6 +46,17 @@ function App() {
         </div>
         <div className="project-section">
           <Project />
+        </div>
+        <div 
+          className={`experience-section${experienceVisible ? ' show' : ''}`}
+          ref={experienceRef}
+          style={{
+            opacity: experienceVisible ? 1 : 0,
+            transform: experienceVisible ? 'translateY(0)' : 'translateY(60px)',
+            transition: 'opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1)'
+          }}
+        >
+          <Experience />
         </div>
       </div>
     </div>
