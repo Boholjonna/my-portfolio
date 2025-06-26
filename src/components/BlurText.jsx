@@ -128,15 +128,4 @@ BlurText.propTypes = {
   stepDuration: PropTypes.number
 };
 
-BlurText.defaultProps = {
-  text: '',
-  delay: 200,
-  className: '',
-  animateBy: 'words',
-  direction: 'top',
-  threshold: 0.1,
-  rootMargin: '0px',
-  stepDuration: 0.35
-};
-
 export default BlurText; 

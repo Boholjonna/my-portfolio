@@ -52,9 +52,4 @@ GradientDecryptText.propTypes = {
     maxIterations: PropTypes.number
 };
 
-GradientDecryptText.defaultProps = {
-    speed: 1,
-    maxIterations: 5
-};
-
 export default GradientDecryptText; 
