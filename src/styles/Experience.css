@@ -13,7 +13,75 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     position: relative;
+}
+
+@media (orientation: landscape) {
+  .experience-container {
+    height: 60vh;
+    min-height: unset;
+  }
+}
+
+@media (orientation: portrait) {
+  .experience-container {
+    height: 50vh;
+    min-height: unset;
+  }
+}
+
+.experience-title-padding {
+    padding-top: 3rem;
+    margin-bottom: 2rem;
+    margin-top: 0;
+}
+
+.experience-card {
+    width: 70vw;
+    max-width: 800px;
+    max-height: 100px;
+    min-height: 60px;
+    background: linear-gradient(
+        to bottom,
+        #0A0626 88%,
+        #3821E3 100%
+    );
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(56, 33, 227, 0.15);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+@media (orientation: portrait) {
+  .experience-card {
+    width: 80vw !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .experience-card {
+    font-size: 0.98rem;
+    border-radius: 16px;
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .experience-card {
+    font-size: 0.92rem;
+    border-radius: 10px;
+    padding: 0.5rem 0.2rem;
+  }
 }
 
 .experience-bottom-gradient-line {
