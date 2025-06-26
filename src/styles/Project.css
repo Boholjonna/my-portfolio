@@ -561,6 +561,30 @@
     flex-wrap: wrap;
 }
 
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.tech-label {
+    color: white;
+    font-size: clamp(10px, 2vw, 12px);
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.tech-stack-circles-1 .tech-label {
+    color: #FD0000;
+}
+
+.tech-stack-circles-2 .tech-label {
+    color: #E7EE0B;
+}
+
 .tech-circle {
     background: #000;
     border-radius: 50%;
@@ -598,6 +622,12 @@
         max-width: 100%;
         justify-content: flex-start;
     }
+    .tech-item {
+        gap: 6px;
+    }
+    .tech-label {
+        font-size: clamp(8px, 2.5vw, 10px);
+    }
     .project-card {
         min-height: 200px;
         height: auto;
@@ -628,7 +658,9 @@
 .project-overlay .overlay-content > *,
 .project-overlay .overlay-back-btn,
 .project-overlay .tech-stack-circles,
-.project-overlay .tech-circle {
+.project-overlay .tech-circle,
+.project-overlay .tech-item,
+.project-overlay .tech-label {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
@@ -637,7 +669,9 @@
 .project-overlay.show .overlay-content > *,
 .project-overlay.show .overlay-back-btn,
 .project-overlay.show .tech-stack-circles,
-.project-overlay.show .tech-circle {
+.project-overlay.show .tech-circle,
+.project-overlay.show .tech-item,
+.project-overlay.show .tech-label {
     opacity: 1;
     transform: translateY(0);
 }
