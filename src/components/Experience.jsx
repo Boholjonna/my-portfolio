@@ -45,7 +45,6 @@ function Experience() {
           </button>
         </div>
       </div>
-      <hr className="experience-bottom-gradient-line" />
     </div>
   );
 }

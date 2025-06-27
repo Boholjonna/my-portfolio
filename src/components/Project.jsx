@@ -160,7 +160,6 @@ function Project({ projects = [] }) {
                     </div>
                 </div>
             </div>
-            <hr className="project-bottom-line" />
         </div>
     );
 }

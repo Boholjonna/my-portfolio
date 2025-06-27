@@ -1,11 +1,11 @@
 /* Experience section background and bottom line, reusing About section styles */
 
 .experience-container {
-    min-height: 100vh;
+    /* min-height: 100vh; */
     background: linear-gradient(
         to top,
         rgba(0, 0, 0, 1) 40%,
-        rgba(118, 9, 252, 0.34) 100%
+        rgba(118, 9, 252, 0.3) 80%
     );
     color: white;
     margin: 0;
@@ -21,15 +21,15 @@
 
 @media (orientation: landscape) {
   .experience-container {
-    height: 60vh;
-    min-height: unset;
+    /* height: 60vh;
+    min-height: unset; */
   }
 }
 
 @media (orientation: portrait) {
   .experience-container {
-    height: 50vh;
-    min-height: unset;
+    /* height: 50vh;
+    min-height: unset; */
   }
 }
 

@@ -70,7 +70,6 @@ function About({ logo, image, intro, title, message }) {
                     />
                 </div>
             </div>
-            <hr className="bottom-gradient-line" />
         </div>
     );
 }
