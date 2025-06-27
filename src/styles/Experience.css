@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     position: relative;
 }
@@ -40,10 +40,12 @@
 }
 
 .experience-card {
-    width: 70vw;
-    max-width: 800px;
-    max-height: 100px;
-    min-height: 60px;
+    width: clamp(360px, 60vw, 650px);
+    min-width: 360px;
+    max-width: 750px;
+    min-height: 65px;
+    max-height: 95px;
+    height: auto;
     background: linear-gradient(
         to bottom,
         #0A0626 88%,
@@ -55,43 +57,66 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem 2rem;
     position: relative;
     z-index: 2;
+    border: 1px solid #565676;
+    box-sizing: border-box;
+    overflow: visible;
 }
 
-@media (orientation: portrait) {
-  .experience-card {
-    width: 80vw !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
+/* Responsive scaling for text and images inside the card */
+.experience-card .experience-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.9rem, 3.6vw, 1.8rem);
+    padding: clamp(1rem, 3vw, 1.5rem) clamp(1.1rem, 4vw, 2rem);
 }
 
-@media (max-width: 600px) {
-  .experience-card {
-    font-size: 0.98rem;
-    border-radius: 16px;
-    padding: 1rem 0.5rem;
-  }
+.experience-icon {
+    width: clamp(32px, 6vw, 48px);
+    height: clamp(32px, 6vw, 48px);
+    object-fit: contain;
+    filter: invert(32%) sepia(98%) saturate(7492%) hue-rotate(255deg) brightness(100%) contrast(101%);
 }
 
-@media (max-width: 400px) {
-  .experience-card {
-    font-size: 0.92rem;
-    border-radius: 10px;
-    padding: 0.5rem 0.2rem;
-  }
+.experience-title-text {
+    flex: 1;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: white;
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+}
+
+.experience-dropdown-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.experience-dropdown-icon {
+    width: clamp(24px, 5vw, 32px);
+    height: clamp(24px, 5vw, 32px);
+    object-fit: contain;
+    filter: invert(32%) sepia(98%) saturate(7492%) hue-rotate(255deg) brightness(100%) contrast(101%);
 }
 
 .experience-bottom-gradient-line {
     border: none;
-    height: 1px;
+    height: 0.3px;
     background: linear-gradient(to right, #565656 0%, #029AFF 50%, #565656 100%);
     margin: 0;
     position: absolute;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
     box-shadow: 0 0 5px rgba(63, 142, 255, 0.3);
+    border-radius: 2px;
+    z-index: 10;
 }

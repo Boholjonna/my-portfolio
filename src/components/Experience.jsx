@@ -27,7 +27,23 @@ function Experience() {
     <div className="experience-container" ref={containerRef}>
       <h1 className={`project-title ${isVisible ? 'animate' : ''} experience-title-padding`}>Experience</h1>
       <div className="experience-card">
-        {/* Add your experience card content here */}
+        <div className="experience-row">
+          <img 
+            src="/images/experience.png" 
+            alt="Experience Icon" 
+            className="experience-icon"
+          />
+          <span className="experience-title-text">
+            English Teacher at Native Camp
+          </span>
+          <button className="experience-dropdown-btn">
+            <img 
+              src="/images/dropdown.png" 
+              alt="Dropdown" 
+              className="experience-dropdown-icon"
+            />
+          </button>
+        </div>
       </div>
       <hr className="experience-bottom-gradient-line" />
     </div>
