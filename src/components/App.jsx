@@ -6,8 +6,8 @@ import Experience from './Experience'
 import { useEffect, useRef, useState } from 'react';
 
 function App() {
-  const imageUrl = '/images/msJ.png'
-  const profileUrl = '/images/nightme.png'
+  const imageUrl = 'images/msJ.png'
+  const profileUrl = 'images/nightme.png'
 
   const experienceRef = useRef(null);
   const [experienceVisible, setExperienceVisible] = useState(false);

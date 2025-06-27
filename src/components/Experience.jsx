@@ -29,7 +29,7 @@ function Experience() {
       <div className="experience-card">
         <div className="experience-row">
           <img 
-            src="/images/experience.png" 
+            src="images/experience.png" 
             alt="Experience Icon" 
             className="experience-icon"
           />
@@ -38,7 +38,7 @@ function Experience() {
           </span>
           <button className="experience-dropdown-btn">
             <img 
-              src="/images/dropdown.png" 
+              src="images/dropdown.png" 
               alt="Dropdown" 
               className="experience-dropdown-icon"
             />
