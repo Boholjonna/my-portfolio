@@ -19,19 +19,9 @@
     position: relative;
 }
 
-@media (orientation: landscape) {
-  .experience-container {
-    /* height: 60vh;
-    min-height: unset; */
-  }
-}
 
-@media (orientation: portrait) {
-  .experience-container {
-    /* height: 50vh;
-    min-height: unset; */
-  }
-}
+
+
 
 .experience-title-padding {
     padding-top: 3rem;
@@ -55,13 +45,60 @@
     box-shadow: 0 4px 24px rgba(56, 33, 227, 0.15);
     margin-bottom: 2.5rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
     z-index: 2;
     border: 1px solid #565676;
     box-sizing: border-box;
-    overflow: visible;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.experience-card.expanded {
+    max-height: 700px;
+    box-shadow: 0 8px 32px rgba(56, 33, 227, 0.25);
+}
+
+.experience-dropdown-row {
+    width: 100%;
+    padding: 0 0 1.5rem 0;
+    box-sizing: border-box;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s, transform 0.4s;
+    animation: fadeInDown 0.5s;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.experience-dropdown-content {
+    color: #fff;
+    font-size: clamp(12px, 2.5vw, 1.05rem);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    background: none;
+}
+
+.experience-card:not(.expanded) .experience-dropdown-row {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
 }
 
 /* Responsive scaling for text and images inside the card */
@@ -119,4 +156,12 @@
     box-shadow: 0 0 5px rgba(63, 142, 255, 0.3);
     border-radius: 2px;
     z-index: 10;
+}
+
+@media (orientation: portrait) {
+  .experience-card.expanded {
+    width: 94vw;
+    min-width: unset;
+    max-width: unset;
+  }
 }
