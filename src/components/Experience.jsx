@@ -1,6 +1,6 @@
 import '../styles/Experience.css';
 import '../styles/Project.css';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 
 const DROPDOWN_TEXT = (
   <div className="experience-dropdown-content">
@@ -29,6 +29,7 @@ function Experience() {
   const [expanded, setExpanded] = useState(false);
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
+  const [containerH, setContainerH] = useState(0);
 
   useEffect(() => {
     const observer = new window.IntersectionObserver(
@@ -47,6 +48,25 @@ function Experience() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (containerRef.current) setContainerH(containerRef.current.offsetHeight);
+  }, []);
+
+  const planetPositions = useMemo(() => {
+    function randomY() {
+      // 0-38% or 62-100%
+      const band = Math.random() < 0.5 ? [0, 0.38] : [0.62, 1];
+      return `${(Math.random() * (band[1] - band[0]) + band[0]) * 100}%`;
+    }
+    function randomX() {
+      return `${Math.random() * 80 + 5}%`;
+    }
+    return {
+      saturn: { top: randomY(), left: randomX() },
+      mars: { top: randomY(), left: randomX() }
+    };
+  }, [containerH]);
+
   // Galaxy/stars animation
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -60,7 +80,7 @@ function Experience() {
       x: Math.random() * width,
       y: Math.random() * height,
       r: Math.random() * 1.2 + 0.3,
-      baseAlpha: Math.random() * 0.3 + 0.08, // Lower opacity
+      baseAlpha: Math.random() * 0.08 + 0.04, // Much lower opacity
       alpha: 1,
       speed: Math.random() * 0.2 + 0.05,
       angle: Math.random() * Math.PI * 2,
@@ -185,6 +205,34 @@ function Experience() {
           zIndex: 0,
           pointerEvents: 'none',
           transition: 'opacity 0.5s'
+        }}
+      />
+      <img
+        src="images/saturn.png"
+        alt="Saturn Planet"
+        style={{
+          position: 'absolute',
+          top: planetPositions.saturn.top,
+          left: planetPositions.saturn.left,
+          width: '55px',
+          opacity: 0.10,
+          zIndex: 1,
+          pointerEvents: 'none',
+          filter: 'blur(0.5px)'
+        }}
+      />
+      <img
+        src="images/mars.png"
+        alt="Mars Planet"
+        style={{
+          position: 'absolute',
+          top: planetPositions.mars.top,
+          left: planetPositions.mars.left,
+          width: '30px',
+          opacity: 0.10,
+          zIndex: 1,
+          pointerEvents: 'none',
+          filter: 'blur(0.5px)'
         }}
       />
       <h1 className={`project-title ${isVisible ? 'animate' : ''} experience-title-padding`} style={{ position: 'relative', zIndex: 1 }}>Experience</h1>

@@ -170,6 +170,34 @@ function Project({ projects = [] }) {
                     transition: 'opacity 0.5s'
                 }}
             />
+            <img
+                src="images/saturn.png"
+                alt="Saturn Planet"
+                style={{
+                    position: 'absolute',
+                    top: '8%',
+                    right: '5%',
+                    width: '60px',
+                    opacity: 0.10,
+                    zIndex: 1,
+                    pointerEvents: 'none',
+                    filter: 'blur(0.5px)'
+                }}
+            />
+            <img
+                src="images/mars.png"
+                alt="Mars Planet"
+                style={{
+                    position: 'absolute',
+                    bottom: '10%',
+                    left: '8%',
+                    width: '32px',
+                    opacity: 0.10,
+                    zIndex: 1,
+                    pointerEvents: 'none',
+                    filter: 'blur(0.5px)'
+                }}
+            />
             <h1 className={`project-title ${isVisible ? 'animate' : ''}`}>Projects</h1>
             <div className="project-grid">
                 <div className={`project-card project-card-1 ${isVisible ? 'animate' : ''} ${overlayVisible[0] ? 'overlay-expanded no-border' : ''}`} style={{position:'relative'}}>

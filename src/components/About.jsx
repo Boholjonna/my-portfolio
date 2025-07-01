@@ -3,12 +3,13 @@ import '../styles/About.css';
 import '../styles/Circles.css';
 import GradientDecryptText from './GradientDecryptText';
 import BlurText from './BlurText';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 
 function About({ logo, image, intro, title, message }) {
     const [key, setKey] = useState(0);
     const canvasRef = useRef(null);
     const containerRef = useRef(null);
+    const containerH = useRef(null);
 
     useEffect(() => {
         // Reset the key when component mounts or route changes
@@ -139,6 +140,20 @@ function About({ logo, image, intro, title, message }) {
         e.target.src = `./images/${imgPath}`;
     };
 
+    const planetPositions = useMemo(() => {
+        function randomY(band) {
+            // band: [start, end] as fraction of height
+            return `${(Math.random() * (band[1] - band[0]) + band[0]) * 100}%`;
+        }
+        function randomX() {
+            return `${Math.random() * 80 + 5}%`;
+        }
+        return {
+            saturn: { bottom: `${Math.random() * 20}%`, left: randomX() }, // Always at bottom
+            mars: { top: randomY([0.62, 1]), left: randomX() } // Mars only in lower black region
+        };
+    }, [containerH]);
+
     return (
         <div className="about-container" ref={containerRef} style={{ position: 'relative', overflow: 'hidden' }}>
             <canvas
@@ -152,6 +167,34 @@ function About({ logo, image, intro, title, message }) {
                     zIndex: 0,
                     pointerEvents: 'none',
                     transition: 'opacity 0.5s'
+                }}
+            />
+            <img
+                src="images/saturn.png"
+                alt="Saturn Planet"
+                style={{
+                    position: 'absolute',
+                    bottom: planetPositions.saturn.bottom,
+                    left: planetPositions.saturn.left,
+                    width: '70px',
+                    opacity: 0.10,
+                    zIndex: 1,
+                    pointerEvents: 'none',
+                    filter: 'blur(0.5px)'
+                }}
+            />
+            <img
+                src="images/mars.png"
+                alt="Mars Planet"
+                style={{
+                    position: 'absolute',
+                    top: planetPositions.mars.top,
+                    left: planetPositions.mars.left,
+                    width: '38px',
+                    opacity: 0.10,
+                    zIndex: 1,
+                    pointerEvents: 'none',
+                    filter: 'blur(0.5px)'
                 }}
             />
             <header className="about-header">
