@@ -1,12 +1,8 @@
 /* Experience section background and bottom line, reusing About section styles */
 
 .experience-container {
-    /* min-height: 100vh; */
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 1) 40%,
-        rgba(118, 9, 252, 0.3) 80%
-    );
+    /* No background gradient, will use a custom animated background */
+    background: none;
     color: white;
     margin: 0;
     padding: 0;
@@ -18,10 +14,6 @@
     text-align: center;
     position: relative;
 }
-
-
-
-
 
 .experience-title-padding {
     padding-top: 3rem;
