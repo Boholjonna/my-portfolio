@@ -29,6 +29,7 @@ function Experience() {
   const [expanded, setExpanded] = useState(false);
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
+  const cardRef = useRef(null);
   const [containerH, setContainerH] = useState(0);
 
   useEffect(() => {
@@ -192,6 +193,13 @@ function Experience() {
     };
   }, []);
 
+  // Scroll to card when expanded
+  useEffect(() => {
+    if (expanded && cardRef.current) {
+      cardRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [expanded]);
+
   return (
     <div className="experience-container" ref={containerRef} style={{ position: 'relative', overflow: 'hidden' }}>
       <canvas
@@ -236,7 +244,7 @@ function Experience() {
         }}
       />
       <h1 className={`project-title ${isVisible ? 'animate' : ''} experience-title-padding`} style={{ position: 'relative', zIndex: 1 }}>Experience</h1>
-      <div className={`experience-card${expanded ? ' expanded' : ''}`} style={{ position: 'relative', zIndex: 1 }}>
+      <div className={`experience-card${expanded ? ' expanded' : ''}`} style={{ position: 'relative', zIndex: 1 }} ref={cardRef}>
         <div className="experience-row">
           <img 
             src="images/experience.png" 
