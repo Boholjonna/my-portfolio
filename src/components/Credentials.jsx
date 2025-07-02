@@ -5,8 +5,16 @@ import '../styles/Experience.css';
 import '../styles/Credentials.css';
 
 // Reusable CredentialsCard component
-const CredentialsCard = ({ children }) => (
+const CredentialsCard = ({ children, degreeTitle, university, honor }) => (
   <div className="credentials-card">
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1rem' }}>
+      <img src="/public/images/degree.png" alt="Degree" style={{ width: '90px', height: '90px'}} />
+      <div style={{ marginTop: '0.7rem', textAlign: 'center', color: 'white' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '12px' }}>{degreeTitle}</div>
+        <div style={{ fontWeight: 'normal', fontSize: '12px' }}>{university}</div>
+        <div style={{ fontWeight: 'normal', fontSize: '12px' }}>{honor}</div>
+      </div>
+    </div>
     {children}
   </div>
 );
@@ -46,7 +54,11 @@ const Credentials = () => {
       }}
     >
       <h1 className={`project-title ${isVisible ? 'animate' : ''}`} style={{ position: 'relative', zIndex: 1, textAlign: 'center', marginTop: '5rem', marginBottom: '2rem' }}>Credentials</h1>
-      <CredentialsCard>
+      <CredentialsCard
+        degreeTitle="Bachelor of Science in Computer Engineering"
+        university="Cebu Technological University"
+        honor="Dean's Lister"
+      >
         <div
           className="credentials-gradient-border"
           style={{
