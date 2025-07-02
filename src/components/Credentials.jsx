@@ -33,7 +33,7 @@ const Credentials = () => {
 
   return (
     <section
-      className="project-container"
+      className="credentials-container"
       ref={containerRef}
       style={{
         position: 'relative',
