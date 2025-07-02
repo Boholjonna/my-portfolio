@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <div className="main-container">
-        <div className="about-section">
+        <div className="about-section" id="about">
           <About 
             intro={
               <div>
@@ -45,12 +45,13 @@ function App() {
             message="I'm an enthusiastic and curious software and web developer with a passion for creating visually appealing, user-friendly websites and applications. I thrive on continuous learning and enjoy transforming ideas into impactful digital experiences. With strong time management and adaptability, I consistently deliver high-quality work on time. I'm driven by innovation and always eager to explore new trends, tools, and technologies to grow and refine my craft."
           />
         </div>
-        <div className="project-section">
+        <div className="project-section" id="projects">
           <Project />
         </div>
         <div 
           className={`experience-section${experienceVisible ? ' show' : ''}`}
           ref={experienceRef}
+          id="experience"
           style={{
             opacity: experienceVisible ? 1 : 0,
             transform: experienceVisible ? 'translateY(0)' : 'translateY(60px)',
@@ -59,7 +60,7 @@ function App() {
         >
           <Experience />
         </div>
-        <div className="credentials-section">
+        <div className="credentials-section" id="credentials">
           <Credentials />
         </div>
       </div>

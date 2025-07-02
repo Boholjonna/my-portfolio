@@ -228,20 +228,27 @@ const SparkBallButton = ({
     <>
       {overlay && (
         <>
-          <div className="spark-ball-overlay" />
+          <div className="spark-ball-overlay" onClick={() => setOverlay(false)} />
           <div className="spark-ball-options">
             {[
-              { label: "About", angle: -90 },
-              { label: "Projects", angle: -18 },
-              { label: "Experience", angle: 45 },
-              { label: "Credentials", angle: 135 },
-              { label: "Contact", angle: 198 },
+              { label: "About", angle: -90, id: "about" },
+              { label: "Projects", angle: -18, id: "projects" },
+              { label: "Experience", angle: 45, id: "experience" },
+              { label: "Credentials", angle: 135, id: "credentials" },
+              { label: "Contact", angle: 198, id: "contact" },
             ].map((opt, i) => {
               // Position options in a circle
               const radius = 110; // reduced px from center to move closer
               const rad = (opt.angle * Math.PI) / 180;
               const x = Math.cos(rad) * radius;
               const y = Math.sin(rad) * radius;
+              const handleOptionClick = () => {
+                const section = document.getElementById(opt.id);
+                if (section) {
+                  section.scrollIntoView({ behavior: 'smooth' });
+                }
+                setOverlay(false);
+              };
               return (
                 <div
                   key={opt.label}
@@ -251,7 +258,7 @@ const SparkBallButton = ({
                     top: `calc(50% + ${y}px)` ,
                   }}
                 >
-                  <span className="spark-option-label">{opt.label}</span>
+                  <span className="spark-option-label" onClick={handleOptionClick}>{opt.label}</span>
                 </div>
               );
             })}
