@@ -244,7 +244,7 @@ function Experience() {
           transition: 'opacity 0.5s'
         }}
       />
-      <img
+      {/* <img
         src="images/saturn.png"
         alt="Saturn Planet"
         style={{
@@ -257,7 +257,7 @@ function Experience() {
           pointerEvents: 'none',
           filter: 'blur(0.5px)'
         }}
-      />
+      /> */}
       <img
         src="images/mars.png"
         alt="Mars Planet"
