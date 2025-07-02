@@ -3,6 +3,7 @@ import '../styles/Text.css'
 import About from './About'
 import Project from './Project'
 import Experience from './Experience'
+import Credentials from './Credentials';
 import { useEffect, useRef, useState } from 'react';
 
 function App() {
@@ -57,6 +58,9 @@ function App() {
           }}
         >
           <Experience />
+        </div>
+        <div className="credentials-section">
+          <Credentials />
         </div>
       </div>
     </div>

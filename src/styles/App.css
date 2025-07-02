@@ -50,3 +50,17 @@
     min-height: 100vh;
   }
 }
+
+.credentials-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media screen and (max-width: 900px) {
+  .credentials-section {
+    width: 100%;
+    justify-content: center;
+  }
+}

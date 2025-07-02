@@ -201,7 +201,7 @@ function Experience() {
   }, [expanded]);
 
   return (
-    <div className="experience-container" ref={containerRef} style={{ position: 'relative', overflow: 'hidden' }}>
+    <section className="experience-container" ref={containerRef} style={{ position: 'relative', overflow: 'hidden' }}>
       <canvas
         ref={canvasRef}
         style={{
@@ -269,7 +269,7 @@ function Experience() {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -156,7 +156,7 @@ function Project({ projects = [] }) {
     };
 
     return (
-        <div className="project-container" ref={containerRef} style={{ position: 'relative', overflow: 'hidden' }}>
+        <section className="project-container" ref={containerRef} style={{ position: 'relative', overflow: 'hidden' }}>
             <canvas
                 ref={canvasRef}
                 style={{
@@ -315,7 +315,7 @@ function Project({ projects = [] }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

@@ -212,7 +212,7 @@ function About({ logo, image, intro, title, message }) {
                     <div className="circle circle-3"></div>
                 </div>
             </header>
-            <div className="about-content">
+            <section className="about-content">
                 <h2 className="intro">{intro}</h2>
                 <div className="about-image">
                     <img 
@@ -240,7 +240,7 @@ function About({ logo, image, intro, title, message }) {
                         style={{ textAlign: 'center', justifyContent: 'center' }}
                     />
                 </div>
-            </div>
+            </section>
         </div>
     );
 }
