@@ -3,7 +3,8 @@
 
 
 .project-container {
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    height: auto;
     background: linear-gradient(
         to top,
         rgba(0, 0, 0, 1) 0%,
