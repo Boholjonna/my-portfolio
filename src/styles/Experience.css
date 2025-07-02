@@ -45,7 +45,7 @@
     border: 1px solid #565676;
     box-sizing: border-box;
     overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s, border-color 0.3s, filter 0.3s;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 0.5rem;
@@ -54,6 +54,13 @@
 .experience-card.expanded {
     max-height: 700px;
     box-shadow: 0 8px 32px rgba(56, 33, 227, 0.25);
+}
+
+.experience-card:hover {
+    border: 0.5px solid #4E95FF;
+    filter: brightness(1.25) saturate(1.2);
+    box-shadow: 0 0 10px 0.5px rgba(78, 149, 255, 0.35), 0 0 0 0.3px #00E7F7;
+    z-index: 3;
 }
 
 .experience-dropdown-row {

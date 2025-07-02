@@ -8,7 +8,7 @@ import '../styles/Credentials.css';
 const CredentialsCard = ({ children, degreeTitle, university, honor }) => (
   <div className="credentials-card">
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1rem' }}>
-      <img src="/public/images/degree.png" alt="Degree" style={{ width: '90px', height: '90px'}} />
+      <img src="images/degree.png" alt="Degree" style={{ width: '90px', height: '90px'}} />
       <div style={{ marginTop: '0.7rem', textAlign: 'center', color: 'white' }}>
         <div style={{ fontWeight: 'bold', fontSize: '12px' }}>{degreeTitle}</div>
         <div style={{ fontWeight: 'normal', fontSize: '12px' }}>{university}</div>
