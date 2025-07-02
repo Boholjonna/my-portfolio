@@ -800,4 +800,16 @@
 
 .project-overlay-2::before {
     background: linear-gradient(to bottom, #E7EE0B, #07E786, #EB00D8);
+}
+
+.credentials-gradient-border {
+    border-radius: 24px;
+    border: 1px solid transparent;
+    background: linear-gradient(90deg, #00E7F7, #4E95FF) border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) padding-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    box-sizing: border-box;
 } 

@@ -2,6 +2,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import GradientText from './GradientText';
 import '../styles/Project.css';
 import '../styles/Experience.css';
+import '../styles/Credentials.css';
+
+// Reusable CredentialsCard component
+const CredentialsCard = ({ children }) => (
+  <div className="credentials-card">
+    {children}
+  </div>
+);
 
 const Credentials = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,7 +46,24 @@ const Credentials = () => {
       }}
     >
       <h1 className={`project-title ${isVisible ? 'animate' : ''}`} style={{ position: 'relative', zIndex: 1, textAlign: 'center', marginTop: '5rem', marginBottom: '2rem' }}>Credentials</h1>
-      {/* Add your credentials content here */}
+      <CredentialsCard>
+        <div
+          className="credentials-gradient-border"
+          style={{
+            maxWidth: '780px',
+            minWidth: '360px',
+            maxHeight: '110px',
+            minHeight: '80px',
+            margin: '0 auto',
+            background: 'transparent',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          {/* Credentials content goes here */}
+        </div>
+      </CredentialsCard>
     </section>
   );
 };

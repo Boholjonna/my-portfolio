@@ -2,6 +2,35 @@ import '../styles/Experience.css';
 import '../styles/Project.css';
 import { useEffect, useRef, useState, useMemo } from 'react';
 
+// Reusable ExperienceCard component
+const ExperienceCard = ({ image, alt, title, expanded, onToggle, children }) => (
+  <div className={`experience-card${expanded ? ' expanded' : ''}`} style={{ position: 'relative', zIndex: 1 }}>
+    <div className="experience-row">
+      <img 
+        src={image} 
+        alt={alt} 
+        className="experience-icon"
+      />
+      <span className="experience-title-text">
+        {title}
+      </span>
+      <button className="experience-dropdown-btn" onClick={onToggle}>
+        <img 
+          src="images/dropdown.png" 
+          alt="Dropdown" 
+          className="experience-dropdown-icon"
+          style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+        />
+      </button>
+    </div>
+    {expanded && (
+      <div className="experience-dropdown-row">
+        {children}
+      </div>
+    )}
+  </div>
+);
+
 const DROPDOWN_TEXT = (
   <div className="experience-dropdown-content">
     <div style={{ textAlign: 'left', marginTop: '1.2rem' }}>
@@ -244,31 +273,15 @@ function Experience() {
         }}
       />
       <h1 className={`project-title ${isVisible ? 'animate' : ''} experience-title-padding`} style={{ position: 'relative', zIndex: 1 }}>Experience</h1>
-      <div className={`experience-card${expanded ? ' expanded' : ''}`} style={{ position: 'relative', zIndex: 1 }} ref={cardRef}>
-        <div className="experience-row">
-          <img 
-            src="images/experience.png" 
-            alt="Experience Icon" 
-            className="experience-icon"
-          />
-          <span className="experience-title-text">
-            English Teacher at Native Camp
-          </span>
-          <button className="experience-dropdown-btn" onClick={() => setExpanded(e => !e)}>
-            <img 
-              src="images/dropdown.png" 
-              alt="Dropdown" 
-              className="experience-dropdown-icon"
-              style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
-            />
-          </button>
-        </div>
-        {expanded && (
-          <div className="experience-dropdown-row">
-            {DROPDOWN_TEXT}
-          </div>
-        )}
-      </div>
+      <ExperienceCard
+        image="images/experience.png"
+        alt="Experience Icon"
+        title="English Teacher at Native Camp"
+        expanded={expanded}
+        onToggle={() => setExpanded(e => !e)}
+      >
+        {DROPDOWN_TEXT}
+      </ExperienceCard>
     </section>
   );
 }
