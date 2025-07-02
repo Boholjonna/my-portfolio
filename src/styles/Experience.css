@@ -57,9 +57,9 @@
 }
 
 .experience-card:hover {
-    border: 0.5px solid #4E95FF;
+    border: 0.5px solid #714eff;
     filter: brightness(1.25) saturate(1.2);
-    box-shadow: 0 0 10px 0.5px rgba(78, 149, 255, 0.35), 0 0 0 0.3px #00E7F7;
+    box-shadow: 0 0 10px 0.5px rgba(122, 78, 255, 0.35), 0 0 0 0.3px #3e00f7;
     z-index: 3;
 }
 
