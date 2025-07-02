@@ -227,7 +227,36 @@ const SparkBallButton = ({
   return (
     <>
       {overlay && (
-        <div className="spark-ball-overlay" />
+        <>
+          <div className="spark-ball-overlay" />
+          <div className="spark-ball-options">
+            {[
+              { label: "About", angle: -90 },
+              { label: "Projects", angle: -18 },
+              { label: "Experience", angle: 45 },
+              { label: "Credentials", angle: 135 },
+              { label: "Contact", angle: 198 },
+            ].map((opt, i) => {
+              // Position options in a circle
+              const radius = 110; // reduced px from center to move closer
+              const rad = (opt.angle * Math.PI) / 180;
+              const x = Math.cos(rad) * radius;
+              const y = Math.sin(rad) * radius;
+              return (
+                <div
+                  key={opt.label}
+                  className="spark-option"
+                  style={{
+                    left: `calc(50% + ${x}px)` ,
+                    top: `calc(50% + ${y}px)` ,
+                  }}
+                >
+                  <span className="spark-option-label">{opt.label}</span>
+                </div>
+              );
+            })}
+          </div>
+        </>
       )}
       <button
         className={`spark-ball-btn`}

@@ -112,4 +112,56 @@
   transition: opacity 0.3s;
   opacity: 1;
   pointer-events: auto;
+}
+
+.spark-ball-options {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.spark-option {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5em 0;
+}
+
+.spark-option-label {
+  background: linear-gradient(90deg, #6a5cff 0%, #13e6c6 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  margin-top: 0.5em;
+  box-shadow: 0 2px 16px #13e6c688;
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+  border: 2px solid #fff2;
+  user-select: none;
+  margin: 0.5em 0;
+}
+
+.spark-option-label:hover {
+  background: linear-gradient(90deg, #13e6c6 0%, #6a5cff 100%);
+  color: #fff;
+  transform: scale(1.13) rotate(-2deg);
+  box-shadow: 0 0 24px 8px #13e6c6cc, 0 0 48px 16px #6a5cff88;
+  border-color: #fff8;
+}
+
+@media (max-width: 600px), (max-height: 600px) {
+  .spark-option-label {
+    font-size: 0.85rem;
+    padding: 0.35em 0.7em;
+  }
 } 
