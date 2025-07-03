@@ -493,6 +493,8 @@
         height: auto;
         max-height: none;
         overflow: visible;
+        margin-bottom: 8rem;
+        border-radius: 1.5rem;
     }
     
     .project-button {
@@ -560,9 +562,11 @@
         position: relative;
         height: auto;
         min-height: 420px;
+        margin-bottom: 8rem;
+        border-radius: 1.2rem;
     }
     .project-card.overlay-expanded {
-        margin-bottom: 50px;
+        margin-bottom: 8rem !important;
     }
     .project-overlay {
         position: absolute;
@@ -756,7 +760,7 @@
 /* Responsive adjustments for overlay expansion */
 @media screen and (max-width: 480px) {
     .project-card.overlay-expanded {
-        margin-bottom: 60px; /* Reduced from 150px */
+        margin-bottom: 8rem !important; /* Increased margin for more space below expanded card */
     }
 }
 

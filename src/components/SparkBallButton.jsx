@@ -252,9 +252,12 @@ const SparkBallButton = ({
               const handleOptionClick = () => {
                 const section = document.getElementById(opt.id);
                 if (section) {
-                  section.scrollIntoView({ behavior: 'smooth' });
+                  section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  // Wait a bit before closing overlay to let scroll finish (especially on mobile)
+                  setTimeout(() => setOverlay(false), 250);
+                } else {
+                  setOverlay(false);
                 }
-                setOverlay(false);
               };
               return (
                 <div
