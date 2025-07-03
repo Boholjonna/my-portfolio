@@ -114,7 +114,6 @@ const SparkBallButton = ({
     if (e.touches) {
       clientX = e.touches[0].clientX;
       clientY = e.touches[0].clientY;
-      if (e.cancelable) e.preventDefault(); // Prevent scroll on touch drag
     } else {
       clientX = e.clientX;
       clientY = e.clientY;
@@ -196,6 +195,14 @@ const SparkBallButton = ({
       }, 300); // Wait for transition
     }
   };
+
+  // Overlay: close on scroll (for mobile UX)
+  useEffect(() => {
+    if (!overlay) return;
+    const handleScroll = () => setOverlay(false);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [overlay]);
 
   // Ball style
   let ballStyle = {
