@@ -204,6 +204,24 @@ const SparkBallButton = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [overlay]);
 
+  // Prevent scroll during drag
+  useEffect(() => {
+    function preventScroll(e) {
+      e.preventDefault();
+    }
+    if (dragging) {
+      window.addEventListener("touchmove", preventScroll, { passive: false });
+      window.addEventListener("wheel", preventScroll, { passive: false });
+    } else {
+      window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("wheel", preventScroll);
+    }
+    return () => {
+      window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("wheel", preventScroll);
+    };
+  }, [dragging]);
+
   // Ball style
   let ballStyle = {
     position: "fixed",
