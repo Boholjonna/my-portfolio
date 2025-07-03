@@ -42,7 +42,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
+    gap: 50px;
     max-width: 1200px;
     width: 100%;
     margin-top: 2rem;
@@ -391,13 +391,7 @@
     }
     
     .project-grid {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        width: 100%;
-        max-width: 100%;
-        margin-bottom: 3rem;
+        gap: 50px;
     }
     
     .project-card {
@@ -475,13 +469,7 @@
     }
     
     .project-grid {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        width: 100%;
-        padding: 0;
-        margin-bottom: 4rem;
+        gap: 50px;
     }
     
     .project-card {
@@ -493,7 +481,6 @@
         height: auto;
         max-height: none;
         overflow: visible;
-        margin-bottom: 8rem;
         border-radius: 1.5rem;
     }
     
@@ -555,8 +542,7 @@
         );
     }
     .project-grid {
-        gap: 2.5rem;
-        flex: 1 0 auto;
+        gap: 50px;
     }
     .project-card {
         position: relative;
@@ -806,4 +792,10 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     box-sizing: border-box;
+}
+
+@media screen and (max-width: 720px) {
+    .project-grid {
+        gap: 50px;
+    }
 } 
