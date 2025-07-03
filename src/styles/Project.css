@@ -48,9 +48,13 @@
     margin-top: 2rem;
     flex-wrap: wrap;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.project-card {
+.project-card,
+.project-card.overlay-expanded {
+    /* No margin or margin-bottom, spacing is only from .project-grid gap */
     width: 400px;
     max-width: 400px;
     min-height: 450px;
@@ -273,15 +277,14 @@
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100%;
-    height: auto;
-    max-height: none;
-    background: rgba(1, 7, 8, 0.9);
+    height: 100%;
     z-index: 100;
+    border-radius: 10%;
+    /* Overlay is absolutely positioned so it does not affect grid gap */
+    background: rgba(1, 7, 8, 0.9);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border-radius: 10%;
     transition: opacity 0.1s ease;
     pointer-events: auto;
     padding: 1.6rem;
@@ -391,7 +394,9 @@
     }
     
     .project-grid {
-        gap: 50px;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .project-card {
@@ -469,7 +474,9 @@
     }
     
     .project-grid {
-        gap: 50px;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .project-card {
@@ -542,7 +549,9 @@
         );
     }
     .project-grid {
-        gap: 50px;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     .project-card {
         position: relative;
@@ -740,19 +749,19 @@
 
 /* Card spacing when overlay is expanded */
 .project-card.overlay-expanded {
-    margin-bottom: 50px; /* Reduced from 80px for more balanced spacing */
+    margin-bottom: 0 !important;
 }
 
 /* Responsive adjustments for overlay expansion */
 @media screen and (max-width: 480px) {
     .project-card.overlay-expanded {
-        margin-bottom: 8rem !important; /* Increased margin for more space below expanded card */
+        margin-bottom: 0 !important;
     }
 }
 
 @media screen and (max-width: 320px) {
     .project-card.overlay-expanded {
-        margin-bottom: 40px; /* Reduced from 100px */
+        margin-bottom: 0 !important;
     }
 }
 
@@ -796,6 +805,49 @@
 
 @media screen and (max-width: 720px) {
     .project-grid {
-        gap: 50px;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
     }
+}
+
+.project-card.overlay-expanded {
+    margin-bottom: 0 !important;
+}
+
+@media  (min-width: 480px) and (max-width: 770px) {
+    .project-card.overlay-expanded {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .project-card.overlay-expanded {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .project-card.overlay-expanded {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .project-card.overlay-expanded {
+        margin-bottom: 0 !important;
+    }
+}
+
+@media (max-width: 770px) {
+    .project-grid { gap: 50px; }
+}
+@media (max-width: 720px) {
+    .project-grid { gap: 50px; }
+}
+@media (max-width: 480px) {
+    .project-grid { gap: 50px; }
+}
+@media (max-width: 400px) {
+    .project-grid { gap: 50px; }
 } 
