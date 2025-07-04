@@ -4,6 +4,7 @@ import About from './About'
 import Project from './Project'
 import Experience from './Experience'
 import Credentials from './Credentials';
+import Contact from './Contact';
 import { useEffect, useRef, useState } from 'react';
 
 function App() {
@@ -62,6 +63,9 @@ function App() {
         </div>
         <div className="credentials-section" id="credentials">
           <Credentials />
+        </div>
+        <div className="contact-section-wrapper">
+          <Contact />
         </div>
       </div>
     </div>
