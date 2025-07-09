@@ -239,3 +239,17 @@ p {
     width: 100%;
     box-shadow: 0 0 5px rgba(63, 142, 255, 0.3);
 }
+
+.about-footer {
+    width: 100%;
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    padding: 18px 0 10px 0;
+    letter-spacing: 0.04em;
+    font-family: 'Open Sans', sans-serif;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+    font-style: italic;
+}

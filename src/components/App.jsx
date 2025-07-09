@@ -67,6 +67,9 @@ function App() {
         <div className="contact-section-wrapper">
           <Contact />
         </div>
+        <footer className="about-footer">
+          © ms J 2025
+        </footer>
       </div>
     </div>
   );

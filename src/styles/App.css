@@ -64,3 +64,22 @@
     justify-content: center;
   }
 }
+
+.about-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  padding: 18px 0 10px 0;
+  letter-spacing: 0.04em;
+  font-family: 'Open Sans', sans-serif;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  font-style: italic;
+  height: 100%;
+  margin: 0 auto;
+}
