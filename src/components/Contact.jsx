@@ -35,7 +35,7 @@ const Contact = () => {
         <div className="contact-linkedin-footer">
           <span>Let's connect at&nbsp;</span>
           <a href="https://www.linkedin.com/in/silver-stein-8a015529a/" target="_blank" rel="noopener noreferrer">
-            <img src="/public/images/linkedIn.png" alt="LinkedIn" style={{ height: '40px', verticalAlign: 'middle' }} />
+            <img src="images/linkedIn.png" alt="LinkedIn" style={{ height: '40px', verticalAlign: 'middle' }} />
           </a>
         </div>
       </div>
