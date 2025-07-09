@@ -5,8 +5,8 @@ import '../styles/Experience.css';
 import '../styles/Credentials.css';
 
 // Reusable CredentialsCard component
-const CredentialsCard = ({ children, degreeTitle, university, honor }) => (
-  <div className="credentials-card">
+const CredentialsCard = ({ children, degreeTitle, university, honor, isVisible }) => (
+  <div className={`credentials-card${isVisible ? ' visible' : ''}`}>
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1rem' }}>
       <img src="images/degree.png" alt="Degree" style={{ width: '90px', height: '90px'}} />
       <div style={{ marginTop: '0.7rem', textAlign: 'center', color: 'white' }}>
@@ -58,6 +58,7 @@ const Credentials = () => {
         degreeTitle="Bachelor of Science in Computer Engineering"
         university="Cebu Technological University"
         honor="Dean's Lister"
+        isVisible={isVisible}
       >
         <div
           className="credentials-gradient-border"

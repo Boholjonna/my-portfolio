@@ -45,6 +45,14 @@
   align-items: flex-end;
   justify-content: center;
   gap: 1.2rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-form.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-inputs {
@@ -53,6 +61,14 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-inputs.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-input,
@@ -66,6 +82,15 @@
   box-sizing: border-box;
   font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'Liberation Mono', monospace;
   font-size: 0.98rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-input.visible,
+.contact-textarea.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-input {
@@ -97,6 +122,8 @@
   outline: none;
   resize: none;
   transition: box-shadow 0.2s;
+  text-align: left;
+  vertical-align: top;
 }
 
 .contact-textarea:focus {
@@ -119,6 +146,14 @@
   margin-left: auto;
   margin-right: auto;
   font-family: 'Tektur', sans-serif;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-gradient-title.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Portrait */
@@ -159,6 +194,14 @@
   height: 100%;
   width: 100%;
   position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-container-inner.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-linkedin-footer {
@@ -178,6 +221,14 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-linkedin-footer.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-linkedin-footer img {
@@ -189,4 +240,32 @@
 
 .contact-linkedin-footer img:hover {
   transform: scale(1.25) rotate(-8deg);
+}
+
+.contact-input.name,
+.contact-input.company,
+.contact-input.email {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-input.name.visible,
+.contact-input.company.visible,
+.contact-input.email.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contact-textarea.message {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  vertical-align: top;
+}
+
+.contact-textarea.message.visible {
+  opacity: 1;
+  transform: translateX(0);
 } 
