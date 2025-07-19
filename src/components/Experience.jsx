@@ -263,9 +263,10 @@ function Experience() {
         alt="Mars Planet"
         style={{
           position: 'absolute',
-          top: planetPositions.mars.top,
-          left: planetPositions.mars.left,
-          width: '30px',
+          top: '50%',
+          right: '2%',
+          transform: 'translateY(-50%)',
+          width: '38px',
           opacity: 0.10,
           zIndex: 1,
           pointerEvents: 'none',

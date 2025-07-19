@@ -19,7 +19,7 @@
 }
 
 .project-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(1.2rem, 2.5vw, 2.2rem);
     margin-bottom: 2rem;
     margin-top: 0;
     background: linear-gradient(to right, #0098D9, #E100E5, #C7F900);
@@ -381,6 +381,7 @@
     .project-title {
         margin-top: 2rem;
         margin-bottom: 2rem;
+        font-size: clamp(1.1rem, 2vw, 1.8rem);
     }
     
     .project-grid {
@@ -461,6 +462,7 @@
     .project-title {
         margin-top: 3rem;
         margin-bottom: 2rem;
+        font-size: clamp(1rem, 1.5vw, 1.3rem);
     }
     
     .project-grid {
