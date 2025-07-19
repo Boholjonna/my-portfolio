@@ -6,6 +6,12 @@ import Experience from './Experience'
 import Credentials from './Credentials';
 import Contact from './Contact';
 import { useEffect, useRef, useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = 'https://YOUR_PROJECT_ID.supabase.co'; // Replace with your Project URL
+const supabaseAnonKey = 'YOUR_ANON_PUBLIC_KEY'; // Replace with your Anon Public Key
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 function App() {
   const imageUrl = 'images/msJ.png'

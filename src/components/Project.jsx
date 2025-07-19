@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import '../styles/Project.css';
+import Test from './Test';
 
 function Project({ projects = [] }) {
     const [isVisible, setIsVisible] = useState(false);
     const [overlayVisible, setOverlayVisible] = useState([false, false]);
+    const [showTest, setShowTest] = useState(false);
     const containerRef = useRef(null);
     const canvasRef = useRef(null);
 
@@ -198,6 +200,7 @@ function Project({ projects = [] }) {
                     filter: 'blur(0.5px)'
                 }}
             />
+            {showTest && <Test onClose={() => setShowTest(false)} />}
             <h1 className={`project-title ${isVisible ? 'animate' : ''}`}>Projects</h1>
             <div className="project-grid">
                 <div className={`project-card project-card-1 ${isVisible ? 'animate' : ''} ${overlayVisible[0] ? 'overlay-expanded no-border' : ''}`} style={{position:'relative'}}>
@@ -242,7 +245,7 @@ function Project({ projects = [] }) {
                         />
                     </div>
                     <div className="card-lower-div" style={{visibility: overlayVisible[0] ? 'hidden' : 'visible'}}>
-                        <button className="project-button left-button">
+                        <button className="project-button left-button" onClick={() => setShowTest(true)}>
                             <img 
                                 src="/my-portfolio/images/play.png" 
                                 alt="Play" 
