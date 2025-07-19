@@ -212,8 +212,7 @@ function About({ logo, image, intro, title, message }) {
                     <div className="circle circle-3"></div>
                 </div>
             </header>
-            <section className="about-content">
-                <h2 className="intro">{intro}</h2>
+            <section className="about-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
                 <div className="about-image">
                     <img 
                         src={image} 
@@ -231,6 +230,27 @@ function About({ logo, image, intro, title, message }) {
                             maxIterations={3}
                         />
                     </h1>
+                    <div className="skills-icons-row">
+                      <div className="skills-icons-track">
+                        <img src="images/intellij.png" alt="IntelliJ" />
+                        <img src="images/scenebuilder.png" alt="SceneBuilder" />
+                        <img src="images/figma.png" alt="Figma" />
+                        <img src="images/github.png" alt="GitHub" />
+                        <img src="images/git.png" alt="Git" />
+                        <img src="images/java.png" alt="Java" />
+                        <img src="images/mysql.png" alt="MySQL" />
+                        <img src="images/vscode.png" alt="VSCode" />
+                        {/* Duplicate for seamless loop */}
+                        <img src="images/intellij.png" alt="IntelliJ" />
+                        <img src="images/scenebuilder.png" alt="SceneBuilder" />
+                        <img src="images/figma.png" alt="Figma" />
+                        <img src="images/github.png" alt="GitHub" />
+                        <img src="images/git.png" alt="Git" />
+                        <img src="images/java.png" alt="Java" />
+                        <img src="images/mysql.png" alt="MySQL" />
+                        <img src="images/vscode.png" alt="VSCode" />
+                      </div>
+                    </div>
                     <BlurText 
                         text={message}
                         className="message"
@@ -248,10 +268,6 @@ function About({ logo, image, intro, title, message }) {
 About.propTypes = {
     logo: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    intro: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node
-    ]).isRequired,
     title: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired
 };

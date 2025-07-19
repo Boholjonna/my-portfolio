@@ -21,7 +21,7 @@ p {
 
 
 .about-container {
-    min-height: 100vh;
+    height: auto;
     background: linear-gradient(
         to top,
         rgba(0, 0, 0, 1) 40%,
@@ -252,4 +252,40 @@ p {
     position: relative;
     z-index: 2;
     font-style: italic;
+}
+
+/* Skill icons row styles */
+/* Marquee animation for skills icons */
+.skills-icons-row {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem 0 1.8rem 0;
+  padding: 0;
+}
+.skills-icons-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+  gap: 2.2rem;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.skills-icons-row img {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.18));
+  transition: transform 0.18s;
+}
+.skills-icons-row img:hover {
+  transform: scale(1.13) rotate(-6deg);
 }
