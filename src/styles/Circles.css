@@ -8,8 +8,8 @@
 }
 
 .circle {
-    width: clamp(17px, 2.5vw, 25px); /* Responsive width between 17px and 25px */
-    height: clamp(17px, 2.5vw, 25px); /* Responsive height between 17px and 25px */
+    width: clamp(10px, 2.5vw, 20px); /* Responsive width between 10px and 20px */
+    height: clamp(10px, 2.5vw, 20px); /* Responsive height between 10px and 20px */
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
