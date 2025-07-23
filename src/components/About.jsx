@@ -37,16 +37,20 @@ function About({ logo, image, intro, title, message }) {
                     <div className="circle circle-3"></div>
                 </div>
             </header>
+            <div className="portfolio-header">
+              <h1 className="portfolio-title">WELCOME TO MY PORTFOLIO</h1>
+              <hr className="portfolio-hr" />
+              <div className="jonna-gradient-text">
+                <span className="jonna-i-am">I am </span>
+                <span className="jonna-j">J</span>
+                <span className="jonna-o-img-wrapper">
+                  <img src="images/nightme.png" alt="Jonna" className="jonna-o-img" />
+                </span>
+                <span className="jonna-nna">nna</span>
+              </div>
+            </div>
             <section className="about-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                <div className="about-image">
-                    <img 
-                        src={image} 
-                        alt="Profile" 
-                        loading="eager"
-                        onLoad={handleImageLoad('Profile')}
-                        onError={handleImageError('Profile')}
-                    />
-                </div>
+                {/* Removed about-image with profile image as requested */}
                 <div className="about-text">
                     <h1 className="title">
                         <GradientDecryptText 

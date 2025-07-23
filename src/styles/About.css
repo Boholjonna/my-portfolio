@@ -1,6 +1,97 @@
 /* style.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body, html, * {
+  font-family: 'Inter', 'Open Sans', Arial, sans-serif !important;
+}
+
+.jonna-gradient-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(40px, 10vw, 130px);
+  margin: 0 auto;
+  margin-top: 2.2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.jonna-i-am {
+  background: linear-gradient(90deg, #00FBFF, #3A8DFF, #6A5CFF);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-move 3s linear infinite;
+  margin-right: 0.3em;
+}
+
+.jonna-j, .jonna-nna {
+  background: linear-gradient(90deg, #6A5CFF, #CC00FF, #FF4EDB);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-move 3s linear infinite;
+}
+
+.jonna-o-img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jonna-j {
+  background: linear-gradient(90deg, #6A5CFF, #CC00FF, #FF4EDB);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-move 3s linear infinite;
+  margin-right: -0.04em;
+}
+
+.jonna-nna {
+  background: linear-gradient(90deg, #6A5CFF, #CC00FF, #FF4EDB);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-move 3s linear infinite;
+  margin-left: -0.04em;
+}
+
+.jonna-o-img {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: none;
+  margin: 0 -0.01em;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -292,4 +383,36 @@ p {
 }
 .skills-icons-row img:hover {
   transform: scale(1.13) rotate(-6deg);
+}
+
+.portfolio-header {
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.portfolio-title {
+  font-size: clamp(20px, 4vw, 30px);
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #C08CD7, #B300FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.portfolio-hr {
+  border: none;
+  height: 1px;
+  width: 96%;
+  max-width: 540px;
+  min-width: 300px;
+  margin: 0 auto;
+  display: block;
+  background: linear-gradient(90deg, #7137E4, #00E5FF, #7137E4);
 }
