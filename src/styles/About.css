@@ -9,7 +9,7 @@ body, html, * {
 
 .jonna-gradient-text {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   font-family: 'Inter', Arial, sans-serif;
   font-weight: 700;
@@ -253,6 +253,55 @@ p {
     
 }
 
+.jonna-type-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+.jonna-type-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  border: 1.5px solid #7F7F7F;
+  border-radius: 2em;
+  padding: 0.22em 0.5em 0.22em 0.5em;
+  font-size: clamp(18px, 4vw, 30px);
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+  height: auto;
+  position: relative;
+  top: 0;
+}
+
+.jonna-type-static {
+  color: #46ACFF;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1;
+  margin-right: 0.18em;
+  display: inline-block;
+}
+
+.jonna-type-animated {
+  font-weight: 700;
+  font-family: inherit;
+  background: linear-gradient(90deg, #46ACFF, #9C02F6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-size: 1em;
+  min-width: 7.5ch;
+  display: inline-block;
+  letter-spacing: 0.01em;
+}
 
 
 @media screen and (max-width: 450px) {

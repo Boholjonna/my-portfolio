@@ -3,11 +3,47 @@ import '../styles/About.css';
 import '../styles/Circles.css';
 import GradientDecryptText from './GradientDecryptText';
 import BlurText from './BlurText';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 function About({ logo, image, intro, title, message }) {
     const [key, setKey] = useState(0);
     const containerRef = useRef(null);
+    // Typing animation state
+    const professions = [
+      'Software Engineer',
+      'Web Developer',
+      'Software Developer'
+    ];
+    const [currentProfession, setCurrentProfession] = useState(0);
+    const [typedText, setTypedText] = useState('');
+    const [typing, setTyping] = useState(true);
+    const typingSpeed = 70;
+    const pauseTime = 1200;
+
+    useEffect(() => {
+      let timeout;
+      if (typing) {
+        if (typedText.length < professions[currentProfession].length) {
+          // Add next character from right to left (actually, always add at the end)
+          timeout = setTimeout(() => {
+            setTypedText(professions[currentProfession].slice(0, typedText.length + 1));
+          }, typingSpeed);
+        } else {
+          timeout = setTimeout(() => setTyping(false), pauseTime);
+        }
+      } else {
+        if (typedText.length > 0) {
+          // Erase from right to left (remove last character)
+          timeout = setTimeout(() => {
+            setTypedText(professions[currentProfession].slice(0, typedText.length - 1));
+          }, 30);
+        } else {
+          setTyping(true);
+          setCurrentProfession((prev) => (prev + 1) % professions.length);
+        }
+      }
+      return () => clearTimeout(timeout);
+    }, [typedText, typing, currentProfession]);
 
     const handleImageLoad = (type) => () => {
         console.log(`${type} loaded successfully`);
@@ -48,17 +84,17 @@ function About({ logo, image, intro, title, message }) {
                 </span>
                 <span className="jonna-nna">nna</span>
               </div>
+              <div className="jonna-type-btn-wrapper">
+                <button className="jonna-type-btn">
+                  <span className="jonna-type-static">A&nbsp;</span>
+                  <span className="jonna-type-animated">{typedText}</span>
+                </button>
+              </div>
             </div>
             <section className="about-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
                 {/* Removed about-image with profile image as requested */}
                 <div className="about-text">
-                    <h1 className="title">
-                        <GradientDecryptText 
-                            text={title}
-                            speed={1}
-                            maxIterations={3}
-                        />
-                    </h1>
+                    {/* Removed the <h1 className='title'> and GradientDecryptText as requested */}
                     <div className="skills-icons-row">
                       <div className="skills-icons-track">
                         <img src="images/intellij.png" alt="IntelliJ" />
