@@ -23,9 +23,13 @@ p {
 .about-container {
     height: auto;
     background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 1) 40%,
-        rgba(118, 9, 252, 0.34) 100%
+        to bottom,
+        #000 0%,
+        #130029 32%,
+        #0b0018 48%,
+        #0b0018 52%,
+        #000 78%,
+        #000 100%
     );
     color: white;
     margin: 0;
