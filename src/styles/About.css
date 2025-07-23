@@ -298,6 +298,51 @@ p {
   letter-spacing: 0.01em;
 }
 
+.notable-skills-btn-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.notable-skills-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  border: 0.5px solid gray;
+  border-radius: 2em;
+  padding: 0.22em 1.2em;
+  font-size: clamp(18px, 4vw, 30px);
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+  position: relative;
+  top: 0;
+  letter-spacing: 0.01em;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.notable-skills-gradient-text {
+  background: linear-gradient(90deg, #46ACFF, #9C02F6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.notable-skills-btn:hover {
+  box-shadow: 0 4px 18px 0 rgba(70,172,255,0.18);
+  transform: scale(1.04);
+}
 
 @media screen and (max-width: 450px) {
     .message {
@@ -447,4 +492,37 @@ p {
   margin: 0 auto;
   display: block;
   background: linear-gradient(90deg, #7137E4, #00E5FF, #7137E4);
+}
+
+.about-skills-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2.5rem;
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.skills-section-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .about-skills-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .skills-section-wrapper {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
 }

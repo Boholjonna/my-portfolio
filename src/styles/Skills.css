@@ -1,0 +1,56 @@
+/* Skills section styles */
+
+.skills-section {
+  background: linear-gradient(180deg, #000000 0%, rgba(106,0,235,0.6) 100%);
+  width: 100%;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notable-skills-btn-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.notable-skills-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  border: 0.5px solid gray;
+  border-radius: 2em;
+  padding: 0.22em 1.2em;
+  font-size: clamp(18px, 4vw, 30px);
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+  position: relative;
+  top: 0;
+  letter-spacing: 0.01em;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.notable-skills-gradient-text {
+  background: linear-gradient(90deg, #46ACFF, #9C02F6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.notable-skills-btn:hover {
+  box-shadow: 0 4px 18px 0 rgba(70,172,255,0.18);
+  transform: scale(1.04);
+} 
