@@ -96,15 +96,17 @@ function About({ logo, image, intro, title, message }) {
                 <div className="about-text">
                     {/* Removed the <h1 className='title'> and GradientDecryptText as requested */}
                     {/* Removed skills-icons-row and skills-icons-track with images as requested */}
-                    <BlurText 
-                        text={message}
-                        className="message"
-                        delay={40}
-                        direction="top"
-                        stepDuration={0.3}
-                        animateBy="words"
-                        style={{ textAlign: 'center', justifyContent: 'center' }}
-                    />
+                    <div className="message-bg">
+                      <BlurText 
+                          text={message}
+                          className="message"
+                          delay={40}
+                          direction="top"
+                          stepDuration={0.3}
+                          animateBy="words"
+                          style={{ textAlign: 'center', justifyContent: 'center' }}
+                      />
+                    </div>
                 </div>
             </section>
         </div>

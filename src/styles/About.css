@@ -234,6 +234,18 @@ p {
     
 }
 
+.message-bg {
+  background: linear-gradient(90deg, #000000 20%, #0E011D 100%);
+  padding: 1.2em 1.5em;
+  border-radius: 18px;
+  display: inline-block;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 4px 0 rgba(122,6,255,0.2), 0 2px 16px 0 rgba(0,0,0,0.12);
+}
+
 .jonna-type-btn-wrapper {
   display: flex;
   justify-content: center;
