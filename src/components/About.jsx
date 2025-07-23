@@ -57,7 +57,7 @@ function About({ logo, image, intro, title, message }) {
     };
 
     return (
-        <div className="about-container" ref={containerRef} style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="about-container" ref={containerRef} style={{ position: 'relative' }}>
             <header className="about-header">
                 <img 
                     src={logo} 
@@ -91,7 +91,7 @@ function About({ logo, image, intro, title, message }) {
                 </button>
               </div>
             </div>
-            <section className="about-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+            <section className="about-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                 {/* Removed about-image with profile image as requested */}
                 <div className="about-text">
                     {/* Removed the <h1 className='title'> and GradientDecryptText as requested */}
@@ -99,10 +99,10 @@ function About({ logo, image, intro, title, message }) {
                     <BlurText 
                         text={message}
                         className="message"
-                        delay={100}
+                        delay={40}
                         direction="top"
-                        stepDuration={0.4}
-                        animateBy="lines"
+                        stepDuration={0.3}
+                        animateBy="words"
                         style={{ textAlign: 'center', justifyContent: 'center' }}
                     />
                 </div>
