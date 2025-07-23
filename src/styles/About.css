@@ -112,7 +112,7 @@ p {
 
 
 .about-container {
-    height: auto;
+    height: auto !important;
     background: linear-gradient(
         to bottom,
         #000 0%,
@@ -165,26 +165,6 @@ p {
     gap: 0.3rem;
 }
 
-.about-image {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.about-image img {
-    max-width: 259px;
-    width: clamp(209px, 41.5vw, 259px);
-    height: auto;
-    min-width: 219px;
-    min-height: 219px;
-    border-radius: 10px;
-    box-shadow: none;
-    margin-bottom: 15px;
-    background: transparent;
-}
-
 .about-text {
     max-width: 800px;
     text-align: center;
@@ -232,7 +212,7 @@ p {
 }
 
 .message {
-    font-size: 1.1rem;
+    font-size: clamp(12px, 1.1rem, 15px);
     line-height: 1.6;
     color: #f0f0f0;
     text-align: center;
@@ -274,7 +254,9 @@ p {
   outline: none;
   transition: box-shadow 0.2s;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
-  height: auto;
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
   position: relative;
   top: 0;
 }
@@ -361,10 +343,6 @@ p {
         padding-top: 0;
     }
 
-    .about-image {
-        flex: none;
-    }
-
     .about-text {
         flex: none;
         text-align: center;
@@ -399,7 +377,7 @@ p {
 }
 
 /* Skill icons row styles */
-/* Marquee animation for skills icons */
+/* Remove marquee animation for skills icons */
 .skills-icons-row {
   overflow: hidden;
   position: relative;
@@ -412,16 +390,8 @@ p {
 .skills-icons-track {
   display: flex;
   width: max-content;
-  animation: marquee 18s linear infinite;
+  /* animation: marquee 18s linear infinite; */
   gap: 2.2rem;
-}
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
 }
 .skills-icons-row img {
   height: 48px;

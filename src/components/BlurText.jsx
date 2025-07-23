@@ -29,7 +29,15 @@ const BlurText = ({
   onAnimationComplete,
   stepDuration = 0.35,
 }) => {
-  const elements = animateBy === 'words' ? text.split(' ') : text.split('');
+  let elements;
+  if (animateBy === 'lines') {
+    // Split by line breaks (\n) or sentences (., !, ?) followed by space or end of string
+    elements = text.split(/(?<=[.!?])\s+|\n/).filter(Boolean);
+  } else if (animateBy === 'words') {
+    elements = text.split(' ');
+  } else {
+    elements = text.split('');
+  }
   const [inView, setInView] = useState(false);
   const ref = useRef(null);
 
@@ -103,8 +111,9 @@ const BlurText = ({
             onAnimationComplete={
               index === elements.length - 1 ? onAnimationComplete : undefined
             }
+            style={animateBy === 'lines' ? { display: 'block', width: '100%' } : {}}
           >
-            {segment === ' ' ? '\u00A0' : segment}
+            {segment}
             {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}
           </motion.span>
         );

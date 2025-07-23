@@ -95,33 +95,14 @@ function About({ logo, image, intro, title, message }) {
                 {/* Removed about-image with profile image as requested */}
                 <div className="about-text">
                     {/* Removed the <h1 className='title'> and GradientDecryptText as requested */}
-                    <div className="skills-icons-row">
-                      <div className="skills-icons-track">
-                        <img src="images/intellij.png" alt="IntelliJ" />
-                        <img src="images/scenebuilder.png" alt="SceneBuilder" />
-                        <img src="images/figma.png" alt="Figma" />
-                        <img src="images/github.png" alt="GitHub" />
-                        <img src="images/git.png" alt="Git" />
-                        <img src="images/java.png" alt="Java" />
-                        <img src="images/mysql.png" alt="MySQL" />
-                        <img src="images/vscode.png" alt="VSCode" />
-                        {/* Duplicate for seamless loop */}
-                        <img src="images/intellij.png" alt="IntelliJ" />
-                        <img src="images/scenebuilder.png" alt="SceneBuilder" />
-                        <img src="images/figma.png" alt="Figma" />
-                        <img src="images/github.png" alt="GitHub" />
-                        <img src="images/git.png" alt="Git" />
-                        <img src="images/java.png" alt="Java" />
-                        <img src="images/mysql.png" alt="MySQL" />
-                        <img src="images/vscode.png" alt="VSCode" />
-                      </div>
-                    </div>
+                    {/* Removed skills-icons-row and skills-icons-track with images as requested */}
                     <BlurText 
                         text={message}
                         className="message"
                         delay={100}
                         direction="top"
                         stepDuration={0.4}
+                        animateBy="lines"
                         style={{ textAlign: 'center', justifyContent: 'center' }}
                     />
                 </div>
