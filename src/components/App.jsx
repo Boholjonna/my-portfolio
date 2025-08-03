@@ -73,7 +73,23 @@ function App() {
           <Contact />
         </div>
         <footer className="about-footer">
-          © ms J 2025
+          <button
+            className="footer-btn"
+            style={{
+              background: 'linear-gradient(90deg, #6a5af9, #f857a6)',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '8px',
+              padding: '0.5rem 1.5rem',
+              fontSize: '1rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+            }}
+            onClick={() => window.open('auth.html', '_blank')}
+          >
+            © ms J 2025
+          </button>
         </footer>
       </div>
     </div>
