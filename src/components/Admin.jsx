@@ -5,6 +5,10 @@ function Admin() {
   const fileInputRef = useRef(null);
   const [activeSection, setActiveSection] = useState('dashboard');
   const [selectedImage, setSelectedImage] = useState(null);
+  const [skillsImage, setSkillsImage] = useState(null);
+  const [projectImage, setProjectImage] = useState(null);
+  const [contactImage, setContactImage] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleImageUpload = () => {
     fileInputRef.current.click();
@@ -15,6 +19,14 @@ function Admin() {
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   const adminSections = [
@@ -206,42 +218,42 @@ function Admin() {
         return (
           <div className="section-content">
             <div className="section-header">
-              <h3>Skills Section Management</h3>
-              <p>Manage your technical skills and expertise levels</p>
+              <h3>Skills Section</h3>
+              <p>Manage the skills image and section title</p>
             </div>
             
-            <div className="skills-container">
-              <div className="skill-category">
-                <h4>💻 Programming Languages</h4>
-                <div className="skill-inputs">
-                  <input type="text" placeholder="Skill name" className="admin-input" />
-                  <input type="number" placeholder="Proficiency %" className="admin-input" min="0" max="100" />
-                  <button className="add-btn">+</button>
-                </div>
-                <div className="existing-skills">
-                  <div className="skill-tag">JavaScript (90%) <button className="remove-btn">×</button></div>
-                  <div className="skill-tag">Python (85%) <button className="remove-btn">×</button></div>
-                  <div className="skill-tag">Java (80%) <button className="remove-btn">×</button></div>
-                </div>
-              </div>
-              
-              <div className="skill-category">
-                <h4>🛠️ Frameworks & Tools</h4>
-                <div className="skill-inputs">
-                  <input type="text" placeholder="Tool name" className="admin-input" />
-                  <input type="number" placeholder="Proficiency %" className="admin-input" min="0" max="100" />
-                  <button className="add-btn">+</button>
-                </div>
-                <div className="existing-skills">
-                  <div className="skill-tag">React (88%) <button className="remove-btn">×</button></div>
-                  <div className="skill-tag">Node.js (82%) <button className="remove-btn">×</button></div>
-                  <div className="skill-tag">Git (95%) <button className="remove-btn">×</button></div>
+            <div className="form-grid">
+              <div className="form-group">
+                <label>Skills Image</label>
+                <div className="image-upload-area">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0]
+                      if (file) setSkillsImage(URL.createObjectURL(file))
+                    }}
+                    style={{ display: 'none' }}
+                    id="skills-image-input"
+                  />
+                  <button type="button" className="upload-btn" onClick={() => document.getElementById('skills-image-input').click()}>
+                    {skillsImage ? 'Change Image' : 'Upload Image'}
+                  </button>
+                  {skillsImage && (
+                    <img src={skillsImage} alt="Skills Preview" className="image-preview" />
+                  )}
                 </div>
               </div>
-            </div>
-            
-            <div className="form-actions">
-              <button className="save-btn">💾 Save Skills</button>
+
+              <div className="form-group">
+                <label>Section Title</label>
+                <input type="text" placeholder="e.g., Skills & Tools" className="admin-input" />
+              </div>
+
+              <div className="form-actions">
+                <button className="save-btn">💾 Save Skills</button>
+                <button className="cancel-btn">❌ Cancel</button>
+              </div>
             </div>
           </div>
         );
@@ -250,61 +262,76 @@ function Admin() {
         return (
           <div className="section-content">
             <div className="section-header">
-              <h3>Projects Section Management</h3>
-              <p>Add and manage your portfolio projects</p>
+              <h3>Projects Section</h3>
+              <p>Add and update your portfolio projects</p>
             </div>
             
             <div className="project-form">
               <div className="form-grid">
                 <div className="form-group">
+                  <label>Project Type</label>
+                  <div className="radio-group">
+                    <label className="radio-option">
+                      <input type="radio" name="project-type" />
+                      <span>Solo</span>
+                    </label>
+                    <label className="radio-option">
+                      <input type="radio" name="project-type" />
+                      <span>Team</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label>Project Image</label>
+                  <div className="image-upload-area">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0]
+                        if (file) setProjectImage(URL.createObjectURL(file))
+                      }}
+                      style={{ display: 'none' }}
+                      id="project-image-input"
+                    />
+                    <button type="button" className="upload-btn" onClick={() => document.getElementById('project-image-input').click()}>
+                      {projectImage ? 'Change Image' : 'Upload Image'}
+                    </button>
+                    {projectImage && (
+                      <img src={projectImage} alt="Project Preview" className="image-preview" />
+                    )}
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label>Video URL</label>
+                  <input type="url" placeholder="https://... (optional)" className="admin-input" />
+                </div>
+
+                <div className="form-group">
                   <label>Project Title</label>
                   <input type="text" placeholder="e.g., E-commerce Platform" className="admin-input" />
                 </div>
-                
-                <div className="form-group">
-                  <label>Category</label>
-                  <select className="admin-input">
-                    <option value="">Select category</option>
-                    <option value="web">Web Application</option>
-                    <option value="mobile">Mobile App</option>
-                    <option value="desktop">Desktop Application</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                
+
                 <div className="form-group full-width">
                   <label>Project Description</label>
                   <textarea placeholder="Describe your project, its features, and your role..." className="admin-textarea" rows="3"></textarea>
                 </div>
-                
-                <div className="form-group">
-                  <label>Technologies Used</label>
-                  <input type="text" placeholder="e.g., React, Node.js, MongoDB" className="admin-input" />
+
+                <div className="form-group full-width">
+                  <label>Tech Stack</label>
+                  <input type="text" placeholder="e.g., React, Vite, Supabase" className="admin-input" />
                 </div>
-                
-                <div className="form-group">
-                  <label>Project Image</label>
-                  <input type="file" accept="image/*" className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>Live Demo URL</label>
-                  <input type="url" placeholder="https://..." className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>GitHub URL</label>
-                  <input type="url" placeholder="https://github.com/..." className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>Completion Date</label>
-                  <input type="month" className="admin-input" />
+
+                <div className="form-group full-width">
+                  <label>Responsibilities</label>
+                  <textarea placeholder="Bullet your responsibilities and contributions" className="admin-textarea" rows="3"></textarea>
                 </div>
               </div>
-              
+
               <div className="form-actions">
-                <button className="save-btn">🚀 Add Project</button>
+                <button className="save-btn">🚀 Add/Update Project</button>
                 <button className="cancel-btn">❌ Cancel</button>
               </div>
             </div>
@@ -315,58 +342,40 @@ function Admin() {
         return (
           <div className="section-content">
             <div className="section-header">
-              <h3>Experience Section Management</h3>
-              <p>Manage your work history and professional achievements</p>
+              <h3>Experience Section</h3>
+              <p>Manage your work history and responsibilities</p>
             </div>
             
             <div className="experience-form">
               <div className="form-grid">
                 <div className="form-group">
-                  <label>Company Name</label>
-                  <input type="text" placeholder="e.g., Tech Solutions Inc." className="admin-input" />
-                </div>
-                
-                <div className="form-group">
                   <label>Position</label>
                   <input type="text" placeholder="e.g., Senior Software Engineer" className="admin-input" />
                 </div>
-                
+
                 <div className="form-group">
-                  <label>Start Date</label>
-                  <input type="month" className="admin-input" />
+                  <label>Company Name & Duration</label>
+                  <input type="text" placeholder="e.g., Tech Solutions Inc. (2020-2023)" className="admin-input" />
                 </div>
-                
-                <div className="form-group">
-                  <label>End Date</label>
-                  <input type="month" className="admin-input" />
-                  <small className="form-help">Leave empty if current position</small>
-                </div>
-                
+
                 <div className="form-group full-width">
-                  <label>Job Description</label>
-                  <textarea placeholder="Describe your responsibilities, achievements, and technologies used..." className="admin-textarea" rows="4"></textarea>
+                  <label>Skills</label>
+                  <input type="text" placeholder="e.g., React, Node.js, Leadership" className="admin-input" />
                 </div>
-                
-                <div className="form-group">
-                  <label>Location</label>
-                  <input type="text" placeholder="City, Country (or Remote)" className="admin-input" />
+
+                <div className="form-group full-width">
+                  <label>About Company</label>
+                  <textarea placeholder="Describe the company briefly" className="admin-textarea" rows="2"></textarea>
                 </div>
-                
-                <div className="form-group">
-                  <label>Employment Type</label>
-                  <select className="admin-input">
-                    <option value="">Select type</option>
-                    <option value="full-time">Full-time</option>
-                    <option value="part-time">Part-time</option>
-                    <option value="contract">Contract</option>
-                    <option value="freelance">Freelance</option>
-                    <option value="internship">Internship</option>
-                  </select>
+
+                <div className="form-group full-width">
+                  <label>Responsibilities</label>
+                  <textarea placeholder="List your responsibilities and achievements" className="admin-textarea" rows="4"></textarea>
                 </div>
               </div>
               
               <div className="form-actions">
-                <button className="save-btn">💼 Add Experience</button>
+                <button className="save-btn">💼 Save Experience</button>
                 <button className="cancel-btn">❌ Cancel</button>
               </div>
             </div>
@@ -377,62 +386,42 @@ function Admin() {
         return (
           <div className="section-content">
             <div className="section-header">
-              <h3>Contact Section Management</h3>
-              <p>Update your contact information and social media links</p>
+              <h3>Contact Section</h3>
+              <p>Manage social media icons and contact title</p>
             </div>
             
             <div className="contact-form">
               <div className="form-grid">
                 <div className="form-group">
-                  <label>Email Address</label>
-                  <input type="email" placeholder="your@email.com" className="admin-input" />
+                  <label>Social Media Image</label>
+                  <div className="image-upload-area">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0]
+                        if (file) setContactImage(URL.createObjectURL(file))
+                      }}
+                      style={{ display: 'none' }}
+                      id="contact-image-input"
+                    />
+                    <button type="button" className="upload-btn" onClick={() => document.getElementById('contact-image-input').click()}>
+                      {contactImage ? 'Change Image' : 'Upload Image'}
+                    </button>
+                    {contactImage && (
+                      <img src={contactImage} alt="Social Preview" className="image-preview" />
+                    )}
+                  </div>
                 </div>
-                
+
                 <div className="form-group">
-                  <label>Phone Number</label>
-                  <input type="tel" placeholder="+1 (555) 123-4567" className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>LinkedIn Profile</label>
-                  <input type="url" placeholder="https://linkedin.com/in/..." className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>GitHub Profile</label>
-                  <input type="url" placeholder="https://github.com/..." className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>Twitter/X Profile</label>
-                  <input type="url" placeholder="https://twitter.com/..." className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>Portfolio Website</label>
-                  <input type="url" placeholder="https://yourwebsite.com" className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>Location</label>
-                  <input type="text" placeholder="City, Country" className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>Timezone</label>
-                  <select className="admin-input">
-                    <option value="">Select timezone</option>
-                    <option value="UTC-8">Pacific Time (UTC-8)</option>
-                    <option value="UTC-5">Eastern Time (UTC-5)</option>
-                    <option value="UTC+0">UTC</option>
-                    <option value="UTC+1">Central European Time (UTC+1)</option>
-                    <option value="UTC+8">China Standard Time (UTC+8)</option>
-                  </select>
+                  <label>Title</label>
+                  <input type="text" placeholder="e.g., Get in touch" className="admin-input" />
                 </div>
               </div>
-              
+
               <div className="form-actions">
-                <button className="save-btn">📧 Update Contact Info</button>
+                <button className="save-btn">📧 Save Contact</button>
                 <button className="cancel-btn">❌ Cancel</button>
               </div>
             </div>
@@ -443,58 +432,34 @@ function Admin() {
         return (
           <div className="section-content">
             <div className="section-header">
-              <h3>Credentials Section Management</h3>
-              <p>Manage your education, certifications, and achievements</p>
+              <h3>Credentials Section</h3>
+              <p>Manage courses and certifications</p>
             </div>
             
             <div className="credentials-form">
               <div className="form-grid">
                 <div className="form-group">
-                  <label>Degree/Certification</label>
-                  <input type="text" placeholder="e.g., Bachelor of Science in Computer Science" className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>Institution</label>
-                  <input type="text" placeholder="University/Organization name" className="admin-input" />
-                </div>
-                
-                <div className="form-group">
-                  <label>Year Obtained</label>
-                  <input type="number" placeholder="2024" className="admin-input" min="1900" max="2030" />
-                </div>
-                
-                <div className="form-group">
                   <label>Type</label>
-                  <select className="admin-input">
-                    <option value="">Select type</option>
-                    <option value="degree">University Degree</option>
-                    <option value="certification">Professional Certification</option>
-                    <option value="diploma">Diploma</option>
-                    <option value="course">Online Course</option>
-                    <option value="bootcamp">Coding Bootcamp</option>
-                  </select>
+                  <div className="radio-group">
+                    <label className="radio-option">
+                      <input type="radio" name="credential-type" />
+                      <span>Course</span>
+                    </label>
+                    <label className="radio-option">
+                      <input type="radio" name="credential-type" />
+                      <span>Certification</span>
+                    </label>
+                  </div>
                 </div>
-                
+
                 <div className="form-group full-width">
                   <label>Description</label>
-                  <textarea placeholder="Additional details about the credential, achievements, or relevant coursework..." className="admin-textarea" rows="3"></textarea>
-                </div>
-                
-                <div className="form-group">
-                  <label>Credential URL</label>
-                  <input type="url" placeholder="https://..." className="admin-input" />
-                  <small className="form-help">Link to verify the credential (optional)</small>
-                </div>
-                
-                <div className="form-group">
-                  <label>GPA/Score</label>
-                  <input type="text" placeholder="e.g., 3.8/4.0 or 95%" className="admin-input" />
+                  <textarea placeholder="Describe the course or certification" className="admin-textarea" rows="3"></textarea>
                 </div>
               </div>
-              
+
               <div className="form-actions">
-                <button className="save-btn">🎓 Add Credential</button>
+                <button className="save-btn">🎓 Save Credential</button>
                 <button className="cancel-btn">❌ Cancel</button>
               </div>
             </div>
@@ -591,6 +556,9 @@ function Admin() {
             <p className="admin-subtitle">Welcome back! Ready to make your portfolio amazing?</p>
           </div>
           <div className="header-actions">
+            <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+              ☰
+            </button>
             <button className="notification-btn">🔔</button>
             <button className="profile-btn">👤</button>
           </div>
@@ -598,13 +566,16 @@ function Admin() {
       </div>
       
       <div className="admin-layout">
-        <div className="admin-sidebar">
+        <div className={`admin-sidebar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           <nav className="admin-nav">
             {adminSections.map((section) => (
               <button
                 key={section.id}
                 className={`nav-item ${activeSection === section.id ? 'active' : ''}`}
-                onClick={() => setActiveSection(section.id)}
+                onClick={() => {
+                  setActiveSection(section.id);
+                  closeMobileMenu();
+                }}
                 style={{
                   borderLeft: activeSection === section.id ? `4px solid ${section.color}` : '4px solid transparent'
                 }}
@@ -618,6 +589,11 @@ function Admin() {
             ))}
           </nav>
         </div>
+        
+        {/* Mobile Menu Backdrop */}
+        {isMobileMenuOpen && (
+          <div className="mobile-backdrop" onClick={closeMobileMenu}></div>
+        )}
         
         <div className="admin-main">
           <div className="admin-content">
