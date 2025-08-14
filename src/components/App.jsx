@@ -6,13 +6,9 @@ import Project from './Project'
 import Experience from './Experience'
 import Credentials from './Credentials';
 import Contact from './Contact';
+import Auth from '../auth';
 import { useEffect, useRef, useState } from 'react';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = 'https://YOUR_PROJECT_ID.supabase.co'; // Replace with your Project URL
-const supabaseAnonKey = 'YOUR_ANON_PUBLIC_KEY'; // Replace with your Anon Public Key
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Supabase client is imported from supabaseClient.js
 
 function App() {
   const imageUrl = 'images/msJ.png'
@@ -20,6 +16,7 @@ function App() {
 
   const experienceRef = useRef(null);
   const [experienceVisible, setExperienceVisible] = useState(false);
+  const [showAuth, setShowAuth] = useState(false);
 
   useEffect(() => {
     const observer = new window.IntersectionObserver(
@@ -39,6 +36,11 @@ function App() {
 
   return (
     <div className="App">
+      {showAuth && (
+        <div className="auth-overlay">
+          <Auth onClose={() => setShowAuth(false)} />
+        </div>
+      )}
       <div className="main-container">
         <div className="about-section" id="about">
           <About 
@@ -76,17 +78,17 @@ function App() {
           <button
             className="footer-btn"
             style={{
-              background: 'linear-gradient(90deg, #6a5af9, #f857a6)',
+              background: 'transparent',
               color: '#fff',
-              border: 'none',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
               borderRadius: '8px',
               padding: '0.5rem 1.5rem',
               fontSize: '1rem',
               fontWeight: 600,
               cursor: 'pointer',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.15)'
+              transition: 'all 0.3s ease'
             }}
-            onClick={() => window.open('auth.html', '_blank')}
+            onClick={() => setShowAuth(true)}
           >
             © ms J 2025
           </button>
