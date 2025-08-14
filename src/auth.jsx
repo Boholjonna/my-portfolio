@@ -283,13 +283,15 @@ function Auth({ onClose }) {
         <div className="auth-background">
           <div className="auth-form-container">
             <div className="auth-header">
-              <button 
-                className="auth-close-btn" 
-                onClick={onClose}
-                type="button"
-              >
-                ×
-              </button>
+              <div className="auth-header-row">
+                <button 
+                  className="auth-close-btn" 
+                  onClick={onClose}
+                  type="button"
+                >
+                  ×
+                </button>
+              </div>
               <h1>OTP Verification</h1>
               <p>Enter the authentication code sent to your email</p>
             </div>
@@ -348,13 +350,15 @@ function Auth({ onClose }) {
       <div className="auth-background">
         <div className="auth-form-container">
           <div className="auth-header">
-            <button 
-              className="auth-close-btn" 
-              onClick={onClose}
-              type="button"
-            >
-              ×
-            </button>
+            <div className="auth-header-row">
+              <button 
+                className="auth-close-btn" 
+                onClick={onClose}
+                type="button"
+              >
+                ×
+              </button>
+            </div>
             <h1>Admin Login</h1>
             <p>Enter your credentials to access the admin panel</p>
           </div>
