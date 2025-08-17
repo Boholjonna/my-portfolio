@@ -29,21 +29,23 @@ function Skills() {
 
   return (
   <section className="skills-section" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "48px 0" }}>
-      <div className="notable-skills-btn-wrapper" style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+  <div className="notable-skills-btn-wrapper" style={{ width: "100%", display: "flex", justifyContent: "center" }}>
         <button className="notable-skills-btn">
           <span className="notable-skills-gradient-text">Notable Skills</span>
         </button>
       </div>
-      <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", marginTop: "0.8rem" }}>
+      <div style={{ width: "100%", marginTop: "0.8rem" }}>
         <div style={{
           display: "flex",
+          flexWrap: "wrap",
           justifyContent: "center",
           alignItems: "flex-end",
           gap: "18px",
           background: "transparent",
           borderRadius: "24px",
           padding: "18px 32px",
-          boxShadow: "none"
+          boxShadow: "none",
+          height: "auto"
         }}>
           {loading ? (
             <span style={{ color: "#a259ff" }}>Loading...</span>

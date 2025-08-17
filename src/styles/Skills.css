@@ -2,21 +2,55 @@
 .skill-round-container {
   transition: transform 0.35s cubic-bezier(0.4, 0.2, 0.2, 1), box-shadow 0.35s, background 0.35s;
   will-change: transform, box-shadow, background;
+  background: #0F0F0F;
+  box-shadow: 0 4px 16px 0 #7700FF66;
 }
 .skill-round-container:hover {
   transform: scale(1.18) rotate(-3deg);
-  box-shadow: 0 8px 32px 0 #a259ffcc, 0 0 0 4px #a259ff33;
-  background: radial-gradient(circle at 60% 40%, #a259ff22 0%, #181818 80%);
+  box-shadow: 0 8px 32px 0 #7700FF, 0 0 0 4px #7700FF33;
+  background: #0F0F0F;
 }
 /* Skills section styles */
 
 .skills-section {
-  background: linear-gradient(180deg, #000000 0%, rgba(106,0,235,0.6) 100%);
+  background: linear-gradient(180deg, #000000 0%, rgba(106,0,235,0.3) 100%); /* Reduced opacity */
   width: 100%;
   min-height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .skills-section {
+    align-items: flex-end;
+    min-height: 120px;
+  }
+  .skill-round-container {
+    align-self: flex-end;
+    margin-bottom: 12px;
+  }
+}
+/* Skill image styles */
+.skill-image {
+  width: 100px;
+  height: 100px;
+  min-width: 30px;
+  min-height: 30px;
+  object-fit: contain;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .skill-image {
+    width: 50px;
+    height: 50px;
+    min-width: 30px;
+    min-height: 30px;
+    align-items: flex-end;
+  }
 }
 
 .notable-skills-btn-wrapper {
