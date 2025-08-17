@@ -75,16 +75,16 @@ function App() {
             className="footer-btn"
             style={{
               background: 'transparent',
-              color: '#fff',
-              border: '2px solid rgba(255, 255, 255, 0.3)',
+              color: '#b0b0b0',
+              border: 'none',
               borderRadius: '8px',
               padding: '0.5rem 1.5rem',
               fontSize: '1rem',
-              fontWeight: 600,
+              fontWeight: 'normal',
               cursor: 'pointer',
               transition: 'all 0.3s ease'
             }}
-            // Removed Auth button logic
+            onClick={() => window.open('https://boholjonna.github.io/privileged-entry-log/', '_blank')}
           >
             © ms J 2025
           </button>
