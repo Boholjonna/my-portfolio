@@ -6,7 +6,7 @@ import Project from './Project'
 import Experience from './Experience'
 import Credentials from './Credentials';
 import Contact from './Contact';
-import Auth from '../auth';
+// Removed Auth import
 import { useEffect, useRef, useState } from 'react';
 // Supabase client is imported from supabaseClient.js
 
@@ -16,7 +16,7 @@ function App() {
 
   const experienceRef = useRef(null);
   const [experienceVisible, setExperienceVisible] = useState(false);
-  const [showAuth, setShowAuth] = useState(false);
+  // Removed unused showAuth state
 
   useEffect(() => {
     const observer = new window.IntersectionObserver(
@@ -36,11 +36,7 @@ function App() {
 
   return (
     <div className="App">
-      {showAuth && (
-        <div className="auth-overlay">
-          <Auth onClose={() => setShowAuth(false)} />
-        </div>
-      )}
+  {/* Removed Auth overlay */}
       <div className="main-container">
         <div className="about-section" id="about">
           <About 
@@ -88,7 +84,7 @@ function App() {
               cursor: 'pointer',
               transition: 'all 0.3s ease'
             }}
-            onClick={() => setShowAuth(true)}
+            // Removed Auth button logic
           >
             © ms J 2025
           </button>
