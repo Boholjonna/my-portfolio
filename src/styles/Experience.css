@@ -66,9 +66,9 @@
 }
 
 .experience-card {
-    width: 100%;
-    max-width: 810px;
-    min-width: 360px;
+    width: 650px;
+    max-width: 650px;
+    min-width: 370px;
     background: #000;
     margin: 0 auto 2.5rem auto;
     display: flex;
@@ -79,6 +79,7 @@
     padding: 2rem;
     border-radius: 10px;
     height: auto;
+    min-height: 180px;
     overflow: hidden;
 }
 
@@ -225,7 +226,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     padding: 0;
 }
 .exp-description-ctnr {
@@ -335,7 +336,7 @@
     bottom: 1rem;
     right: 1rem;
     z-index: 3;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
 }
 
 .experience-dropdown-btn {

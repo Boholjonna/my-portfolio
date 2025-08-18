@@ -2,80 +2,113 @@
 import '../styles/Experience.css';
 import '../styles/Project.css';
 import { useEffect, useRef, useState, useMemo } from 'react';
+import { supabase } from '../supabaseClient';
 
 // Reusable ExperienceCard component
-const ExperienceCard = ({ image, alt, title, expanded, onToggle, children }) => (
-  <div className={`experience-card${expanded ? ' expanded' : ''}`} style={{ position: 'relative', zIndex: 1 }}>
-    <div className="experience-content">
-      <div className="experience-row">
-        <span className="experience-image-container">
-          <img 
-            src={image} 
-            alt={alt} 
-            className="experience-icon"
-          />
-        </span>
-        <div className="exp-description-ctnr">
-          <h2 className="experience-title-text">English Teacher</h2>
-          <p className="experience-details">Native Camp | Aug 2022 – Present</p>
-          <div className="experience-skills">
-            <span className="experience-skill-tag">communication</span>
-            <span className="experience-skill-tag">interpersonal</span>
-            <span className="experience-skill-tag">instructional</span>
+const ExperienceCard = ({ experience, expanded, onToggle }) => {
+  // Helper function to split skills by spaces
+  const parseSkills = (skillsString) => {
+    if (!skillsString) return [];
+    return skillsString.split(' ').filter(skill => skill.trim() !== '');
+  };
+
+  // Helper function to split paragraphs into sentences by dots
+  const parseParagraphToList = (paragraph) => {
+    if (!paragraph) return [];
+    return paragraph.split('.').filter(sentence => sentence.trim() !== '').map(sentence => sentence.trim());
+  };
+
+  const skills = parseSkills(experience.skills);
+  const aboutList = parseParagraphToList(experience.about);
+  const responsibilitiesList = parseParagraphToList(experience.responsibilities);
+
+  return (
+    <div className={`experience-card${expanded ? ' expanded' : ''}`} style={{ position: 'relative', zIndex: 1 }}>
+      <div className="experience-content">
+        <div className="experience-row">
+          <span className="experience-image-container">
+            <img 
+              src="images/experience.png" 
+              alt="Experience Icon" 
+              className="experience-icon"
+            />
+          </span>
+          <div className="exp-description-ctnr">
+            <h2 className="experience-title-text">{experience.role}</h2>
+            <p className="experience-details">{experience.companyduration}</p>
+            <div className="experience-skills">
+              {skills.map((skill, index) => (
+                <span key={index} className="experience-skill-tag">{skill}</span>
+              ))}
+            </div>
+          </div>
+          <div className="experience-btn-wrapper">
+            <button className="experience-dropdown-btn" onClick={onToggle}>
+              <span>show information</span>
+              <img 
+                src="images/dropdown.png" 
+                alt="Dropdown" 
+                className="experience-btn-icon"
+                style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+              />
+            </button>
           </div>
         </div>
-        <div className="experience-btn-wrapper">
-          <button className="experience-dropdown-btn" onClick={onToggle}>
-            <span>show information</span>
-            <img 
-              src="images/dropdown.png" 
-              alt="Dropdown" 
-              className="experience-btn-icon"
-              style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
-            />
-          </button>
-        </div>
+        {expanded && (
+          <div className="experience-dropdown-column">
+            <div className="experience-dropdown-content">
+              <div className="exp-company">
+                <h3>About the Company</h3>
+                <ul>
+                  {aboutList.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="exp-responsibilities">
+                <h3>My Responsibilities</h3>
+                <ul>
+                  {responsibilitiesList.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-      {expanded && (
-        <div className="experience-dropdown-column">
-          {children}
-        </div>
-      )}
     </div>
-  </div>
-);
-
-const DROPDOWN_TEXT = (
-  <div className="experience-dropdown-content">
-    <div className="exp-company">
-      <h3>About the Company</h3>
-      <ul>
-        <li>Innovative online platform for English language learning.</li>
-        <li>Provides high-quality, accessible, and engaging education.</li>
-        <li>Empowers students to achieve personal and professional language goals.</li>
-      </ul>
-    </div>
-    <div className="exp-responsibilities">
-      <h3>My Responsibilities</h3>
-      <ul>
-        <li>Conduct live, one-on-one English lessons.</li>
-        <li>Use a variety of textbooks and learning materials provided by Native Camp.</li>
-        <li>Engage in free conversation with students to entertain, build rapport, and encourage confident speaking.</li>
-        <li>Provide constructive feedback and corrections to enhance students' language skills.</li>
-        <li>Tailor lessons to suit individual learning styles and proficiency levels.</li>
-        <li>Motivate students to practice regularly and provide supplementary resources for continued learning.</li>
-      </ul>
-    </div>
-  </div>
-);
+  );
+};
 
 function Experience() {
   const [isVisible, setIsVisible] = useState(false);
-  const [expanded, setExpanded] = useState(false);
+  const [expandedCards, setExpandedCards] = useState({});
+  const [experienceData, setExperienceData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const containerRef = useRef(null);
-  // const canvasRef = useRef(null); // Removed for star background removal
-  const cardRef = useRef(null);
   const [containerH, setContainerH] = useState(0);
+
+  // Fetch experience data from Supabase database (same pattern as Projects)
+  useEffect(() => {
+    async function fetchExperience() {
+      setLoading(true);
+      setError(null);
+      const { data, error } = await supabase
+        .from('Experience')
+        .select('role, companyduration, skills, about, responsibilities');
+      
+      if (error) {
+        setError(error.message || 'Error fetching experience data');
+        setExperienceData([]);
+      } else {
+        setExperienceData(data || []);
+      }
+      setLoading(false);
+    }
+    fetchExperience();
+  }, []);
 
   useEffect(() => {
     const observer = new window.IntersectionObserver(
@@ -91,7 +124,11 @@ function Experience() {
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
-    return () => observer.disconnect();
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -113,45 +150,63 @@ function Experience() {
     };
   }, [containerH]);
 
-  // Galaxy/stars animation removed as requested
+  // Handle card expansion
+  const handleCardToggle = (cardId) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [cardId]: !prev[cardId]
+    }));
+  };
 
   // Scroll to card when expanded
   useEffect(() => {
-    if (expanded && cardRef.current) {
-      cardRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const expandedCardIds = Object.keys(expandedCards).filter(id => expandedCards[id]);
+    if (expandedCardIds.length > 0) {
+      const lastExpandedId = expandedCardIds[expandedCardIds.length - 1];
+      const cardElement = document.querySelector(`[data-card-id="${lastExpandedId}"]`);
+      if (cardElement) {
+        cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
-  }, [expanded]);
+  }, [expandedCards]);
 
   return (
     <section className="experience-container" ref={containerRef} style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Star background (canvas) removed as requested */}
-      {/* <img
-        src="images/saturn.png"
-        alt="Saturn Planet"
-        style={{
-          position: 'absolute',
-          top: planetPositions.saturn.top,
-          left: planetPositions.saturn.left,
-          width: '55px',
-          opacity: 0.10,
-          zIndex: 1,
-          pointerEvents: 'none',
-          filter: 'blur(0.5px)'
-        }}
-      /> */}
-      {/* Mars planet image removed as requested */}
       <div style={{width:'100%', display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'1.5em'}}>
         <h1 className={`project-title ${isVisible ? 'animate' : ''} experience-title-padding`} style={{width:'80%',maxWidth:'200px',margin:'0 auto',textAlign:'center',position:'relative',zIndex:1}}>Experience</h1>
       </div>
-      <ExperienceCard
-        image="images/experience.png"
-        alt="Experience Icon"
-        title="English Teacher at Native Camp"
-        expanded={expanded}
-        onToggle={() => setExpanded(e => !e)}
-      >
-        {DROPDOWN_TEXT}
-      </ExperienceCard>
+      
+      {loading && (
+        <div style={{ color: 'white', textAlign: 'center', padding: '2rem' }}>
+          Loading experiences...
+        </div>
+      )}
+      
+      {error && (
+        <div style={{ color: '#ff4d4f', textAlign: 'center', padding: '2rem' }}>
+          Error: {error}
+        </div>
+      )}
+      
+      {!loading && !error && (
+        <>
+          {experienceData.length === 0 ? (
+            <div style={{ color: 'white', textAlign: 'center', padding: '2rem' }}>
+              No experience data found.
+            </div>
+          ) : (
+            experienceData.map((experience, index) => (
+              <div key={index} data-card-id={index} style={{ marginBottom: '2rem' }}>
+                <ExperienceCard
+                  experience={experience}
+                  expanded={expandedCards[index] || false}
+                  onToggle={() => handleCardToggle(index)}
+                />
+              </div>
+            ))
+          )}
+        </>
+      )}
     </section>
   );
 }
