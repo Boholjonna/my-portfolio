@@ -172,9 +172,7 @@ function Experience() {
 
   return (
     <section className="experience-container" ref={containerRef} style={{ position: 'relative', overflow: 'hidden' }}>
-      <div style={{width:'100%', display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'1.5em'}}>
-        <h1 className={`project-title ${isVisible ? 'animate' : ''} experience-title-padding`} style={{width:'80%',maxWidth:'200px',margin:'0 auto',textAlign:'center',position:'relative',zIndex:1}}>Experience</h1>
-      </div>
+      <h1 className={`project-title ${isVisible ? 'animate' : ''}`}>Experience</h1>
       
       {loading && (
         <div style={{ color: 'white', textAlign: 'center', padding: '2rem' }}>

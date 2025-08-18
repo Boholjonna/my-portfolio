@@ -65,6 +65,26 @@ function Project({ projects = [] }) {
                         projectData.map((project, idx) => (
                             <div className="custom-project-card" key={idx}>
                                 <div className="card-header">
+                                    <span 
+                                        style={{
+                                            fontSize: '0.8rem', 
+                                            color: '#8A2BE2', 
+                                            marginRight: '0.5rem',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
+                                            textShadow: '0 0 0px #8A2BE2'
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.target.style.color = '#B347D9';
+                                            e.target.style.textShadow = '0 0 8px #8A2BE2, 0 0 16px #8A2BE2';
+                                            e.target.style.transform = 'scale(1.1)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.target.style.color = '#8A2BE2';
+                                            e.target.style.textShadow = '0 0 0px #8A2BE2';
+                                            e.target.style.transform = 'scale(1)';
+                                        }}
+                                    >&lt;/&gt;</span>
                                     <span className="card-type" style={{fontSize:'0.85em', padding:'0.2em 0.8em'}}>{project.type}</span>
                                 </div>
                                 <div className="card-image-wrapper" style={{display:'flex',justifyContent:'center',alignItems:'center',minHeight:'80px'}}>
