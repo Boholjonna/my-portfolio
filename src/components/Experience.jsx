@@ -7,15 +7,24 @@ import { useEffect, useRef, useState, useMemo } from 'react';
 const ExperienceCard = ({ image, alt, title, expanded, onToggle, children }) => (
   <div className={`experience-card${expanded ? ' expanded' : ''}`} style={{ position: 'relative', zIndex: 1 }}>
     <div className="experience-row">
-      <img 
-        src={image} 
-        alt={alt} 
-        className="experience-icon"
-      />
-      <span className="experience-title-text">
-        {title}
+      <span className="experience-image-container">
+        <img 
+          src={image} 
+          alt={alt} 
+          className="experience-icon"
+        />
       </span>
+      <div className="experience-content">
+        <span className="experience-title-text">English Teacher</span>
+        <span className="experience-details">Native Camp | Aug 2022 – Present</span>
+        <div className="experience-skills">
+          <span className="experience-skill-tag">communication</span>
+          <span className="experience-skill-tag">interpersonal</span>
+          <span className="experience-skill-tag">instructional</span>
+        </div>
+      </div>
       <button className="experience-dropdown-btn" onClick={onToggle}>
+        show information
         <img 
           src="images/dropdown.png" 
           alt="Dropdown" 

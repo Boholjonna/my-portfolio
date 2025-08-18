@@ -4,7 +4,7 @@
 .project-container {
     background: linear-gradient(180deg, #000000 0%, rgba(106,0,235,0.15) 100%);
     width: 100%;
-    min-height: 180px;
+    min-height: 420px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
 .project-cards-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5vw;
+    gap: 3.5vw;
     justify-content: center;
     align-items: stretch;
     width: 100%;
@@ -30,7 +30,7 @@
     position: relative;
     border: none;
     box-shadow: 0 0 24px 0 rgba(156,0,253,0.12);
-    padding: 2vw 1.5vw 1vw 1.5vw;
+    padding: 1vw 0.8vw 0.7vw 0.8vw;
     min-width: 220px;
     max-width: 320px;
     max-height: 460px;

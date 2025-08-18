@@ -35,7 +35,6 @@
 
 .project-section {
   width: 100%;
-  min-height: 100vh;
   position: relative;
 }
 
@@ -47,13 +46,7 @@
 
 /* All text-related styles have been moved to Text.css */
 
-/* Responsive design */
-@media screen and (max-width: 768px) {
-  .about-section,
-  .project-section {
-    /* min-height: 100vh; */
-  }
-}
+
 
 .credentials-section {
   width: 100%;
