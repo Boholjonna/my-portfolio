@@ -1,3 +1,6 @@
+      <section className="project-container" style={{width:'100%', display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'1.5em'}}>
+        <button type="button" className={`project-title ${isVisible ? 'animate' : ''}`}>Experience</button>
+      </section>
 import '../styles/Experience.css';
 import '../styles/Project.css';
 import { useEffect, useRef, useState, useMemo } from 'react';
@@ -124,7 +127,9 @@ function Experience() {
         }}
       /> */}
       {/* Mars planet image removed as requested */}
-      <h1 className={`project-title ${isVisible ? 'animate' : ''} experience-title-padding`} style={{ position: 'relative', zIndex: 1 }}>Experience</h1>
+      <div style={{width:'100%', display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'1.5em'}}>
+        <h1 className={`project-title ${isVisible ? 'animate' : ''} experience-title-padding`} style={{width:'80%',maxWidth:'400px',margin:'0 auto',textAlign:'center',position:'relative',zIndex:1}}>Experience</h1>
+      </div>
       <ExperienceCard
         image="images/experience.png"
         alt="Experience Icon"
