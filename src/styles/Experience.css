@@ -67,7 +67,7 @@
 
 .experience-card {
     width: 100%;
-    max-width: 900px;
+    max-width: 810px;
     min-width: 360px;
     background: #000;
     margin: 0 auto 2.5rem auto;
@@ -116,7 +116,8 @@
 .exp-company h3, .exp-responsibilities h3 {
     color: #fff;
     margin: 0 0 1rem 0;
-    font-size: 1.2rem;
+    font-size: 12px;
+    text-align: left;
 }
 
 .exp-company ul, .exp-responsibilities ul {
@@ -131,6 +132,8 @@
     padding-left: 1.5rem;
     color: #ffffff99;
     line-height: 1.5;
+    text-align: left;
+    font-size: 11px;
 }
 
 .exp-company li:before, .exp-responsibilities li:before {
