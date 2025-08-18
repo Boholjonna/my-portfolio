@@ -1,6 +1,4 @@
-      <section className="project-container" style={{width:'100%', display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'1.5em'}}>
-        <button type="button" className={`project-title ${isVisible ? 'animate' : ''}`}>Experience</button>
-      </section>
+// Stray JSX removed. All JSX is now inside the Experience component.
 import '../styles/Experience.css';
 import '../styles/Project.css';
 import { useEffect, useRef, useState, useMemo } from 'react';
