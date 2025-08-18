@@ -384,3 +384,9 @@
     max-width: unset;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .experience-card {
+    padding: 1.2rem;
+  }
+}
