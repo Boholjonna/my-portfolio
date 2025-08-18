@@ -21,6 +21,16 @@
     .exp-description-ctnr {
         margin-left: 0.5rem;
     }
+
+    .experience-dropdown-btn {
+        background: none;
+        padding: 0;
+        margin-top: 0.8rem;
+    }
+
+    .experience-dropdown-btn span {
+        display: none;
+    }
 }
 
 .experience-icon {

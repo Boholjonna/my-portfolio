@@ -25,7 +25,7 @@ const ExperienceCard = ({ image, alt, title, expanded, onToggle, children }) => 
       </div>
       <div className="experience-btn-wrapper">
         <button className="experience-dropdown-btn" onClick={onToggle}>
-          show information
+          <span>show information</span>
           <img 
             src="images/dropdown.png" 
             alt="Dropdown" 
