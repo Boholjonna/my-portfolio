@@ -17,7 +17,7 @@
 .project-cards-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 3.5vw;
+    gap: clamp(2rem, 3.5vw, 4rem);
     justify-content: center;
     align-items: stretch;
     width: 100%;
@@ -30,7 +30,7 @@
     position: relative;
     border: none;
     box-shadow: 0 0 24px 0 rgba(156,0,253,0.12);
-    padding: 1vw 0.8vw 0.7vw 0.8vw;
+    padding: clamp(1rem, 1.5vw, 2rem) clamp(0.8rem, 1.2vw, 1.5rem);
     min-width: 220px;
     max-width: 320px;
     max-height: 460px;

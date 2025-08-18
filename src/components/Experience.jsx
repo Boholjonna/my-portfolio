@@ -29,7 +29,7 @@ const ExperienceCard = ({ image, alt, title, expanded, onToggle, children }) => 
           <img 
             src="images/dropdown.png" 
             alt="Dropdown" 
-            className="experience-dropdown-icon"
+            className="experience-btn-icon"
             style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
           />
         </button>

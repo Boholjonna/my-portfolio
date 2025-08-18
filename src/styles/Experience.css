@@ -13,6 +13,16 @@
     box-sizing: border-box;
 }
 
+@media screen and (max-width: 700px) {
+    .experience-image-container {
+        display: none;
+    }
+    
+    .exp-description-ctnr {
+        margin-left: 0.5rem;
+    }
+}
+
 .experience-icon {
     width: clamp(30px, 5vw, 40px);
     height: clamp(30px, 5vw, 40px);
@@ -160,7 +170,7 @@
 }
 
 .exp-description-ctnr .experience-title-text {
-    font-size: 17px;
+    font-size: clamp(10px, 3vw, 17px);
     font-weight: 500;
     color: #fff;
     margin: 0;
@@ -170,7 +180,7 @@
 }
 
 .exp-description-ctnr .experience-details {
-    font-size: 12px;
+    font-size: clamp(7px, 2.5vw, 12px);
     color: #bdbdbd;
     margin: 0;
     padding: 0;
@@ -185,8 +195,8 @@
 }
 
 .exp-description-ctnr .experience-skill-tag {
-    font-size: 9px;
-    padding: 0.3rem 0.8rem;
+    font-size: clamp(5px, 2vw, 9px);
+    padding: 0.2rem 0.5rem;
     background: #8809D7;
     color: #fff;
     border-radius: 16px;
@@ -231,24 +241,23 @@
     border: none;
 }
 
-.experience-icon {
+/* Dropdown icon specific styling */
+.experience-dropdown-icon {
     width: clamp(15px, 4vw, 20px);
     height: clamp(15px, 4vw, 20px);
     object-fit: cover;
-    
-   
-   
 }
 
-.experience-title-text {
+/* Section title specific styling */
+.experience-section-title {
     flex: 1;
     font-size: clamp(1rem, 2vw, 1.5rem);
     color: white;
-        max-width: 224px;
-        margin: 0 auto;
-        font-weight: 400;
-        text-align: center;
-        letter-spacing: 0.01em;
+    max-width: 224px;
+    margin: 0 auto;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.01em;
     line-height: 1.2;
 }
 
@@ -257,6 +266,7 @@
     bottom: 1rem;
     right: 1rem;
     z-index: 3;
+    margin-top: 0.5rem;
 }
 
 .experience-dropdown-btn {
@@ -264,8 +274,8 @@
     color: #fff;
     border: none;
     border-radius: 8px;
-    padding: 0.4rem 0.8rem;
-    font-size: 12px;
+    padding: 0.3rem 0.6rem;
+    font-size: clamp(6px, 2vw, 12px);
     font-weight: 500;
     cursor: pointer;
     transition: background 0.3s;
@@ -276,7 +286,8 @@
     height: 28px;
 }
 
-.experience-dropdown-icon {
+/* Button icon styling */
+.experience-btn-icon {
     width: clamp(24px, 5vw, 32px);
     height: clamp(24px, 5vw, 32px);
     object-fit: contain;
