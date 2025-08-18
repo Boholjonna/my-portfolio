@@ -148,14 +148,39 @@
     gap: 2rem;
     padding: 0;
 }
-.experience-content {
+.exp-description-ctnr {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     flex: 1;
-    gap: 0.3rem;
+    gap: 0.5rem;
     margin-left: 1.5rem;
+}
+
+.exp-description-ctnr .experience-title-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.exp-description-ctnr .experience-details {
+    font-size: 1.1rem;
+    color: #bdbdbd;
+    margin: 0;
+    padding: 0;
+}
+
+.exp-description-ctnr .experience-skills {
+    display: flex;
+    flex-direction: row;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0;
 }
 
 .experience-title-text {

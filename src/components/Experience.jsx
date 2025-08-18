@@ -14,9 +14,9 @@ const ExperienceCard = ({ image, alt, title, expanded, onToggle, children }) => 
           className="experience-icon"
         />
       </span>
-      <div className="experience-content">
-        <span className="experience-title-text">English Teacher</span>
-        <span className="experience-details">Native Camp | Aug 2022 – Present</span>
+      <div className="exp-description-ctnr">
+        <h2 className="experience-title-text">English Teacher</h2>
+        <p className="experience-details">Native Camp | Aug 2022 – Present</p>
         <div className="experience-skills">
           <span className="experience-skill-tag">communication</span>
           <span className="experience-skill-tag">interpersonal</span>
