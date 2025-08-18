@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 /* Projects section styles - match skills background, add responsive padding/margin */
 .project-container {
     background: linear-gradient(180deg, #000000 0%, rgba(106,0,235,0.15) 100%);
@@ -143,8 +145,6 @@
     background: #9C00FD;
     color: #fff;
 }
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
 
 /* Card upper div - larger height */
@@ -822,9 +822,7 @@
     }
 }
 
-.project-card.overlay-expanded {
-    margin-bottom: 0 !important;
-}
+/* Removed duplicate .project-card.overlay-expanded block */
 
 @media  (min-width: 480px) and (max-width: 770px) {
     .project-card.overlay-expanded {
