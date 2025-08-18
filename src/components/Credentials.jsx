@@ -113,37 +113,39 @@ const Credentials = () => {
         paddingTop: 0,
       }}
     >
-      <h1 className={`project-title ${isVisible ? 'animate' : ''}`}>Credentials</h1>
+      <h1 className={`project-title ${isVisible ? 'animate' : ''}`} style={{ marginBottom: '4rem' }}>Credentials</h1>
       
-      {loading && (
-        <div style={{ color: 'white', textAlign: 'center', padding: '2rem' }}>
-          Loading credentials...
-        </div>
-      )}
-      
-      {error && (
-        <div style={{ color: '#ff4d4f', textAlign: 'center', padding: '2rem' }}>
-          Error: {error}
-        </div>
-      )}
-      
-      {!loading && !error && (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
-          {credentialsData.length === 0 ? (
-            <div style={{ color: 'white', textAlign: 'center', padding: '2rem' }}>
-              No credentials data found.
-            </div>
-          ) : (
-            credentialsData.map((credential, index) => (
-              <CredentialsCard
-                key={index}
-                credential={credential}
-                isVisible={isVisible}
-              />
-            ))
-          )}
-        </div>
-      )}
+      <div>
+        {loading && (
+          <div style={{ color: 'white', textAlign: 'center', padding: '2rem' }}>
+            Loading credentials...
+          </div>
+        )}
+        
+        {error && (
+          <div style={{ color: '#ff4d4f', textAlign: 'center', padding: '2rem' }}>
+            Error: {error}
+          </div>
+        )}
+        
+        {!loading && !error && (
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
+            {credentialsData.length === 0 ? (
+              <div style={{ color: 'white', textAlign: 'center', padding: '2rem' }}>
+                No credentials data found.
+              </div>
+            ) : (
+              credentialsData.map((credential, index) => (
+                <CredentialsCard
+                  key={index}
+                  credential={credential}
+                  isVisible={isVisible}
+                />
+              ))
+            )}
+          </div>
+        )}
+      </div>
     </section>
   );
 };

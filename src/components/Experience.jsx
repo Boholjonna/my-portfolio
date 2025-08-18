@@ -187,7 +187,7 @@ function Experience() {
       )}
       
       {!loading && !error && (
-        <>
+        <div style={{ marginTop: '2vw', width: '100%' }}>
           {experienceData.length === 0 ? (
             <div style={{ color: 'white', textAlign: 'center', padding: '2rem' }}>
               No experience data found.
@@ -203,7 +203,7 @@ function Experience() {
               </div>
             ))
           )}
-        </>
+        </div>
       )}
     </section>
   );
