@@ -23,15 +23,17 @@ const ExperienceCard = ({ image, alt, title, expanded, onToggle, children }) => 
           <span className="experience-skill-tag">instructional</span>
         </div>
       </div>
-      <button className="experience-dropdown-btn" onClick={onToggle}>
-        show information
-        <img 
-          src="images/dropdown.png" 
-          alt="Dropdown" 
-          className="experience-dropdown-icon"
-          style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
-        />
-      </button>
+      <div className="experience-btn-wrapper">
+        <button className="experience-dropdown-btn" onClick={onToggle}>
+          show information
+          <img 
+            src="images/dropdown.png" 
+            alt="Dropdown" 
+            className="experience-dropdown-icon"
+            style={{ transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }}
+          />
+        </button>
+      </div>
     </div>
     {expanded && (
       <div className="experience-dropdown-row">
