@@ -1,3 +1,146 @@
+/* Projects section styles - match skills background, add responsive padding/margin */
+.project-container {
+    background: linear-gradient(180deg, #000000 0%, rgba(106,0,235,0.15) 100%);
+    width: 100%;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 4vw 2vw;
+    margin: 0 auto;
+}
+
+.project-cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5vw;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 2vw;
+}
+
+.custom-project-card {
+    background: #000;
+    border-radius: 20px !important;
+    position: relative;
+    border: none;
+    box-shadow: 0 0 24px 0 rgba(156,0,253,0.12);
+    padding: 2vw 1.5vw 1vw 1.5vw;
+    min-width: 220px;
+    max-width: 320px;
+    max-height: 460px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.custom-project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 0;
+    pointer-events: none;
+    z-index: 1;
+    border: 0.5px solid transparent;
+    background: linear-gradient(to bottom, #9C00FD, #00DDFF) border-box;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.custom-project-card > * {
+    position: relative;
+    z-index: 2;
+}
+.custom-project-card:hover {
+    box-shadow: 0 0 32px 0 #9C00FD, 0 0 0 2px #00DDFF;
+    transform: translateY(-6px) scale(1.03);
+}
+.card-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 0.5vw;
+}
+.card-type {
+    background: #7C3AED;
+    color: #fff;
+    font-size: 0.85em;
+    padding: 0.2em 0.8em;
+    border-radius: 1em;
+    font-family: 'Titillium Web', sans-serif;
+    box-shadow: 0 2px 8px rgba(124,58,237,0.15);
+}
+.card-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1vw;
+    background: transparent;
+    max-width: 290px;
+    max-height: 290px;
+}
+.card-image {
+    max-width: 290px;
+    max-height: 290px;
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 32px 0 #00DDFF44;
+    background: transparent;
+}
+.card-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1vw;
+}
+.card-play-btn {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.card-play-btn:hover {
+    background: #222;
+}
+.card-details-btn {
+    background: #111;
+    color: #fff;
+    border: 1.5px solid #fff;
+    border-radius: 2em;
+    padding: 0.5em 1.5em;
+    font-size: 1em;
+    cursor: pointer;
+    font-family: 'Titillium Web', sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+.card-details-btn:hover {
+    background: #9C00FD;
+    color: #fff;
+}
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
