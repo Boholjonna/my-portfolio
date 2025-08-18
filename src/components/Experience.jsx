@@ -126,7 +126,7 @@ function Experience() {
       /> */}
       {/* Mars planet image removed as requested */}
       <div style={{width:'100%', display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'1.5em'}}>
-        <h1 className={`project-title ${isVisible ? 'animate' : ''} experience-title-padding`} style={{width:'80%',maxWidth:'400px',margin:'0 auto',textAlign:'center',position:'relative',zIndex:1}}>Experience</h1>
+        <h1 className={`project-title ${isVisible ? 'animate' : ''} experience-title-padding`} style={{width:'80%',maxWidth:'200px',margin:'0 auto',textAlign:'center',position:'relative',zIndex:1}}>Experience</h1>
       </div>
       <ExperienceCard
         image="images/experience.png"
