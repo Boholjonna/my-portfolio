@@ -51,16 +51,10 @@ function Project({ projects = [] }) {
         fetchProjects();
     }, []);
 
-    const handleViewDetails = (idx) => {
-        setOverlayVisible((prev) => prev.map((v, i) => i === idx ? true : v));
-    };
-    const handleBack = (idx) => {
-        setOverlayVisible((prev) => prev.map((v, i) => i === idx ? false : v));
-    };
 
     return (
         <section className="project-container" ref={containerRef}>
-            <button type="button" className={`project-title ${isVisible ? 'animate' : ''}`}>Projects</button>
+            <h1 className={`project-title ${isVisible ? 'animate' : ''}`}>Projects</h1>
             {loading && <div style={{color:'#fff', margin:'2em'}}>Loading projects...</div>}
             {error && <div style={{color:'#ff4d4f', margin:'2em'}}>Error: {error}</div>}
             {!loading && !error && (

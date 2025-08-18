@@ -448,7 +448,6 @@ p {
 .skills-icons-track {
   display: flex;
   width: max-content;
-  /* animation: marquee 18s linear infinite; */
   gap: 2.2rem;
 }
 .skills-icons-row img {
