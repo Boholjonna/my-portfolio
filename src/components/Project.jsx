@@ -79,10 +79,10 @@ function Project({ projects = [] }) {
                                     </div>
                                 </div>
                                 <div className="card-actions">
-                                    <button className="card-play-btn" style={{border:'2px solid #e0e0e0'}}>
-                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#e0e0e0" strokeWidth="2"/><polygon points="12,10 24,16 12,22" fill="#e0e0e0"/></svg>
+                                    <button className="card-play-btn" >
+                                        <svg width="40" height="40" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#969696ff" strokeWidth="2"/><polygon points="12,10 24,16 12,22" fill="#e0e0e0"/></svg>
                                     </button>
-                                    <button className="card-details-btn" style={{border:'2px solid #e0e0e0'}}>view details</button>
+                                    <button className="card-details-btn" style={{border:'1px solid #969696ff'}}>view details</button>
                                 </div>
                             </div>
                         ))
