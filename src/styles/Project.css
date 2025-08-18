@@ -2,134 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
 
-.project-container {
-    /* min-height: 100vh; */
-    height: auto;
-    background: #000;
-    color: white;
-    margin: 0;
-    padding: 2rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-}
-
-.project-title {
-    font-size: clamp(1.2rem, 2.5vw, 2.2rem);
-    margin-bottom: 2rem;
-    margin-top: 0;
-    background: linear-gradient(to right, #0098D9, #E100E5, #C7F900);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-    font-family: 'Press Start 2P', cursive;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.project-title.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.project-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    max-width: 1200px;
-    width: 100%;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.project-card,
-.project-card.overlay-expanded {
-    /* No margin or margin-bottom, spacing is only from .project-grid gap */
-    width: 400px;
-    max-width: 400px;
-    min-height: 450px;
-    height: auto;
-    max-height: none;
-    background: transparent;
-    border-radius: 10%;
-    padding: 1rem;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: visible;
-    opacity: 0;
-    transform: translateY(50px);
-    display: flex;
-    flex-direction: column;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE and Edge */
-}
-
-.project-card::-webkit-scrollbar {
-    width: 8px;
-    background: #eee;
-}
-
-.project-card::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-}
-
-.project-card::-webkit-scrollbar-track {
-    background: #eee;
-}
-
-.project-card.animate {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.project-card:nth-child(1).animate {
-    transition-delay: 0.2s;
-}
-
-.project-card:nth-child(2).animate {
-    transition-delay: 0.4s;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 10%;
-    padding: 1px;
-    background: linear-gradient(to bottom, #FD0000, #D95555, #009BB3);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: 5;
-}
-
-.project-card-2::before {
-    background: linear-gradient(to bottom, #E7EE0B, #07E786, #EB00D8);
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
 /* Card upper div - larger height */
 .card-upper-div {
     flex: 4;
@@ -272,24 +144,29 @@
 }
 
 /* Overlay styles */
-.project-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    min-height: 100%;
-    z-index: 100;
-    border-radius: 10%;
-    background: rgba(1, 7, 8, 0.9);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    transition: opacity 0.1s ease;
-    pointer-events: auto;
-    padding: 1.6rem;
-    box-sizing: border-box;
-    gap: 0.5rem;
+/* Project title as button */
+.project-title {
+    font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding: 0.5em 2em 0.5em 2.5em;
+    margin-left: 2em;
+    background: linear-gradient(to right, #340187, #000000);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(52,1,135,0.15);
+}
+
+.project-title.animate {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .project-overlay::-webkit-scrollbar,

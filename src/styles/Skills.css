@@ -13,23 +13,12 @@
 /* Skills section styles */
 
 .skills-section {
-  background: linear-gradient(180deg, #000000 0%, rgba(106,0,235,0.3) 100%); /* Reduced opacity */
+  background: linear-gradient(180deg, #000000 0%, rgba(106,0,235,0.15) 100%); /* Further reduced opacity */
   width: 100%;
   min-height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-@media (max-width: 600px) {
-  .skills-section {
-    align-items: flex-end;
-    min-height: 120px;
-  }
-  .skill-round-container {
-    align-self: flex-end;
-    margin-bottom: 12px;
-  }
 }
 /* Skill image styles */
 .skill-image {
