@@ -3,25 +3,85 @@ import GradientText from './GradientText';
 import '../styles/Project.css';
 import '../styles/Experience.css';
 import '../styles/Credentials.css';
+import { supabase } from '../supabaseClient';
 
 // Reusable CredentialsCard component
-const CredentialsCard = ({ children, degreeTitle, university, honor, isVisible }) => (
-  <div className={`credentials-card${isVisible ? ' visible' : ''}`}>
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1rem' }}>
-      <img src="images/degree.png" alt="Degree" style={{ width: '90px', height: '90px'}} />
-      <div style={{ marginTop: '0.7rem', textAlign: 'center', color: 'white' }}>
-        <div style={{ fontWeight: 'bold', fontSize: '12px' }}>{degreeTitle}</div>
-        <div style={{ fontWeight: 'normal', fontSize: '12px' }}>{university}</div>
-        <div style={{ fontWeight: 'normal', fontSize: '12px' }}>{honor}</div>
+const CredentialsCard = ({ credential, isVisible }) => {
+  // Helper function to get image based on type
+  const getImageByType = (type) => {
+    switch (type?.toLowerCase()) {
+      case 'degree':
+        return 'images/degree.png';
+      case 'course':
+        return 'images/course.png';
+      case 'certification':
+        return 'images/cert.png';
+      default:
+        return 'images/degree.png'; // fallback
+    }
+  };
+
+  // Helper function to split description by periods
+  const parseDescription = (description) => {
+    if (!description) return [];
+    return description.split('.').filter(sentence => sentence.trim() !== '').map(sentence => sentence.trim());
+  };
+
+  const descriptionLines = parseDescription(credential.description);
+
+  return (
+    <div className={`credentials-card${isVisible ? ' visible' : ''}`}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1rem' }}>
+        <img 
+          src={getImageByType(credential.type)} 
+          alt={credential.type || 'Credential'} 
+          style={{ width: '90px', height: '90px'}} 
+        />
+        <div style={{ marginTop: '0.7rem', textAlign: 'center', color: 'white' }}>
+          {descriptionLines.map((line, index) => (
+            <div 
+              key={index} 
+              style={{ 
+                fontWeight: index === 0 ? 'bold' : 'normal', 
+                fontSize: '12px',
+                marginBottom: '0.1rem'
+              }}
+            >
+              {line}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-    {children}
-  </div>
-);
+  );
+};
 
 const Credentials = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [credentialsData, setCredentialsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const containerRef = useRef(null);
+
+  // Fetch credentials data from Supabase database
+  useEffect(() => {
+    async function fetchCredentials() {
+      setLoading(true);
+      setError(null);
+      const { data, error } = await supabase
+        .from('Credentials')
+        .select('type, description');
+      
+      if (error) {
+        setError(error.message || 'Error fetching credentials data');
+        setCredentialsData([]);
+      } else {
+        setCredentialsData(data || []);
+      }
+      setLoading(false);
+    }
+    fetchCredentials();
+  }, []);
 
   useEffect(() => {
     const observer = new window.IntersectionObserver(
@@ -49,36 +109,43 @@ const Credentials = () => {
         height: 'auto',
         paddingLeft: '2rem',
         paddingRight: '2rem',
-        paddingBottom: '2rem',
+        paddingBottom: '1rem',
         paddingTop: 0,
       }}
     >
       <h1 className={`project-title ${isVisible ? 'animate' : ''}`} style={{ position: 'relative', zIndex: 1, textAlign: 'center', marginTop: '5rem', marginBottom: '2rem' }}>Credentials</h1>
-      <CredentialsCard
-        degreeTitle="Bachelor of Science in Computer Engineering"
-        university="Cebu Technological University"
-        honor="Dean's Lister"
-        isVisible={isVisible}
-      >
-        <div
-          className="credentials-gradient-border"
-          style={{
-            maxWidth: '780px',
-            minWidth: '360px',
-            maxHeight: '110px',
-            minHeight: '80px',
-            margin: '0 auto',
-            background: 'transparent',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {/* Credentials content goes here */}
+      
+      {loading && (
+        <div style={{ color: 'white', textAlign: 'center', padding: '2rem' }}>
+          Loading credentials...
         </div>
-      </CredentialsCard>
+      )}
+      
+      {error && (
+        <div style={{ color: '#ff4d4f', textAlign: 'center', padding: '2rem' }}>
+          Error: {error}
+        </div>
+      )}
+      
+      {!loading && !error && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
+          {credentialsData.length === 0 ? (
+            <div style={{ color: 'white', textAlign: 'center', padding: '2rem' }}>
+              No credentials data found.
+            </div>
+          ) : (
+            credentialsData.map((credential, index) => (
+              <CredentialsCard
+                key={index}
+                credential={credential}
+                isVisible={isVisible}
+              />
+            ))
+          )}
+        </div>
+      )}
     </section>
   );
 };
 
-export default Credentials; 
+export default Credentials;
