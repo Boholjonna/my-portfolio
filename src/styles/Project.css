@@ -40,6 +40,7 @@
     align-items: center;
     justify-content: space-between;
     transition: box-shadow 0.3s, transform 0.3s;
+    overflow: hidden;
 }
 
 .custom-project-card::before {
@@ -699,9 +700,13 @@
         font-size: clamp(8px, 2.5vw, 10px);
     }
     .project-overlay {
-        min-height: 100%;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        min-height: calc(100% - 10px);
         height: auto;
-        max-height: none;
+        max-height: calc(100% - 10px);
     }
     .tech-circle {
         width: clamp(48px, 12vw, 60px);
@@ -779,21 +784,7 @@
 }
 
 .project-overlay::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 10%;
-    padding: 1px;
-    background: linear-gradient(to bottom, #FD0000, #D95555, #009BB3);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: 101;
+    display: none;
 }
 
 .project-card.no-border::before {
@@ -877,4 +868,129 @@
     .project-grid {
         gap: 50px;
     }
-} 
+}
+
+/* Project Overlay Styles */
+.project-overlay {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: rgba(0, 0, 0, 0.95);
+    border-radius: 17px;
+    z-index: 10;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: calc(100% - 6px);
+}
+
+.project-overlay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.project-overlay-back-btn {
+    background: transparent;
+    border: 1px solid #9D00FF;
+    color: #9D00FF;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+
+.project-overlay-back-btn:hover {
+    background: #9D00FF;
+    color: #fff;
+}
+
+.project-overlay-content {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-y: auto;
+    padding-bottom: 0.5rem;
+}
+
+.project-overlay-title {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+    text-align: left;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.project-section-title {
+    color: #9D00FF;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.3rem 0 0.4rem 0;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-tech-tag {
+    background: #00EEFF;
+    color: #000;
+    padding: 0.15rem 0.3rem;
+    border-radius: 0.6rem;
+    font-size: 0.6rem;
+    font-weight: 500;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.project-responsibilities {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.project-responsibility-item {
+    color: #eaeaea;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+@media (max-width: 480px) {
+    .project-overlay {
+        padding: 0.8rem;
+        max-height: calc(100% - 6px);
+    }
+    
+    .project-overlay-title {
+        font-size: 0.9rem;
+    }
+    
+    .project-section-title {
+        font-size: 0.9rem;
+    }
+    
+    .project-tech-tag {
+        font-size: 0.55rem;
+        padding: 0.1rem 0.25rem;
+    }
+    
+    .project-responsibility-item {
+        font-size: 0.8rem;
+    }
+}

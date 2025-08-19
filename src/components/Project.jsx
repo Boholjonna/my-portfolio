@@ -9,6 +9,8 @@ function Project({ projects = [] }) {
     const [projectData, setProjectData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [overlayData, setOverlayData] = useState({});
+    const [activeOverlay, setActiveOverlay] = useState(null);
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -39,7 +41,7 @@ function Project({ projects = [] }) {
         async function fetchProjects() {
             setLoading(true);
             setError(null);
-            const { data, error } = await supabase.from('Projects').select('image-url,type');
+            const { data, error } = await supabase.from('Projects').select('image-url,type,title,stack,responsibilities,video-url');
             if (error) {
                 setError(error.message || 'Error fetching projects');
                 setProjectData([]);
@@ -50,6 +52,21 @@ function Project({ projects = [] }) {
         }
         fetchProjects();
     }, []);
+
+    // Helper functions for parsing data
+    const parseStack = (stackString) => {
+        if (!stackString) return [];
+        return stackString.split('.').filter(item => item.trim() !== '').map(item => item.trim());
+    };
+
+    const parseResponsibilities = (responsibilitiesString) => {
+        if (!responsibilitiesString) return [];
+        return responsibilitiesString.split('.').filter(sentence => sentence.trim() !== '').map(sentence => sentence.trim());
+    };
+
+    const handleViewDetails = (projectIndex) => {
+        setActiveOverlay(activeOverlay === projectIndex ? null : projectIndex);
+    };
 
 
     return (
@@ -63,7 +80,7 @@ function Project({ projects = [] }) {
                         <div style={{color:'#fff', margin:'2em'}}>No projects found.</div>
                     ) : (
                         projectData.map((project, idx) => (
-                            <div className="custom-project-card" key={idx}>
+                            <div className="custom-project-card" key={idx} style={{position: 'relative'}}>
                                 <div className="card-header">
                                     <span 
                                         style={{
@@ -96,8 +113,50 @@ function Project({ projects = [] }) {
                                     <button className="card-play-btn" >
                                         <svg width="40" height="40" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#969696ff" strokeWidth="2"/><polygon points="12,10 24,16 12,22" fill="#e0e0e0"/></svg>
                                     </button>
-                                    <button className="card-details-btn" style={{border:'1px solid #969696ff'}}>view details</button>
+                                    <button 
+                                        className="card-details-btn" 
+                                        style={{border:'1px solid #969696ff'}}
+                                        onClick={() => handleViewDetails(idx)}
+                                    >
+                                        view details
+                                    </button>
                                 </div>
+                                
+                                {/* Project Details Overlay */}
+                                {activeOverlay === idx && (
+                                    <div className="project-overlay">
+                                        <div className="project-overlay-header">
+                                            <h2 className="project-overlay-title">{project.title}</h2>
+                                            <button 
+                                                className="project-overlay-back-btn"
+                                                onClick={() => handleViewDetails(idx)}
+                                            >
+                                                ←
+                                            </button>
+                                        </div>
+                                        <div className="project-overlay-content">
+                                            <div className="project-tech-stack-section">
+                                                <h3 className="project-section-title">Tech Stack</h3>
+                                                <div className="project-tech-stack">
+                                                    {parseStack(project.stack).map((tech, techIdx) => (
+                                                        <span key={techIdx} className="project-tech-tag">{tech}</span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="project-responsibilities-section">
+                                                <h3 className="project-section-title">Key Responsibilities</h3>
+                                                <div className="project-responsibilities">
+                                                    {parseResponsibilities(project.responsibilities).map((responsibility, respIdx) => (
+                                                        <div key={respIdx} className="project-responsibility-item">
+                                                            • {responsibility}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         ))
                     )}
