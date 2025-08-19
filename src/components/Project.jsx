@@ -89,7 +89,7 @@ function Project({ projects = [] }) {
                                 </div>
                                 <div className="card-image-wrapper" style={{display:'flex',justifyContent:'center',alignItems:'center',minHeight:'80px'}}>
                                     <div style={{background:'transparent',borderRadius:'50%',width:'290px',height:'290px',maxWidth:'290px',maxHeight:'290px',display:'flex',alignItems:'center',justifyContent:'center',position:'relative'}}>
-                                        <img src={project["image-url"]} alt={project.type} style={{width:'85%',height:'85%',maxWidth:'246px',maxHeight:'246px',objectFit:'contain',filter:'drop-shadow(0 0 4px #a259ff)'}} />
+                                        <img src={project["image-url"]} alt={project.type} style={{width:'85%',height:'85%',maxWidth:'246px',maxHeight:'246px',objectFit:'contain'}} />
                                     </div>
                                 </div>
                                 <div className="card-actions">
