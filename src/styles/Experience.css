@@ -363,8 +363,8 @@
 
 /* Button icon styling */
 .experience-btn-icon {
-    width: clamp(24px, 5vw, 32px);
-    height: clamp(24px, 5vw, 32px);
+    width: clamp(20px, 4vw, 25px);
+    height: clamp(20px, 4vw, 25px);
     object-fit: contain;
     filter: invert(32%) sepia(98%) saturate(7492%) hue-rotate(255deg) brightness(100%) contrast(101%);
 }
