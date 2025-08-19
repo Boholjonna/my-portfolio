@@ -348,12 +348,17 @@
     font-size: clamp(6px, 2vw, 12px);
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     height: 28px;
+}
+
+.experience-dropdown-btn:hover {
+    background: linear-gradient(90deg, #8B1AFF, #9A1AC7);
+    transform: translateY(-1px);
 }
 
 /* Button icon styling */
