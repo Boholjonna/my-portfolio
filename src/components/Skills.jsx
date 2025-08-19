@@ -28,7 +28,7 @@ function Skills() {
   }, []);
 
   return (
-  <section className="skills-section" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "48px 0" }}>
+  <section className="skills-section" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "50px 0" }}>
   <div className="notable-skills-btn-wrapper" style={{ width: "100%", display: "flex", justifyContent: "center" }}>
         <button className="notable-skills-btn">
           <span className="notable-skills-gradient-text">Notable Skills</span>
@@ -40,7 +40,7 @@ function Skills() {
           flexWrap: "wrap",
           justifyContent: "center",
           alignItems: "flex-end",
-          gap: "18px",
+          gap: "25px",
           background: "transparent",
           borderRadius: "24px",
           padding: "18px 32px",
@@ -59,7 +59,7 @@ function Skills() {
                 <div
                   className="skill-round-container"
                   style={{
-                    background: "#181818",
+                    background: "000000",
                     borderRadius: "50%",
                     width: "70px",
                     height: "70px",
@@ -73,7 +73,7 @@ function Skills() {
                   <img
                     src={skill["image-url"]}
                     alt={skill.skill}
-                    style={{ width: "28px", height: "28px", filter: "drop-shadow(0 0 4px #a259ff)" }}
+                    style={{ width: "28px", height: "28px", filter: "drop-shadow(0 0 4px rgb(175, 114, 255))" }}
                   />
                 </div>
                 <span style={{ color: "#a259ff", fontSize: "0.85rem", fontWeight: "500", marginTop: "8px" }}>{skill.skill}</span>
