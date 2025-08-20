@@ -68,7 +68,7 @@
 .experience-card {
     width: min(650px, 90vw);
     max-width: 650px;
-    min-width: 360px;
+    min-width: 340px;
     background: #000;
     margin: 0 auto 2.5rem auto;
     display: flex;
