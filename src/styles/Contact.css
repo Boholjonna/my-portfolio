@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
 
 .contact-section {
-  min-height: 60vh;
+  min-height: auto;
   width: 100%;
   display: flex;
   align-items: center;
