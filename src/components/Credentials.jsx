@@ -113,7 +113,7 @@ const Credentials = () => {
         paddingTop: 0,
       }}
     >
-      <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <h1 className={`project-title ${isVisible ? 'animate' : ''}`}>Credentials</h1>
       </div>
       
