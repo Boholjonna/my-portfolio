@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import '../styles/About.css';
-import '../styles/Circles.css';
 import GradientDecryptText from './GradientDecryptText';
 import BlurText from './BlurText';
 import { useState, useRef, useEffect } from 'react';
@@ -67,11 +66,7 @@ function About({ logo, image, intro, title, message }) {
                     onLoad={handleImageLoad('Logo')}
                     onError={handleImageError('Logo')}
                 />
-                <div className="circles-container">
-                    <div className="circle circle-1"></div>
-                    <div className="circle circle-2"></div>
-                    <div className="circle circle-3"></div>
-                </div>
+                
             </header>
             <div className="portfolio-header">
               <h1 className="portfolio-title">WELCOME TO MY PORTFOLIO</h1>
