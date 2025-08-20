@@ -122,45 +122,55 @@ function Project({ projects = [] }) {
                                     </button>
                                 </div>
                                 
-                                {/* Project Details Overlay */}
-                                {activeOverlay === idx && (
-                                    <div className="project-overlay">
-                                        <div className="project-overlay-header">
-                                            <h2 className="project-overlay-title">{project.title}</h2>
-                                            <button 
-                                                className="project-overlay-back-btn"
-                                                onClick={() => handleViewDetails(idx)}
-                                            >
-                                                ←
-                                            </button>
-                                        </div>
-                                        <div className="project-overlay-content">
-                                            <div className="project-tech-stack-section">
-                                                <h3 className="project-section-title">Tech Stack</h3>
-                                                <div className="project-tech-stack">
-                                                    {parseStack(project.stack).map((tech, techIdx) => (
-                                                        <span key={techIdx} className="project-tech-tag">{tech}</span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                            
-                                            <div className="project-responsibilities-section">
-                                                <h3 className="project-section-title">Key Responsibilities</h3>
-                                                <div className="project-responsibilities">
-                                                    {parseResponsibilities(project.responsibilities).map((responsibility, respIdx) => (
-                                                        <div key={respIdx} className="project-responsibility-item">
-                                                            • {responsibility}
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
                             </div>
                         ))
                     )}
                 </div>
+            )}
+            
+            {/* Centered Project Overlay with Backdrop */}
+            {activeOverlay !== null && (
+                <>
+                    {/* Dark Backdrop */}
+                    <div 
+                        className="project-overlay-backdrop"
+                        onClick={() => setActiveOverlay(null)}
+                    />
+                    
+                    {/* Centered Overlay */}
+                    <div className="project-overlay-centered">
+                        <div className="project-overlay-header">
+                            <h2 className="project-overlay-title">{projectData[activeOverlay]?.title}</h2>
+                            <button 
+                                className="project-overlay-back-btn"
+                                onClick={() => setActiveOverlay(null)}
+                            >
+                                ←
+                            </button>
+                        </div>
+                        <div className="project-overlay-content">
+                            <div className="project-tech-stack-section">
+                                <h3 className="project-section-title">Tech Stack</h3>
+                                <div className="project-tech-stack">
+                                    {parseStack(projectData[activeOverlay]?.stack).map((tech, techIdx) => (
+                                        <span key={techIdx} className="project-tech-tag">{tech}</span>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            <div className="project-responsibilities-section">
+                                <h3 className="project-section-title">Key Responsibilities</h3>
+                                <div className="project-responsibilities">
+                                    {parseResponsibilities(projectData[activeOverlay]?.responsibilities).map((responsibility, respIdx) => (
+                                        <div key={respIdx} className="project-responsibility-item">
+                                            • {responsibility}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </>
             )}
         </section>
     );

@@ -296,7 +296,8 @@
     margin-bottom: 2rem;
     margin-top: 0;
     padding: 0.5em 1em;
-    margin-left: 0;
+    margin-left: auto;
+    margin-right: auto;
     background: linear-gradient(to right, #340187, #000000);
     color: #fff;
     border: none;
@@ -308,8 +309,9 @@
     transition: opacity 0.8s ease, transform 0.8s ease;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(52,1,135,0.15);
-    display: inline-block;
+    display: block;
     width: auto;
+    text-align: center;
 }
 
 .project-title.animate {
@@ -992,5 +994,97 @@
     
     .project-responsibility-item {
         font-size: 0.8rem;
+    }
+}
+
+/* Centered Project Overlay Styles */
+.project-overlay-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.project-overlay-centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    border-radius: 20px;
+    z-index: 1001;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: 80vh;
+    max-width: 90vw;
+    width: 500px;
+    min-width: 320px;
+    box-shadow: 0 0 24px 0 rgba(156,0,253,0.12);
+    animation: overlaySlideIn 0.3s ease-out;
+}
+
+.project-overlay-centered::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 0;
+    pointer-events: none;
+    z-index: 1;
+    border: 0.5px solid transparent;
+    background: linear-gradient(to bottom, #9C00FD, #00DDFF) border-box;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.project-overlay-centered > * {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes overlaySlideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .project-overlay-centered {
+        width: 95vw;
+        max-height: 85vh;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-overlay-centered {
+        width: 98vw;
+        max-height: 90vh;
+        padding: 0.8rem;
+        border-radius: 15px;
+    }
+    
+    .project-overlay-centered::before {
+        border-radius: 15px;
     }
 }
