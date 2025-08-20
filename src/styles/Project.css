@@ -294,8 +294,8 @@
 .project-title {
     font-size: clamp(1.2rem, 2.5vw, 2.2rem);
     margin-bottom: 2rem;
-    margin-top: 2rem;
-    padding: 0.5em 1em;
+    margin-top: 0;
+    padding: 0.4em 1em;
     margin-left: auto;
     margin-right: auto;
     background: linear-gradient(to right, #340187, #000000);
