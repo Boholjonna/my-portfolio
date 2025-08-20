@@ -309,9 +309,8 @@
     transition: opacity 0.8s ease, transform 0.8s ease;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(52,1,135,0.15);
-    display: block;
+    display: inline-block;
     width: auto;
-    text-align: center;
 }
 
 .project-title.animate {
