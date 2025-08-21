@@ -1039,7 +1039,7 @@
     padding: 0;
     pointer-events: none;
     z-index: 1;
-    border: 0.5px solid transparent;
+    border: 0.8px solid transparent;
     background: linear-gradient(to bottom, #9C00FD, #00DDFF) border-box;
     -webkit-mask:
         linear-gradient(#fff 0 0) padding-box,

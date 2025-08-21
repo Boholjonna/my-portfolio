@@ -41,7 +41,7 @@ function Project({ projects = [] }) {
         async function fetchProjects() {
             setLoading(true);
             setError(null);
-            const { data, error } = await supabase.from('Projects').select('image-url,type,title,stack,responsibilities,video-url');
+            const { data, error } = await supabase.from('Projects').select('image-url,type,title,stack,responsibilities,video-url,github-url');
             if (error) {
                 setError(error.message || 'Error fetching projects');
                 setProjectData([]);
@@ -68,6 +68,17 @@ function Project({ projects = [] }) {
         setActiveOverlay(activeOverlay === projectIndex ? null : projectIndex);
     };
 
+    const handlePlayVideo = (videoUrl) => {
+        if (videoUrl) {
+            window.open(videoUrl, '_blank');
+        }
+    };
+
+    const handleGithubClick = (githubUrl) => {
+        if (githubUrl) {
+            window.open(githubUrl, '_blank');
+        }
+    };
 
     return (
         <section className="project-container" ref={containerRef}>
@@ -91,6 +102,7 @@ function Project({ projects = [] }) {
                                             transition: 'all 0.3s ease',
                                             textShadow: '0 0 0px #8A2BE2'
                                         }}
+                                        onClick={() => handleGithubClick(project["github-url"])}
                                         onMouseEnter={(e) => {
                                             e.target.style.color = '#B347D9';
                                             e.target.style.textShadow = '0 0 8px #8A2BE2, 0 0 16px #8A2BE2';
@@ -110,7 +122,7 @@ function Project({ projects = [] }) {
                                     </div>
                                 </div>
                                 <div className="card-actions">
-                                    <button className="card-play-btn" >
+                                    <button className="card-play-btn" onClick={() => handlePlayVideo(project["video-url"])}>
                                         <svg width="40" height="40" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#969696ff" strokeWidth="2"/><polygon points="12,10 24,16 12,22" fill="#e0e0e0"/></svg>
                                     </button>
                                     <button 
