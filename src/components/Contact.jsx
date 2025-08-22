@@ -7,7 +7,18 @@ const Contact = () => {
   const [contactMedia, setContactMedia] = useState([]);
   const [loading, setLoading] = useState(true);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [message, setMessage] = useState('');
   const sectionRef = useRef(null);
+
+  // Handle media click with error handling
+  const handleMediaClick = (siteUrl) => {
+    if (siteUrl && siteUrl.trim() !== '') {
+      window.open(siteUrl, '_blank');
+    } else {
+      setMessage('No link available for this item');
+      setTimeout(() => setMessage(''), 3000);
+    }
+  };
 
   // Fetch contact media data from Supabase
   useEffect(() => {
@@ -15,7 +26,7 @@ const Contact = () => {
       try {
         const { data, error } = await supabase
           .from('ContactMedia')
-          .select('image-url, title');
+          .select('image-url, title, site-url');
         
         if (error) {
           console.error('Error fetching contact media:', error);
@@ -60,13 +71,30 @@ const Contact = () => {
           {loading ? (
             <div className="loading">Loading...</div>
           ) : (
-            <div className="contact-media-grid">
+            <>
+              {message && (
+                <div style={{
+                  color: '#ff6b6b',
+                  fontSize: '0.9rem',
+                  textAlign: 'center',
+                  marginBottom: '1rem',
+                  padding: '0.5rem',
+                  backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                  borderRadius: '4px',
+                  border: '1px solid rgba(255, 107, 107, 0.3)'
+                }}>
+                  {message}
+                </div>
+              )}
+              <div className="contact-media-grid">
               {contactMedia.map((item, index) => (
                 <div
                   key={index}
                   className="contact-media-item"
                   onMouseEnter={() => setHoveredItem(index)}
                   onMouseLeave={() => setHoveredItem(null)}
+                  onClick={() => handleMediaClick(item['site-url'])}
+                  style={{ cursor: 'pointer' }}
                 >
                   <img 
                     src={item['image-url']} 
@@ -80,7 +108,8 @@ const Contact = () => {
                   )}
                 </div>
               ))}
-            </div>
+              </div>
+            </>
           )}
           <div className="contact-message-button-container">
             <button 

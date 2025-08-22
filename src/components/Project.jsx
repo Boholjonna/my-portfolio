@@ -11,8 +11,6 @@ function Project({ projects = [] }) {
     const [error, setError] = useState(null);
     const [overlayData, setOverlayData] = useState({});
     const [activeOverlay, setActiveOverlay] = useState(null);
-    const [videoModalOpen, setVideoModalOpen] = useState(false);
-    const [currentVideoContent, setCurrentVideoContent] = useState('');
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -70,10 +68,9 @@ function Project({ projects = [] }) {
         setActiveOverlay(activeOverlay === projectIndex ? null : projectIndex);
     };
 
-    const handlePlayVideo = (videoContent) => {
-        if (videoContent) {
-            setCurrentVideoContent(videoContent);
-            setVideoModalOpen(true);
+    const handlePlayVideo = (videoUrl) => {
+        if (videoUrl) {
+            window.open(videoUrl, '_blank');
         }
     };
 
@@ -184,85 +181,6 @@ function Project({ projects = [] }) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </>
-            )}
-
-            {/* Video Modal */}
-            {videoModalOpen && (
-                <>
-                    {/* Dark Backdrop */}
-                    <div 
-                        className="video-modal-backdrop"
-                        onClick={() => setVideoModalOpen(false)}
-                        style={{
-                            position: 'fixed',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                            zIndex: 9999,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}
-                    />
-                    
-                    {/* Video Modal Content */}
-                    <div 
-                        className="video-modal-content"
-                        style={{
-                            position: 'fixed',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            width: '90%',
-                            maxWidth: '1200px',
-                            height: '80%',
-                            maxHeight: '800px',
-                            backgroundColor: '#1a1a1a',
-                            borderRadius: '12px',
-                            zIndex: 10000,
-                            padding: '20px',
-                            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5)'
-                        }}
-                    >
-                        {/* Close Button */}
-                        <button
-                            onClick={() => setVideoModalOpen(false)}
-                            style={{
-                                position: 'absolute',
-                                top: '15px',
-                                right: '15px',
-                                background: 'rgba(255, 255, 255, 0.1)',
-                                border: 'none',
-                                borderRadius: '50%',
-                                width: '40px',
-                                height: '40px',
-                                color: '#fff',
-                                fontSize: '20px',
-                                cursor: 'pointer',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                zIndex: 10001
-                            }}
-                        >
-                            ×
-                        </button>
-
-                        {/* Video Content */}
-                        <div 
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                            }}
-                            dangerouslySetInnerHTML={{ __html: currentVideoContent }}
-                        />
                     </div>
                 </>
             )}
