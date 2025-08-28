@@ -117,13 +117,14 @@ function Project({ projects = [] }) {
                                     <span className="card-type" style={{fontSize:'0.85em', padding:'0.2em 0.8em'}}>{project.type}</span>
                                 </div>
                                 <div className="card-image-wrapper" style={{display:'flex',justifyContent:'center',alignItems:'center',minHeight:'80px'}}>
-                                    <div style={{background:'transparent',borderRadius:'50%',width:'290px',height:'290px',maxWidth:'290px',maxHeight:'290px',display:'flex',alignItems:'center',justifyContent:'center',position:'relative'}}>
-                                        <img src={project["image-url"]} alt={project.type} style={{width:'85%',height:'85%',maxWidth:'246px',maxHeight:'246px',objectFit:'contain'}} />
-                                    </div>
+                                    <img src={project["image-url"]} alt={project.type} style={{width:'246px',height:'246px',maxWidth:'246px',maxHeight:'246px',objectFit:'contain'}} />
                                 </div>
                                 <div className="card-actions">
                                     <button className="card-play-btn" onClick={() => handlePlayVideo(project["video-url"])}>
-                                        <svg width="40" height="40" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#969696ff" strokeWidth="2"/><polygon points="12,10 24,16 12,22" fill="#e0e0e0"/></svg>
+                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#969696ff" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3" fill="#e0e0e0"/>
+                                        </svg>
                                     </button>
                                     <button 
                                         className="card-details-btn" 
