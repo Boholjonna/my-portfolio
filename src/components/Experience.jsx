@@ -87,7 +87,9 @@ function Experience() {
   const [experienceData, setExperienceData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [visibleCards, setVisibleCards] = useState(new Set());
   const containerRef = useRef(null);
+  const cardRefs = useRef([]);
   const [containerH, setContainerH] = useState(0);
 
   // Fetch experience data from Supabase database (same pattern as Projects)
@@ -130,6 +132,34 @@ function Experience() {
       }
     };
   }, []);
+
+  // Card animation observer for alternating slide animations
+  useEffect(() => {
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const cardIndex = parseInt(entry.target.dataset.cardIndex);
+          if (entry.isIntersecting) {
+            setVisibleCards(prev => new Set([...prev, cardIndex]));
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    cardRefs.current.forEach((card) => {
+      if (card) cardObserver.observe(card);
+    });
+
+    return () => {
+      cardRefs.current.forEach((card) => {
+        if (card) cardObserver.unobserve(card);
+      });
+    };
+  }, [experienceData]);
 
   useEffect(() => {
     if (containerRef.current) setContainerH(containerRef.current.offsetHeight);
@@ -194,7 +224,14 @@ function Experience() {
             </div>
           ) : (
             experienceData.map((experience, index) => (
-              <div key={index} data-card-id={index} style={{ marginBottom: '2rem' }}>
+              <div 
+                key={index} 
+                data-card-id={index} 
+                data-card-index={index}
+                className={`experience-card-wrapper ${visibleCards.has(index) ? 'card-visible' : 'card-hidden'} ${index % 2 === 0 ? 'slide-left' : 'slide-right'}`}
+                style={{ marginBottom: '2rem' }}
+                ref={el => cardRefs.current[index] = el}
+              >
                 <ExperienceCard
                   experience={experience}
                   expanded={expandedCards[index] || false}

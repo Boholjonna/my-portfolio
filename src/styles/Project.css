@@ -39,8 +39,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: box-shadow 0.3s, transform 0.6s ease-out, opacity 0.6s ease-out;
     overflow: hidden;
+}
+
+.custom-project-card.card-hidden {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+}
+
+.custom-project-card.card-visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
 }
 
 .custom-project-card::before {

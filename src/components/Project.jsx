@@ -11,7 +11,9 @@ function Project({ projects = [] }) {
     const [error, setError] = useState(null);
     const [overlayData, setOverlayData] = useState({});
     const [activeOverlay, setActiveOverlay] = useState(null);
+    const [visibleCards, setVisibleCards] = useState(new Set());
     const containerRef = useRef(null);
+    const cardRefs = useRef([]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -36,6 +38,34 @@ function Project({ projects = [] }) {
             }
         };
     }, []);
+
+    // Card animation observer
+    useEffect(() => {
+        const cardObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const cardIndex = parseInt(entry.target.dataset.cardIndex);
+                    if (entry.isIntersecting) {
+                        setVisibleCards(prev => new Set([...prev, cardIndex]));
+                    }
+                });
+            },
+            {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            }
+        );
+
+        cardRefs.current.forEach((card) => {
+            if (card) cardObserver.observe(card);
+        });
+
+        return () => {
+            cardRefs.current.forEach((card) => {
+                if (card) cardObserver.unobserve(card);
+            });
+        };
+    }, [projectData]);
 
     useEffect(() => {
         async function fetchProjects() {
@@ -91,7 +121,13 @@ function Project({ projects = [] }) {
                         <div style={{color:'#fff', margin:'2em'}}>No projects found.</div>
                     ) : (
                         projectData.map((project, idx) => (
-                            <div className="custom-project-card" key={idx} style={{position: 'relative'}}>
+                            <div 
+                                className={`custom-project-card ${visibleCards.has(idx) ? 'card-visible' : 'card-hidden'}`} 
+                                key={idx} 
+                                style={{position: 'relative'}}
+                                data-card-index={idx}
+                                ref={el => cardRefs.current[idx] = el}
+                            >
                                 <div className="card-header">
                                     <span 
                                         style={{

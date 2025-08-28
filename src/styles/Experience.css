@@ -396,3 +396,54 @@
     padding: 1.2rem;
   }
 }
+
+/* Experience card animation styles */
+.experience-card-wrapper {
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.experience-card-wrapper.card-hidden.slide-left {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.experience-card-wrapper.card-hidden.slide-right {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.experience-card-wrapper.card-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Smooth transition for experience dropdown button */
+.experience-dropdown-btn {
+  transition: all 0.3s ease;
+}
+
+.experience-dropdown-btn:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth transition for experience card expansion */
+.experience-card {
+  transition: all 0.4s ease;
+}
+
+.experience-dropdown-column {
+  animation: slideDown 0.4s ease-out;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
