@@ -8,6 +8,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(true);
   const [hoveredItem, setHoveredItem] = useState(null);
   const [message, setMessage] = useState('');
+  const [titleVisible, setTitleVisible] = useState(false);
   const sectionRef = useRef(null);
 
   // Handle media click with error handling
@@ -47,6 +48,9 @@ const Contact = () => {
     const observer = new window.IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setTimeout(() => setTitleVisible(true), 300);
+        }
       },
       { threshold: 0.2 }
     );
@@ -65,7 +69,7 @@ const Contact = () => {
     <section className="contact-section" id="contact" ref={sectionRef}>
       <div className={`contact-container-inner${isVisible ? ' visible' : ''}`}>
         <div className={`contact-form${isVisible ? ' visible' : ''}`}>
-          <span className={`contact-gradient-title${isVisible ? ' visible' : ''}`}>Keep in touch with me @</span>
+          <span className={`contact-gradient-title${titleVisible ? ' title-animated' : ''}`}>Keep in touch with me @</span>
         </div>
         <div className={`contact-media${isVisible ? ' visible' : ''}`}>
           {loading ? (
@@ -90,7 +94,7 @@ const Contact = () => {
               {contactMedia.map((item, index) => (
                 <div
                   key={index}
-                  className="contact-media-item"
+                  className="contact-media-item shining-metal"
                   onMouseEnter={() => setHoveredItem(index)}
                   onMouseLeave={() => setHoveredItem(null)}
                   onClick={() => handleMediaClick(item['site-url'])}
@@ -113,7 +117,7 @@ const Contact = () => {
           )}
           <div className="contact-message-button-container">
             <button 
-              className="contact-message-button"
+              className="contact-message-button shining-metal-button"
               onClick={() => window.open('mailto:jonnabohol43@gmail.com', '_blank')}
             >
               or send me a message!

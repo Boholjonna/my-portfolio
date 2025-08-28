@@ -1,5 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
 
+/* Title animation */
+.contact-gradient-title {
+  transition: all 0.8s ease-out;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.contact-gradient-title.title-animated {
+  transform: translateY(0);
+  opacity: 1;
+  animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 5px #9C00FD, 0 0 10px #9C00FD;
+  }
+  100% {
+    text-shadow: 0 0 10px #9C00FD, 0 0 20px #9C00FD, 0 0 30px #9C00FD;
+  }
+}
+
+/* Shining metal animation for contact media */
+.shining-metal {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.shining-metal::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  transition: transform 0.6s ease;
+}
+
+.shining-metal:hover::before {
+  transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+.shining-metal:hover {
+  transform: scale(1.1);
+}
+
+/* Shining metal button animation */
+.shining-metal-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #2a2a2a, #4a4a4a, #2a2a2a);
+  border: 2px solid #666;
+  transition: all 0.3s ease;
+}
+
+.shining-metal-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: translateX(-100%) rotate(45deg);
+  transition: transform 0.8s ease;
+}
+
+.shining-metal-button:hover::before {
+  transform: translateX(200%) rotate(45deg);
+}
+
+.shining-metal-button:hover {
+  background: linear-gradient(45deg, #3a3a3a, #5a5a5a, #3a3a3a);
+  border-color: #888;
+  box-shadow: 0 0 20px rgba(156, 0, 253, 0.5);
+  transform: translateY(-2px);
+}
+
 .contact-section {
   min-height: auto;
   width: 100%;

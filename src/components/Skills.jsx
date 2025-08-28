@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { supabase } from "../supabaseClient";
 import '../styles/Skills.css';
 
@@ -6,6 +6,10 @@ function Skills() {
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [visibleSkills, setVisibleSkills] = useState(new Set());
+  const sectionRef = useRef(null);
+  const skillRefs = useRef([]);
 
   useEffect(() => {
     async function fetchSkills() {
@@ -27,8 +31,57 @@ function Skills() {
     fetchSkills();
   }, []);
 
+  // Section visibility observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // Individual skill animation observer
+  useEffect(() => {
+    const skillObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const skillIndex = parseInt(entry.target.dataset.skillIndex);
+          if (entry.isIntersecting && isVisible) {
+            setTimeout(() => {
+              setVisibleSkills(prev => new Set([...prev, skillIndex]));
+            }, skillIndex * 100); // Stagger the animations
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    skillRefs.current.forEach((skill) => {
+      if (skill) skillObserver.observe(skill);
+    });
+
+    return () => {
+      skillRefs.current.forEach((skill) => {
+        if (skill) skillObserver.unobserve(skill);
+      });
+    };
+  }, [skills, isVisible]);
+
   return (
-  <section className="skills-section" style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "50px 0" }}>
+  <section className="skills-section" ref={sectionRef} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "50px 0" }}>
   <div className="notable-skills-btn-wrapper" style={{ width: "100%", display: "flex", justifyContent: "center" }}>
         <button className="notable-skills-btn">
           <span className="notable-skills-gradient-text">Notable Skills</span>
@@ -55,7 +108,13 @@ function Skills() {
             <span style={{ color: "#a259ff" }}>No skills found in database.</span>
           ) : (
             skills.map((skill, idx) => (
-              <div key={skill.skill + idx} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div 
+                key={skill.skill + idx} 
+                data-skill-index={idx}
+                ref={el => skillRefs.current[idx] = el}
+                className={`skill-item ${visibleSkills.has(idx) ? 'skill-visible' : 'skill-hidden'}`}
+                style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+              >
                 <div
                   className="skill-round-container"
                   style={{
